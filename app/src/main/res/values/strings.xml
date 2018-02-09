@@ -14,5 +14,7 @@
     <string name="buy_rubber">รับซื้อยาง</string>
     <string name="latex_rubber">รับซื้อน้ำยาง</string>
     <string name="sheet_rubber">รับซื้อยางแผ่น</string>
+    <string name="cube_rubber">รับซื้อยางก้อน</string>
+
 
 </resources>
