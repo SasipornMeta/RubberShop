@@ -53,7 +53,7 @@
             android:id="@+id/imvSheetRubber"
                         android:layout_marginTop="8dp"
                         android:textColor="@color/colorPrimaryDark"
-                        android:background="@drawable/prrrub"
+                        android:background="@drawable/sheet"
                         android:textSize="@dimen/h1"
                         android:layout_width="230dp"
                         android:layout_height="100dp" />
@@ -74,7 +74,7 @@
             android:id="@+id/imvcubeRubber"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/colorWhite"
-                android:background="@drawable/prrub"
+                android:background="@drawable/cube"
                 android:textSize="@dimen/h1"
                 android:layout_width="230dp"
                 android:layout_height="100dp" />

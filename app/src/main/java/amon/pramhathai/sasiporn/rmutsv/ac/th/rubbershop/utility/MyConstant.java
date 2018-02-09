@@ -13,10 +13,16 @@ public class MyConstant {
     private String urlAddCustomer = "http://androidthai.in.th/gif/addcustomer1.php";
     private String urlGetAddCustomer = "http://androidthai.in.th/gif/getAllcustomer1.php";
 
+    private String urlGetCustomerWhereOidShop = "http://androidthai.in.th/gif/getValueWhereOidShop.php";
 
 
+    public String getUrlGetAddCustomer() {
+        return urlGetAddCustomer;
+    }
 
-
+    public String getUrlGetCustomerWhereOidShop() {
+        return urlGetCustomerWhereOidShop;
+    }
 
     public String getUrlGetAllCustomer() {
         return urlGetAddCustomer;
