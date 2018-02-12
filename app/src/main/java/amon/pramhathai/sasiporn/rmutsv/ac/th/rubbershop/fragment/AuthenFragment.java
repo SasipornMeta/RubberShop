@@ -126,15 +126,15 @@ public class AuthenFragment extends Fragment {
 
 //                            User False
                             MyAlert myAlert = new MyAlert(getActivity());
-                            myAlert.normalDialog("User False",
-                                    "No This User in my Database");
+                            myAlert.normalDialog("รหัสผู้ใช้ผิดพลาด",
+                                    "กรุณากรอกรหัสผู้ใช้ให้ถูกต้อง !");
 
                         } else if (passwordAboolean) {
 
 //                            Password False
                             MyAlert myAlert = new MyAlert(getActivity());
-                            myAlert.normalDialog("Password False",
-                                    "Please Try Again Password False");
+                            myAlert.normalDialog("รหัสผ่านผิดพลาด",
+                                    "กรุณากรอกรหัสผ่านให้ถูกต้อง !");
 
                         } else {
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,18 +8,17 @@
 
     <!--Toolbar-->
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarEditprice"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
 
     <LinearLayout
+        android:padding="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="64dp">
+        android:orientation="vertical">
 
 
         <!--น้ำยาง-->
@@ -68,7 +68,6 @@
 
             </LinearLayout>
         </LinearLayout>
-
 
         <!--ยางแผ่น-->
         <LinearLayout
@@ -121,7 +120,6 @@
 
         </LinearLayout>
 
-
         <!--ยางก้อน-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -169,6 +167,7 @@
 
             </LinearLayout>
         </LinearLayout>
+
         <!--Button-->
         <LinearLayout
             android:layout_width="wrap_content"
@@ -198,7 +197,8 @@
                 android:textSize="@dimen/h2" />
 
         </LinearLayout>
+
     </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!--Toolbar-->
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarCubeRubber"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
@@ -12,188 +15,213 @@
 
     <!--content-->
     <ScrollView
+        android:padding="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:orientation="vertical">
-
-        <!--ICon-->
-        <ImageView
-            android:layout_marginTop="25dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_action_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    <EditText
-        android:hint="รหัสลูกค้า :"
-        android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorAccent" />
-
-    <!--น้ำหนัก-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:textColor="@color/colorPrimary"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:text="ิน้ำหนัก"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/h1"
-            android:textColor="@color/colorAccent" />
-
-        <TextView
-            android:textColor="@color/colorPrimary"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:text="ิกก."
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <!--เปอร์เซ็นต์        -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:textColor="@color/colorPrimary"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:text="ิเปอร์เซ็นต์"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/h1"
-            android:textColor="@color/colorAccent" />
-
-        <TextView
-            android:textColor="@color/colorPrimary"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:text="ิ%"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <!--ราคา   -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:textColor="@color/colorPrimary"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:text="ิราคา"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/h1"
-            android:textColor="@color/colorAccent" />
-
-        <TextView
-            android:textColor="@color/colorPrimary"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:text="ิบาท"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <!--เงินรวม-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/h1"
-            android:textStyle="bold"
-            android:text="ิยอดเงิน"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content" />
-
-
-        <EditText
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/h1"
-            android:textColor="@color/colorYellow" />
-
-        <TextView
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/h1"
-            android:textStyle="bold"
-            android:text="ิบาท"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-        <!--Button-->
         <LinearLayout
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <Button
+            <TextView
+                android:layout_gravity="right"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/txtShowDate"
                 android:textSize="@dimen/h2"
-                android:textColor="@color/colorWhite"
-                android:text="จ่าย"
-                android:background="@color/colorAccent"
+                android:text="Date"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/marginTop"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginLeft="15dp"
+                    android:text="ลูกค้า :"
+                    android:textSize="@dimen/h1"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spinnerCustomer"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></Spinner>
+
+            </LinearLayout>
+
+            <!--น้ำหนัก-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="ิน้ำหนัก"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtWeight"
+                    android:inputType="numberDecimal"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/h1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ิกก."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!--เปอร์เซ็นต์-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="ิเปอร์เซ็นต์"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtPersent"
+                    android:inputType="numberDecimal"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/h1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ิ%"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!--ราคา   -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="ิราคา"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtPrice"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/h1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ิบาท"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!--เงินรวม-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="ิยอดเงิน"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/h1"
+                    android:textStyle="bold" />
 
 
-            <Button
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:textSize="@dimen/h2"
-                android:textColor="@color/colorWhite"
-                android:text="ฝาก"
-                android:background="@color/colorAccent"
+                <TextView
+                    android:id="@+id/txtTotal"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorYellow"
+                    android:textSize="@dimen/h1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ิบาท"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/h1"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!--Button-->
+            <LinearLayout
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content">
 
-            <Button
-                android:layout_marginLeft="2dp"
-                android:textSize="@dimen/h2"
-                android:textColor="@color/colorPrimaryDark"
-                android:text="แบ่งจ่าย"
-                android:background="@color/colorYellow"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+                <Button
+                    android:textSize="@dimen/h2"
+                    android:textColor="@color/colorWhite"
+                    android:text="จ่าย"
+                    android:background="@color/colorAccent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
 
-        </LinearLayout>
+
+                <Button
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="@dimen/h2"
+                    android:textColor="@color/colorWhite"
+                    android:text="ฝาก"
+                    android:background="@color/colorAccent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <Button
+                    android:layout_marginLeft="2dp"
+                    android:textSize="@dimen/h2"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="แบ่งจ่าย"
+                    android:background="@color/colorYellow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
 
 
     </LinearLayout>
+
     </ScrollView>
 
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

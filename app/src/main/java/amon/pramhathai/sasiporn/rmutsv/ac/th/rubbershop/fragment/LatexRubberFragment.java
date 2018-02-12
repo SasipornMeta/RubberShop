@@ -123,7 +123,6 @@ public class LatexRubberFragment extends Fragment {
 
     }
 
-
     private void createSpinner() {
         Spinner spinner = getView().findViewById(R.id.spinnerCustomer);
 
@@ -184,8 +183,6 @@ public class LatexRubberFragment extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
 
     }
 

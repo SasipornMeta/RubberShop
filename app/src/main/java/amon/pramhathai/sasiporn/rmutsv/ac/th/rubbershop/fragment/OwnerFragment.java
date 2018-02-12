@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.OwnerActivity;
@@ -43,11 +44,46 @@ public class OwnerFragment extends Fragment {
 //        Customer Controller
         customerController();
 
-//        BuyRubber Contoller
+//        BuyRubber Controller
         buyRubberContoller();
+
+//        Price Controller
+        priceController();
+
+//        Buy Report Controller
+        buyReportController();
 
 
     }   // main method
+
+    private void buyReportController() {
+        ImageView imageView = getView().findViewById(R.id.imvDetail);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentOwnerFragment, new BuyReportFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+    }
+
+
+    private void priceController() {
+        ImageView imageView = getView().findViewById(R.id.imvEditPrice);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentOwnerFragment, new EditPriceFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+    }
 
     private void buyRubberContoller() {
         ImageView imageView = getView().findViewById(R.id.imvBuyRubber);

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!--Toolbar-->
+    <android.support.v7.widget.Toolbar
+
+        android:id="@+id/toolbarBuyReport"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+
+
+    <!--content-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:background="#b4ffffff"
+            android:padding="@dimen/margin"
+            android:layout_margin="@dimen/margin"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/imvlatexRubber"
+                android:layout_width="230dp"
+                android:layout_height="95dp"
+                android:background="@drawable/latex"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/h1" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#82c75ef7"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="รับซื้อน้ำยาง"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/h2" />
+
+            <ImageView
+                android:id="@+id/imvSheetRubber"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/sheet"
+                android:textSize="@dimen/h1"
+                android:layout_width="230dp"
+                android:layout_height="100dp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="232dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#82c75ef7"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="รับซื้อแผ่น"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/h2" />
+
+            <ImageView
+                android:id="@+id/imvcubeRubber"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/cube"
+                android:textSize="@dimen/h1"
+                android:layout_width="230dp"
+                android:layout_height="100dp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="232dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#82c75ef7"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="รับซื้อยางก้อน"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/h2" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

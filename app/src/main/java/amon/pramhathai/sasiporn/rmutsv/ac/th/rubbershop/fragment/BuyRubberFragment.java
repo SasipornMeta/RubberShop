@@ -44,7 +44,26 @@ public class BuyRubberFragment extends Fragment {
 //        Sheet Controller
         sheetController();
 
+//        Cube Controller
+        cubeController();
+
+
     }   // main method
+
+    private void cubeController() {
+        ImageView imageView = getView().findViewById(R.id.imvcubeRubber);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentOwnerFragment,
+                                CubeRubberFragment.cubeRubberFragment(loginStrings))
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+    }
 
     private void sheetController() {
         ImageView imageView = getView().findViewById(R.id.imvSheetRubber);
