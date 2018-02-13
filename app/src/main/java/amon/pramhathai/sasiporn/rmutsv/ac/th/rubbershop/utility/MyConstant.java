@@ -15,6 +15,17 @@ public class MyConstant {
 
     private String urlGetCustomerWhereOidShop = "http://androidthai.in.th/gif/getValueWhereOidShop.php";
 
+    private String urlAddPrice = "http://androidthai.in.th/gif/addprice.php";
+    private String urlGetAddPrice = "http://androidthai.in.th/gif/getAllprice.php";
+
+
+    public String getUrlAddPrice() {
+        return urlAddPrice;
+    }
+
+    public String getUrlGetAddPrice() {
+        return urlGetAddPrice;
+    }
 
     public String getUrlGetAddCustomer() {
         return urlGetAddCustomer;

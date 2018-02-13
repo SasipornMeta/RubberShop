@@ -6,11 +6,24 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.OwnerActivity;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyAlert;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.PostAddCustomerToServer;
 
 /**
  * Created by sasiporn on 2/12/2018 AD.
@@ -19,6 +32,9 @@ import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
 public class EditPriceFragment extends Fragment {
 
     private String[] loginStrings;
+
+    private String buyDateTimeString;
+
 
     public static EditPriceFragment editPriceInstance (String[] loginStrings) {
         EditPriceFragment editPriceFragment = new EditPriceFragment();
@@ -37,9 +53,44 @@ public class EditPriceFragment extends Fragment {
 //        Create Toolbar
         createToolbar();
 
+//        Show Date
+        showDate();
+
+
 
     }   // main method
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_save, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.itemSave) {
+            saveController();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void saveController() {
+
+
+    }
+
+    private void showDate() {
+        TextView textView = getView().findViewById(R.id.txtShowDate);
+
+        Calendar calendar = Calendar.getInstance();
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+
+        buyDateTimeString = dateFormat.format(calendar.getTime());
+        textView.setText(buyDateTimeString);
+
+    }
 
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarEditPrice);

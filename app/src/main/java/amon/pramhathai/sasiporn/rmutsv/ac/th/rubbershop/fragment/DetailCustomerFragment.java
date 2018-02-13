@@ -31,7 +31,6 @@ public class DetailCustomerFragment extends Fragment{
 
     private String[] loginStrings;
 
-
     public static DetailCustomerFragment detailCustomerInstance(String[] loginStrings) {
         DetailCustomerFragment detailCustomerFragment = new DetailCustomerFragment();
         Bundle bundle = new Bundle();

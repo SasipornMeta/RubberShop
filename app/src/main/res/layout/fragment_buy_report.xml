@@ -21,73 +21,77 @@
 
         <LinearLayout
             android:background="#b4ffffff"
-            android:padding="@dimen/margin"
-            android:layout_margin="@dimen/margin"
+            android:padding="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
+// Latex Report
             <ImageView
-                android:id="@+id/imvlatexRubber"
+                android:id="@+id/imvlatexReport"
                 android:layout_width="230dp"
-                android:layout_height="95dp"
-                android:background="@drawable/latex"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/h1" />
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:background="@drawable/latex"/>
 
             <TextView
+                android:layout_gravity="center"
                 android:id="@+id/textView"
                 android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="#82c75ef7"
+                android:background="@color/colorAccent"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="รับซื้อน้ำยาง"
-                android:textColor="@color/colorPrimaryDark"
+                android:text="รายงานการรับซื้อน้ำยาง"
+                android:textColor="@color/colorWhite"
                 android:textSize="@dimen/h2" />
 
+// Sheet Report
             <ImageView
-                android:id="@+id/imvSheetRubber"
+                android:id="@+id/imvSheetReport"
                 android:layout_marginTop="8dp"
-                android:textColor="@color/colorPrimaryDark"
                 android:background="@drawable/sheet"
-                android:textSize="@dimen/h1"
+                android:layout_gravity="center"
                 android:layout_width="230dp"
                 android:layout_height="100dp" />
 
             <TextView
+                android:layout_gravity="center"
                 android:id="@+id/textView3"
                 android:layout_width="232dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="#82c75ef7"
+                android:background="@color/colorAccent"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="รับซื้อแผ่น"
-                android:textColor="@color/colorPrimaryDark"
+                android:text="รายงานการรับซื้อยางแผ่น"
+                android:textColor="@color/colorWhite"
                 android:textSize="@dimen/h2" />
 
+// Cube Report
             <ImageView
-                android:id="@+id/imvcubeRubber"
+                android:id="@+id/imvcubeReport"
                 android:layout_marginTop="8dp"
-                android:textColor="@color/colorWhite"
                 android:background="@drawable/cube"
-                android:textSize="@dimen/h1"
+                android:layout_gravity="center"
                 android:layout_width="230dp"
                 android:layout_height="100dp" />
 
             <TextView
+                android:layout_gravity="center"
                 android:id="@+id/textView8"
                 android:layout_width="232dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="#82c75ef7"
+                android:background="@color/colorAccent"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="รับซื้อยางก้อน"
-                android:textColor="@color/colorPrimaryDark"
+                android:text="รายงานรับซื้อยางก้อน"
+                android:textColor="@color/colorWhite"
                 android:textSize="@dimen/h2" />
 
 

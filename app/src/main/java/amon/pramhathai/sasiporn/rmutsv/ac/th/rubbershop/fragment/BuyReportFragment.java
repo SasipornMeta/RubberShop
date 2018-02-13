@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.OwnerActivity;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
@@ -37,8 +38,66 @@ public class BuyReportFragment extends Fragment {
 //        Create Toolbar
         createToolbar();
 
+//        Latex Controller
+        latexController();
+
+//        Sheet Controller
+        sheetController();
+
+//        Cube Controller
+        cubeController();
+
+
+
 
     }   // main method
+
+    private void cubeController() {
+        ImageView imageView = getView().findViewById(R.id.imvcubeReport);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentOwnerFragment,
+                                BuyReportCubeFragment.buyReportCubeInstance(loginStrings))
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+    }
+
+    private void sheetController() {
+        ImageView imageView = getView().findViewById(R.id.imvSheetReport);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentOwnerFragment,
+                                BuyReportSheetFragment.buyReportSheetInstance(loginStrings))
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+
+    }
+
+    private void latexController() {
+        ImageView imageView = getView().findViewById(R.id.imvlatexReport);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentOwnerFragment,
+                                BuyReportLatexFragment.buyReportLatexInstance(loginStrings))
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+    }
 
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarBuyReport);
@@ -59,7 +118,6 @@ public class BuyReportFragment extends Fragment {
         setHasOptionsMenu(true);
 
     }
-
 
 
     @Nullable

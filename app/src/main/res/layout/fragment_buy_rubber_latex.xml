@@ -80,7 +80,7 @@
         <EditText
             android:id="@+id/edtWeight"
             android:inputType="numberDecimal"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/h1" />
@@ -111,7 +111,7 @@
         <EditText
             android:id="@+id/edtPersent"
             android:inputType="numberDecimal"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/h1" />
@@ -126,10 +126,11 @@
     </LinearLayout>
 
         <Button
+            android:layout_marginTop="10dp"
             android:textSize="@dimen/h2"
             android:textColor="@color/colorWhite"
             android:id="@+id/btnCalculate"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorAccent"
             android:text="คำนวณยางแห้ง"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -152,7 +153,7 @@
 
         <TextView
             android:id="@+id/txtDryRubber"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:textColor="@color/colorYellow"
             android:textSize="@dimen/h1" />
@@ -168,6 +169,7 @@
 
     <!--ราคา   -->
     <LinearLayout
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -182,7 +184,7 @@
 
         <TextView
             android:id="@+id/txtPrice"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/h1" />
@@ -196,7 +198,18 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!--เงินรวม-->
+        <Button
+            android:layout_marginTop="15dp"
+            android:textSize="@dimen/h2"
+            android:textColor="@color/colorWhite"
+            android:id="@+id/btnCalculateTotal"
+            android:background="@color/colorAccent"
+            android:text="คำนวณยอดเงิน"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <!--เงินรวม-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -214,7 +227,7 @@
 
         <TextView
             android:id="@+id/txtTotal"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:textColor="@color/colorYellow"
             android:textSize="@dimen/h1" />
@@ -231,7 +244,7 @@
         <!--Button-->
         <LinearLayout
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 

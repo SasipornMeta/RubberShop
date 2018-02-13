@@ -20,6 +20,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_gravity="right"
+            android:textColor="@color/colorAccent"
+            android:id="@+id/txtShowDate"
+            android:textSize="@dimen/h2"
+            android:text="Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
 
         <!--น้ำยาง-->
         <LinearLayout
@@ -53,6 +62,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:inputType="numberDecimal"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
@@ -102,6 +112,7 @@
 
 
                 <EditText
+                    android:inputType="numberDecimal"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
@@ -152,6 +163,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:inputType="numberDecimal"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
@@ -166,36 +178,6 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
-        </LinearLayout>
-
-        <!--Button-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp">
-
-            <!--Save Button-->
-            <Button
-                android:id="@+id/btnSave"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
-                android:text="บันทึก"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/h2" />
-
-            <!--Cancel-->
-            <Button
-                android:id="@+id/btnCancel"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:background="#b4000000"
-                android:text="ยกเลิก"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/h2" />
-
         </LinearLayout>
 
     </LinearLayout>
