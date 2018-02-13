@@ -108,7 +108,7 @@
                 android:layout_height="150dp">
 
                 <ImageView
-                    android:id="@+id/imvMoney"
+                    android:id="@+id/imvDeposit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_above="@+id/textView3"
@@ -140,7 +140,7 @@
                 android:layout_height="150dp">
 
                 <ImageView
-                    android:id="@+id/imvSaleRubber"
+                    android:id="@+id/imvReport"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_above="@+id/textView2"

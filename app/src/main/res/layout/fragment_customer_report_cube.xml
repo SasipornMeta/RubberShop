@@ -9,12 +9,12 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:id="@+id/toolbarCustomerDeposit" />
+        android:id="@+id/toolbarReportCube" />
 
 
     <!--Content-->
     <ListView
-        android:id="@+id/listViewBuyReportLatex"
+        android:id="@+id/listViewReportCube"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

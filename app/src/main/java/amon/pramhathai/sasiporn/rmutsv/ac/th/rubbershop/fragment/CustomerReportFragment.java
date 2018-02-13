@@ -11,23 +11,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.CustomerActivity;
-import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.OwnerActivity;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
 
 /**
- * Created by sasiporn on 2/9/2018 AD.
+ * Created by sasiporn on 2/13/2018 AD.
  */
 
-public class CustomerFregment extends Fragment{
+public class CustomerReportFragment extends Fragment {
 
     private String[] loginStrings;
 
-    public static CustomerFregment customerInstance(String[] loginStrings) {
-        CustomerFregment customerFregment = new CustomerFregment();
+    public static CustomerReportFragment customerReportInstance(String[] loginStrings) {
+        CustomerReportFragment customerReportFragment = new CustomerReportFragment();
         Bundle bundle = new Bundle();
         bundle.putStringArray("Login", loginStrings);
-        customerFregment.setArguments(bundle);
-        return customerFregment;
+        customerReportFragment.setArguments(bundle);
+        return customerReportFragment;
     }
 
     @Override
@@ -39,94 +38,93 @@ public class CustomerFregment extends Fragment{
 //        Create Toolbar
         createToolbar();
 
-//        Private Controller
-        privateController();
+//        Latex Controller
+        latexController();
 
-//        Price Controller
-        priceController();
+//        Sheet Controller
+        sheetController();
 
-//        Deposit Controller
-        depositController();
-
-//        Report Controller
-        reportController();
+//        Cube Controller
+        cubeController();
 
 
-    }    // mime method
 
-    private void reportController() {
-        ImageView imageView = getView().findViewById(R.id.imvReport);
+
+    }   // main method
+
+    private void cubeController() {
+        ImageView imageView = getView().findViewById(R.id.imvcubeReport);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentCustomerFragment, CustomerReportFragment.customerReportInstance(loginStrings))
+                        .replace(R.id.contentOwnerFragment,
+                                CustomerReportCubeFragment.customerReportCubeInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
         });
     }
 
-    private void depositController() {
-        ImageView imageView = getView().findViewById(R.id.imvDeposit);
+    private void sheetController() {
+        ImageView imageView = getView().findViewById(R.id.imvSheetReport);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentCustomerFragment, CustomerDepositFragment.customerDepositInstance(loginStrings))
+                        .replace(R.id.contentOwnerFragment,
+                                CustomerReportSheetFragment.customerReportSheetInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
         });
+
+
     }
 
-    private void priceController() {
-        ImageView imageView = getView().findViewById(R.id.imvPriceRubber);
+    private void latexController() {
+        ImageView imageView = getView().findViewById(R.id.imvlatexReport);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentCustomerFragment, CustomerPriceFragment.customerPriceInstance(loginStrings))
+                        .replace(R.id.contentOwnerFragment,
+                                CustomerReportLatexFragment.customerReportLatexInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
         });
-
     }
-
-    private void privateController() {
-        ImageView imageView = getView().findViewById(R.id.imvPrivate);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.contentCustomerFragment, CustomerDataFragment.customerDataInstance(loginStrings))
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
-
-    }
-
 
     private void createToolbar() {
-        Toolbar toolbar = getView().findViewById(R.id.toolbarCustomerHub);
+        Toolbar toolbar = getView().findViewById(R.id.toolbarCustomerReport);
+
         ((CustomerActivity)getActivity()).setSupportActionBar(toolbar);
 
-        ((CustomerActivity) getActivity()).getSupportActionBar().setTitle(loginStrings[1]);
-        ((CustomerActivity) getActivity()).getSupportActionBar().setSubtitle("ลุกค้า");
+        ((CustomerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.report_customer));
+        ((CustomerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.customer_login) + loginStrings[1]);
 
+        ((CustomerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
+        ((CustomerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
+
+        setHasOptionsMenu(true);
 
     }
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_customer, container, false);
+        View view = inflater.inflate(R.layout.fragment_customer_report, container, false);
         return view;
     }
 }

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!--Toolbar-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarCustomerReport"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+
+
+    <!--content-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:background="#b4ffffff"
+            android:padding="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            // Latex Report
+            <ImageView
+                android:id="@+id/imvlatexReport"
+                android:layout_width="230dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:background="@drawable/latex"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/textView"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="รายงานการรับซื้อน้ำยาง"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/h2" />
+
+            // Sheet Report
+            <ImageView
+                android:id="@+id/imvSheetReport"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/sheet"
+                android:layout_gravity="center"
+                android:layout_width="230dp"
+                android:layout_height="100dp" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/textView3"
+                android:layout_width="232dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="รายงานการรับซื้อยางแผ่น"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/h2" />
+
+            // Cube Report
+            <ImageView
+                android:id="@+id/imvcubeReport"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/cube"
+                android:layout_gravity="center"
+                android:layout_width="230dp"
+                android:layout_height="100dp" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/textView8"
+                android:layout_width="232dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="รายงานรับซื้อยางก้อน"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/h2" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

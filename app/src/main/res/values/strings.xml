@@ -4,7 +4,8 @@
     <string name="name_store">ชื่อร้าน :</string>
     <string name="password">รหัสผ่าน :</string>
     <string name="username">ชื่อผู้ใช้ :</string>
-    <string name="user_login">ร้านยาง :</string>
+    <string name="user_login">ร้านยาง : </string>
+    <string name="customer_login">ผู้ใช้งาน : </string>
     <string name="title_have_space">มีช่องว่าง</string>
     <string name="message_have_space">กรุณากรอกให้ครบทุกช่อง</string>
 
@@ -20,5 +21,10 @@
     <string name="latex_report">รายงานการรับซื้อน้ำยาง</string>
     <string name="sheet_report">รายงานการรับซื้อยางแผ่น</string>
     <string name="cube_report">รายงานการรับซื้อยางก้อน</string>
+
+    <string name="private_customer">ข้อมูลส่วนตัว</string>
+    <string name="price_customer">ราคายางวันนี้</string>
+    <string name="deposit_customer">เงินฝาก</string>
+    <string name="report_customer">รายงานการขายยาง</string>
 
 </resources>
