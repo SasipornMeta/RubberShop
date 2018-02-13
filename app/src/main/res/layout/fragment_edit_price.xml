@@ -8,11 +8,11 @@
 
     <!--Toolbar-->
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarEditprice"
+        android:id="@+id/toolbarEditPrice"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+        android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
     <LinearLayout
         android:padding="15dp"
@@ -53,7 +53,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:layout_width="200dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/h1" />
@@ -102,7 +102,7 @@
 
 
                 <EditText
-                    android:layout_width="200dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/h1" />
@@ -152,7 +152,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:layout_width="200dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/h1" />

@@ -75,6 +75,7 @@ public class AddNewCustomerFragment extends Fragment{
             saveController();
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -142,9 +143,6 @@ public class AddNewCustomerFragment extends Fragment{
                 e.printStackTrace();
             }
         }
-
-
-
 
     }
 

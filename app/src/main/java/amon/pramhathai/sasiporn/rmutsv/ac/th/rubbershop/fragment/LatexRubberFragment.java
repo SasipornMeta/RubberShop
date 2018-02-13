@@ -62,7 +62,7 @@ public class LatexRubberFragment extends Fragment {
 //        Show Date
         showDate();
 
-//        Calculate Contoller
+//        Calculate Controller
         calculateContoller();
 
 

@@ -57,19 +57,18 @@ public class OwnerFragment extends Fragment {
     }   // main method
 
     private void buyReportController() {
-        ImageView imageView = getView().findViewById(R.id.imvDetail);
+        ImageView imageView = getView().findViewById(R.id.imvReportBuy);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentOwnerFragment, new BuyReportFragment())
+                        .replace(R.id.contentOwnerFragment,BuyReportFragment.buyReportInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
         });
     }
-
 
     private void priceController() {
         ImageView imageView = getView().findViewById(R.id.imvEditPrice);
@@ -78,7 +77,7 @@ public class OwnerFragment extends Fragment {
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentOwnerFragment, new EditPriceFragment())
+                        .replace(R.id.contentOwnerFragment, EditPriceFragment.editPriceInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
