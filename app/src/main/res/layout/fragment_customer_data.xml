@@ -5,7 +5,7 @@
 
     <!--Toolbar-->
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarAddCustomer"
+        android:id="@+id/toolbarCustomerData"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
@@ -39,13 +39,13 @@
 
                 <!--Text Name-->
                 <TextView
-                    android:textSize="@dimen/h22"
-
                     android:id="@+id/edtNameCustomer"
-                    android:inputType="text"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary" />
+                    android:inputType="text"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/h22" />
 
 
             </LinearLayout>

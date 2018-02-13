@@ -16,7 +16,7 @@ public class CustomerActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().add(R.id.contentCustomerFragment,
-                    CustomerFregment.customerFregment(logingStrings))
+                    CustomerFregment.customerInstance(logingStrings))
             .commit();
 
 

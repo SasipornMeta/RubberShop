@@ -20,7 +20,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:id="@+id/toobarCustomerHub" />
+        android:id="@+id/toolbarCustomerHub" />
 
     <LinearLayout
         android:layout_centerInParent="true"
