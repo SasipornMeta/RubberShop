@@ -1,9 +1,11 @@
 package amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.fragment;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +55,7 @@ public class CustomerFregment extends Fragment{
 
 
     }    // mime method
+
 
     private void reportController() {
         ImageView imageView = getView().findViewById(R.id.imvReport);
@@ -111,7 +114,6 @@ public class CustomerFregment extends Fragment{
         });
 
     }
-
 
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarCustomerHub);

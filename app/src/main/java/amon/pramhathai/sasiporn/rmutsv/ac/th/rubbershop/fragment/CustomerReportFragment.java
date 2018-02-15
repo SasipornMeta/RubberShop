@@ -48,18 +48,18 @@ public class CustomerReportFragment extends Fragment {
         cubeController();
 
 
-
-
     }   // main method
 
+
+
     private void cubeController() {
-        ImageView imageView = getView().findViewById(R.id.imvcubeReport);
+        ImageView imageView = getView().findViewById(R.id.imvCustomerReportCube);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentOwnerFragment,
+                        .replace(R.id.contentCustomerFragment,
                                 CustomerReportCubeFragment.customerReportCubeInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
@@ -68,36 +68,35 @@ public class CustomerReportFragment extends Fragment {
     }
 
     private void sheetController() {
-        ImageView imageView = getView().findViewById(R.id.imvSheetReport);
+        ImageView imageView = getView().findViewById(R.id.imvCustomerReportSheet);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentOwnerFragment,
+                        .replace(R.id.contentCustomerFragment,
                                 CustomerReportSheetFragment.customerReportSheetInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
         });
-
-
     }
 
     private void latexController() {
-        ImageView imageView = getView().findViewById(R.id.imvlatexReport);
+        ImageView imageView = getView().findViewById(R.id.imvCustomerReportLatex);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentOwnerFragment,
+                        .replace(R.id.contentCustomerFragment,
                                 CustomerReportLatexFragment.customerReportLatexInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
         });
     }
+
 
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarCustomerReport);

@@ -31,7 +31,7 @@
 
             // Latex Report
             <ImageView
-                android:id="@+id/imvlatexReport"
+                android:id="@+id/imvCustomerReportLatex"
                 android:layout_width="230dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
@@ -52,7 +52,7 @@
 
             // Sheet Report
             <ImageView
-                android:id="@+id/imvSheetReport"
+                android:id="@+id/imvCustomerReportSheet"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/sheet"
                 android:layout_gravity="center"
@@ -74,7 +74,7 @@
 
             // Cube Report
             <ImageView
-                android:id="@+id/imvcubeReport"
+                android:id="@+id/imvCustomerReportCube"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/cube"
                 android:layout_gravity="center"
