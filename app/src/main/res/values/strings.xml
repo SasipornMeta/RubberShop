@@ -11,6 +11,7 @@
 
     <string name="detail_customer">ข้อมูลลูกค้า</string>
     <string name="add_customer">เพิ่มข้อมูลลูกค้าใหม่</string>
+    <string name="edit_customer">แก้ไขข้อมูลลูกค้า</string>
     <string name="connot_server">ไม่สามารถบันทึกข้อมูลได้</string>
     <string name="buy_rubber">รับซื้อยาง</string>
     <string name="latex_rubber">รับซื้อน้ำยาง</string>

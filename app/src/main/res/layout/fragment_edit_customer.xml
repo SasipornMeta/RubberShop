@@ -5,7 +5,7 @@
 
     <!--Toolbar-->
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarCustomerData"
+        android:id="@+id/toolbarEditCustomer"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
@@ -38,13 +38,14 @@
                     android:layout_height="wrap_content" />
 
                 <!--Text Name-->
-                <TextView
+                <EditText
+                    android:textSize="@dimen/h22"
+                    android:hint="ชื่อลูกค้า :"
                     android:id="@+id/edtNameCustomer"
+                    android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/h22" />
+                    android:textColor="@color/colorPrimary" />
 
 
             </LinearLayout>
@@ -65,9 +66,9 @@
                     android:layout_height="wrap_content" />
 
                 <!--Text LName-->
-                <TextView
+                <EditText
                     android:textSize="@dimen/h22"
-
+                    android:hint="นามสกุลลูกค้า :"
                     android:id="@+id/edtSurname"
                     android:inputType="text"
                     android:layout_width="match_parent"
@@ -91,10 +92,10 @@
                     android:layout_height="wrap_content" />
 
                 <!--Text Name-->
-                <TextView
+                <EditText
                     android:textSize="@dimen/h22"
                     android:gravity="start"
-
+                    android:hint="ที่อยู่ :"
                     android:id="@+id/edtAddress"
                     android:lines="4"
                     android:layout_width="match_parent"
@@ -119,9 +120,9 @@
                     android:layout_height="wrap_content" />
 
                 <!--Text phone-->
-                <TextView
+                <EditText
                     android:textSize="@dimen/h22"
-
+                    android:hint="เบอร์โทร :"
                     android:id="@+id/edtTel"
                     android:inputType="text"
                     android:layout_width="match_parent"
@@ -130,20 +131,6 @@
 
 
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="130dp"
-                    android:layout_height="25dp"
-                    android:text="รหัสผ่านของคุณ"
-                    android:textSize="@dimen/h2" />
-            </LinearLayout>
-
             <!--User Store-->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -159,16 +146,15 @@
                     android:src="@drawable/ic_action_userlogin" />
 
                 <!--Text user-->
-                <TextView
-                    android:textStyle="bold"
+                <EditText
                     android:layout_gravity="center_vertical"
                     android:textSize="@dimen/h22"
                     android:id="@+id/txtUserLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:hint="@string/username"
                     android:inputType="text"
-                    android:textColor="@color/colorAccent" />
+                    android:textColor="@color/colorPrimary" />
 
             </LinearLayout>
 
@@ -189,14 +175,13 @@
                 <!--Text pass-->
                 <TextView
                     android:layout_gravity="center_vertical"
-                    android:textStyle="bold"
                     android:textSize="@dimen/h22"
                     android:id="@+id/txtPasswordLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:hint="@string/password"
                     android:inputType="text"
-                    android:textColor="@color/colorAccent"/>
+                    android:textColor="@color/colorPrimary"/>
 
 
             </LinearLayout>

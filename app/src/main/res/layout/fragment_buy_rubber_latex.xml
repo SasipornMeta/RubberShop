@@ -38,7 +38,7 @@
 
 
         <LinearLayout
-            android:layout_marginTop="@dimen/marginTop"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -96,6 +96,7 @@
 
     <!--เปอร์เซ็นต์-->
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -130,7 +131,7 @@
             android:textSize="@dimen/h2"
             android:textColor="@color/colorWhite"
             android:id="@+id/btnCalculate"
-            android:background="@color/colorAccent"
+            android:background="@color/colorbg"
             android:text="คำนวณยางแห้ง"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -155,7 +156,7 @@
             android:id="@+id/txtDryRubber"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorYellow"
+            android:textColor="@color/colorAccent"
             android:textSize="@dimen/h1" />
 
         <TextView
@@ -169,7 +170,7 @@
 
     <!--ราคา   -->
     <LinearLayout
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -203,7 +204,7 @@
             android:textSize="@dimen/h2"
             android:textColor="@color/colorWhite"
             android:id="@+id/btnCalculateTotal"
-            android:background="@color/colorAccent"
+            android:background="@color/colorbg"
             android:text="คำนวณยอดเงิน"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -213,7 +214,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal">
 
         <TextView
@@ -249,6 +250,7 @@
             android:layout_height="wrap_content">
 
             <Button
+                android:id="@+id/btnSaveBuyLatex"
                 android:textSize="@dimen/h2"
                 android:textColor="@color/colorWhite"
                 android:text="จ่าย"

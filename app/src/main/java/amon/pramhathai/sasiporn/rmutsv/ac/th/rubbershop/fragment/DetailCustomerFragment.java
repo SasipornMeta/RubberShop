@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -66,6 +67,7 @@ public class DetailCustomerFragment extends Fragment{
 
             String jsonString = getAllValueFromServer.get();
             Log.d(tag, "JSON ==> " + jsonString);
+
             JSONArray jsonArray = new JSONArray(jsonString);
             String[] nameStrings = new String[jsonArray.length()];
 
@@ -78,8 +80,8 @@ public class DetailCustomerFragment extends Fragment{
 
             ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(
                     getActivity(), android.R.layout.simple_list_item_1, nameStrings);
-
             listView.setAdapter(stringArrayAdapter);
+
 
 
         } catch (Exception e) {
@@ -87,6 +89,8 @@ public class DetailCustomerFragment extends Fragment{
         }
 
     }
+
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -128,7 +132,6 @@ public class DetailCustomerFragment extends Fragment{
         });
 
         setHasOptionsMenu(true);
-
     }
 
     @Nullable

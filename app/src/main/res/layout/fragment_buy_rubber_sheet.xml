@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content" />
 
             <LinearLayout
-                android:layout_marginTop="@dimen/marginTop"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -91,6 +91,7 @@
 
     <!--ราคา   -->
     <LinearLayout
+        android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -124,7 +125,7 @@
                 android:textSize="@dimen/h2"
                 android:textColor="@color/colorWhite"
                 android:id="@+id/btnCalculateTotal"
-                android:background="@color/colorAccent"
+                android:background="@color/colorbg"
                 android:text="คำนวณยอดเงิน"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -134,7 +135,7 @@
     <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <TextView
