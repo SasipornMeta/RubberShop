@@ -62,6 +62,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/edtID1"
                     android:inputType="numberDecimal"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -112,6 +113,7 @@
 
 
                 <EditText
+                    android:id="@+id/edtID2"
                     android:inputType="numberDecimal"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -163,6 +165,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/edtID3"
                     android:inputType="numberDecimal"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"

@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,6 +25,7 @@ import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyAlert;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.PostAddCustomerToServer;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.PostPriceToServer;
 
 /**
  * Created by sasiporn on 2/12/2018 AD.
@@ -32,11 +34,12 @@ import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.PostAddCustomerT
 public class EditPriceFragment extends Fragment {
 
     private String[] loginStrings;
+    private String[] priceStrings = new String[3];
 
-    private String buyDateTimeString;
+    private String buyDateTimeString, id1String, id2String, id3String;
 
 
-    public static EditPriceFragment editPriceInstance (String[] loginStrings) {
+    public static EditPriceFragment editPriceInstance(String[] loginStrings) {
         EditPriceFragment editPriceFragment = new EditPriceFragment();
         Bundle bundle = new Bundle();
         bundle.putStringArray("Login", loginStrings);
@@ -55,7 +58,6 @@ public class EditPriceFragment extends Fragment {
 
 //        Show Date
         showDate();
-
 
 
     }   // main method
@@ -78,8 +80,57 @@ public class EditPriceFragment extends Fragment {
 
     private void saveController() {
 
+        EditText id1EditText = getView().findViewById(R.id.edtID1);
+        EditText id2EditText = getView().findViewById(R.id.edtID2);
+        EditText id3EditText = getView().findViewById(R.id.edtID3);
 
-    }
+        priceStrings[0] = id1EditText.getText().toString().trim();
+        priceStrings[1] = id2EditText.getText().toString().trim();
+        priceStrings[2] = id3EditText.getText().toString().trim();
+
+
+
+        MyAlert myAlert = new MyAlert(getActivity());
+        MyConstant myConstant = new MyConstant();
+        boolean resultBoolean = false;
+        String tag = "17FebV1";
+
+        if (priceStrings[0].isEmpty() || priceStrings[1].isEmpty() || priceStrings[2].isEmpty()) {
+            myAlert.normalDialog(getString(R.string.title_have_space),
+                    getString(R.string.message_have_space));
+        } else {
+
+            for (int i=0; i<priceStrings.length; i+=1) {
+
+                try {
+
+                    PostPriceToServer postPriceToServer = new PostPriceToServer(getActivity());
+
+
+                    postPriceToServer.execute(
+                            buyDateTimeString,
+                            priceStrings[i],
+                            Integer.toString(i+1),
+                            myConstant.getUrlAddPrice());
+                    String resutlString = postPriceToServer.get();
+                    resultBoolean = Boolean.getBoolean(resutlString);
+                    Log.d(tag, "Result ==> " + "[" + i + "]" + resultBoolean);
+
+                    if (i == priceStrings.length-1) {
+                        getActivity().getSupportFragmentManager().popBackStack();
+                    }
+
+                } catch (Exception e) {
+                    Log.d(tag, "e ==> " + e.toString());
+                }
+
+            }
+
+
+
+        } // if
+
+    }   // saveController
 
     private void showDate() {
         TextView textView = getView().findViewById(R.id.txtShowDate);
@@ -94,7 +145,7 @@ public class EditPriceFragment extends Fragment {
 
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarEditPrice);
-        ((OwnerActivity)getActivity()).setSupportActionBar(toolbar);
+        ((OwnerActivity) getActivity()).setSupportActionBar(toolbar);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.edit_price));
         ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + loginStrings[1]);
@@ -115,7 +166,9 @@ public class EditPriceFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit_price, container, false);
         return view;
     }
