@@ -60,7 +60,10 @@ public class EditPriceFragment extends Fragment {
         showDate();
 
 
+
     }   // main method
+
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -106,7 +109,6 @@ public class EditPriceFragment extends Fragment {
 
                     PostPriceToServer postPriceToServer = new PostPriceToServer(getActivity());
 
-
                     postPriceToServer.execute(
                             buyDateTimeString,
                             priceStrings[i],
@@ -118,6 +120,9 @@ public class EditPriceFragment extends Fragment {
 
                     if (i == priceStrings.length-1) {
                         getActivity().getSupportFragmentManager().popBackStack();
+//                        Success Upload
+                        Toast.makeText(getActivity(), "บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT)
+                                .show();
                     }
 
                 } catch (Exception e) {

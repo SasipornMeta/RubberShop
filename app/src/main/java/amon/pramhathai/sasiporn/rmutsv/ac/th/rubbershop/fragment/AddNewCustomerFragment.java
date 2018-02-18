@@ -131,9 +131,13 @@ public class AddNewCustomerFragment extends Fragment{
                         myConstant.getUrlAddCustomer());
 
                 if (Boolean.parseBoolean(postAddCustomerToServer.get())) {
+
 //                            Success upload
                     getActivity().getSupportFragmentManager().popBackStack();
+                    Toast.makeText(getActivity(), "บันทึกข้อมูลเรียบร้อย",
+                            Toast.LENGTH_SHORT).show();
                 } else {
+
 //                            Cannot upload
                     Toast.makeText(getActivity(), "ไม่สามารถบันทึกข้อมูลได้",
                             Toast.LENGTH_SHORT).show();

@@ -124,7 +124,7 @@
                     android:textSize="@dimen/h22"
                     android:hint="เบอร์โทร :"
                     android:id="@+id/edtTel"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimary" />
