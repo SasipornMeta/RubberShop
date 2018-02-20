@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.OwnerActivity;
@@ -67,7 +69,7 @@ public class EditCustomerFragment extends Fragment {
         loginStrings = getArguments().getStringArray("Login");
 
         nameeditString = getArguments().getString("name");
-        surnameeditString = getArguments().getString("surmane");
+        surnameeditString = getArguments().getString("surname");
         addresseditString = getArguments().getString("address");
         teleditString = getArguments().getString("tel");
         userloginString = getArguments().getString("user");
@@ -79,8 +81,89 @@ public class EditCustomerFragment extends Fragment {
 //        Show Text
         showText();
 
+//        check Log
+        checkLog();
+
+
+
 
     }   // main method
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_save, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.itemSave) {
+            saveController();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void saveController() {
+        EditText nameeditText = getView().findViewById(R.id.edtEditName);
+        EditText surnameeditText = getView().findViewById(R.id.edtEditSurname);
+        EditText addresseditText = getView().findViewById(R.id.edtEditAddress);
+        EditText teleditText = getView().findViewById(R.id.edtEditTel);
+        EditText usereditText = getView().findViewById(R.id.edtEditUserLogin);
+        EditText passwordeditText = getView().findViewById(R.id.edtEditPasswordLogin);
+
+        nameeditString = nameeditText.getText().toString().trim();
+        surnameeditString = surnameeditText.getText().toString().trim();
+        addresseditString = addresseditText.getText().toString().trim();
+        teleditString = teleditText.getText().toString().trim();
+        userloginString = usereditText.getText().toString().trim();
+        passwordloginString = passwordeditText.getText().toString().trim();
+
+        if (nameeditString.isEmpty() || surnameeditString.isEmpty() ||
+                addresseditString.isEmpty() || teleditString.isEmpty() ||
+                userloginString.isEmpty() || passwordloginString.isEmpty()) {
+//            Have Space
+            MyAlert myAlert = new MyAlert(getActivity());
+            myAlert.normalDialog(getString(R.string.title_have_space),
+                    getString(R.string.message_have_space));
+
+        } else {
+
+//            No Space
+            try {
+                MyConstant myConstant = new MyConstant();
+                PostAddCustomerToServer postAddCustomerToServer = new PostAddCustomerToServer(getActivity());
+                postAddCustomerToServer.execute(
+                        nameeditString,
+                        surnameeditString,
+                        addresseditString,
+                        teleditString,
+                        userloginString,
+                        passwordloginString,
+                        loginStrings[2],
+                        myConstant.getUrlEditCustomer());
+
+                if (Boolean.parseBoolean(postAddCustomerToServer.get())) {
+
+//                            Success upload
+                    getActivity().getSupportFragmentManager().popBackStack();
+                    Toast.makeText(getActivity(), "บันทึกข้อมูลเรียบร้อย",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+
+//                            Cannot upload
+                    Toast.makeText(getActivity(), "ไม่สามารถบันทึกข้อมูลได้",
+                            Toast.LENGTH_SHORT).show();
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
 
     private void showText() {
         nameEditText = getView().findViewById(R.id.edtEditName);
@@ -103,7 +186,6 @@ public class EditCustomerFragment extends Fragment {
         ((OwnerActivity)getActivity()).setSupportActionBar(toolbar);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.edit_customer));
-        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + loginStrings[1]);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((OwnerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -119,6 +201,15 @@ public class EditCustomerFragment extends Fragment {
 
 
 
+    }
+
+    private void checkLog() {
+        Log.d("19FebV1", "name ==> " + nameeditString);
+        Log.d("19FebV1", "surname ==> " + surnameeditString);
+        Log.d("19FebV1", "address ==> " + addresseditString);
+        Log.d("19FebV1", "tel ==> " + teleditString);
+        Log.d("19FebV1", "user ==> " + userloginString);
+        Log.d("19FebV1", "password ==> " + passwordloginString);
     }
 
 

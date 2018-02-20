@@ -124,7 +124,7 @@
                     android:textSize="@dimen/h22"
                     android:hint="เบอร์โทร :"
                     android:id="@+id/edtEditTel"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimary" />
@@ -181,7 +181,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:textColor="@color/colorPrimary"/>
 
 
