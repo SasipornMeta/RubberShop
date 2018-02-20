@@ -40,7 +40,7 @@ public class PostOwnerToServer extends AsyncTask<String, Void, String>{
             return response.body().string();
 
 
-        } catch (Exception e) {
+        } catch (Exception e) {                                 // การ error ที่ยอมรับได้
             e.printStackTrace();
             return null;
         }

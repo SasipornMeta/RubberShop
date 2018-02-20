@@ -33,9 +33,10 @@ public class DeleteDataCustomer extends AsyncTask<String, Void, String>{
                     .build();
 
             Request.Builder builder = new Request.Builder();
-            Request request = builder.url(strings[7]).post(requestBody).build();
+            Request request = builder.url(strings[1]).post(requestBody).build();
             Response response = okHttpClient.newCall(request).execute();
             return response.body().string();
+
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -43,5 +44,8 @@ public class DeleteDataCustomer extends AsyncTask<String, Void, String>{
 
 
 
+    }
+
+    public void execute(String[] nameStrings, String urlDeleteCustomer) {
     }
 }

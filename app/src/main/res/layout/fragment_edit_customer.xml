@@ -41,7 +41,7 @@
                 <EditText
                     android:textSize="@dimen/h22"
                     android:hint="ชื่อลูกค้า :"
-                    android:id="@+id/edtNameCustomer"
+                    android:id="@+id/edtEditName"
                     android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                 <EditText
                     android:textSize="@dimen/h22"
                     android:hint="นามสกุลลูกค้า :"
-                    android:id="@+id/edtSurname"
+                    android:id="@+id/edtEditSurname"
                     android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                     android:textSize="@dimen/h22"
                     android:gravity="start"
                     android:hint="ที่อยู่ :"
-                    android:id="@+id/edtAddress"
+                    android:id="@+id/edtEditAddress"
                     android:lines="4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
                 <EditText
                     android:textSize="@dimen/h22"
                     android:hint="เบอร์โทร :"
-                    android:id="@+id/edtTel"
+                    android:id="@+id/edtEditTel"
                     android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -131,10 +131,11 @@
 
 
             </LinearLayout>
+
             <!--User Store-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="43dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
@@ -149,7 +150,7 @@
                 <EditText
                     android:layout_gravity="center_vertical"
                     android:textSize="@dimen/h22"
-                    android:id="@+id/txtUserLogin"
+                    android:id="@+id/edtEditUserLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/username"
@@ -161,7 +162,7 @@
             <!--password Store-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="47dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
@@ -173,10 +174,10 @@
                     android:src="@drawable/ic_action_password" />
 
                 <!--Text pass-->
-                <TextView
+                <EditText
                     android:layout_gravity="center_vertical"
                     android:textSize="@dimen/h22"
-                    android:id="@+id/txtPasswordLogin"
+                    android:id="@+id/edtEditPasswordLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"

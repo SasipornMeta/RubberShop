@@ -68,12 +68,17 @@ public class DetailCustomerFragment extends Fragment{
 
             GetAllValueFromServer getAllValueFromServer = new GetAllValueFromServer(getActivity());
             getAllValueFromServer.execute(myConstant.getUrlGetAllCustomer());
-
             String jsonString = getAllValueFromServer.get();
             Log.d(tag, "JSON ==> " + jsonString);
 
             JSONArray jsonArray = new JSONArray(jsonString);
-            String[] nameStrings = new String[jsonArray.length()];
+            final String[] nameStrings = new String[jsonArray.length()];
+
+//            final String[] surnameeditString = new String[jsonArray.length()];
+//            final String[] addresseditString = new String[jsonArray.length()];
+//            final String[] teleditString = new String[jsonArray.length()];
+//            final String[] userloginString = new String[jsonArray.length()];
+//            final String[] passwordloginString = new String[jsonArray.length()];
 
             for (int i=0; i<jsonArray.length(); i+=1) {
 
@@ -86,8 +91,66 @@ public class DetailCustomerFragment extends Fragment{
                     getActivity(), android.R.layout.simple_list_item_1, nameStrings);
             listView.setAdapter(stringArrayAdapter);
 
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    confirmDialog(nameStrings);
+                }
+            });
 
 
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void confirmDialog(final String[] nameStrings) {
+
+        Log.d("9FebV1", "name[confirmDialog] ==> " + nameStrings);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(false);
+        builder.setIcon(R.drawable.ic_action_alert);
+        builder.setTitle("จัดการข้อมูลลูกค้า");
+        builder.setMessage("คุณต้องการจะ ?");
+        builder.setPositiveButton("ลบ", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                deleteDataWhere(nameStrings);
+                dialog.dismiss();
+            }
+        });
+
+        builder.setNegativeButton("แก้ไข", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentOwnerFragment, EditCustomerFragment.editCustomerInstance(
+                                nameStrings))
+                        .addToBackStack(null).commit();
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
+
+
+    }
+
+    private void deleteDataWhere(String[] nameStrings) {
+        try {
+            MyConstant myConstant = new MyConstant();
+            DeleteDataCustomer deleteDataCustomer = new DeleteDataCustomer(getActivity());
+            deleteDataCustomer.execute(nameStrings, myConstant.getUrlDeleteCustomer());
+
+            if (Boolean.parseBoolean(deleteDataCustomer.get())) {
+                Toast.makeText(getActivity(), "ลบข้อมูลสำเร็จ", Toast.LENGTH_SHORT).show();
+                createListView();
+            } else {
+                Toast.makeText(getActivity(), "ไม่สามารถลบข้อมูลได้", Toast.LENGTH_SHORT).show();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
