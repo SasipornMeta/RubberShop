@@ -48,4 +48,5 @@ public class DeleteDataCustomer extends AsyncTask<String, Void, String>{
 
     public void execute(String[] nameStrings, String urlDeleteCustomer) {
     }
-}
+
+}   // main class

@@ -12,7 +12,7 @@ public class MyConstant {
 
     private String urlAddCustomer = "http://androidthai.in.th/gif/addcustomer1.php";
     private String urlGetAddCustomer = "http://androidthai.in.th/gif/getAllcustomer1.php";
-    private String urlDeleteCustomer = "http://androidthai.in.th/gif/deleteDatacustomer1.php";
+    private String urlDeleteCustomer = "http://androidthai.in.th/gif/deleteDatacustomer.php";
     private String urlEditCustomer = "http://androidthai.in.th/gif/editColumncustomer1.php";
 
     private String urlGetCustomerWhereOidShop = "http://androidthai.in.th/gif/getValueWhereOidShop.php";
@@ -29,6 +29,7 @@ public class MyConstant {
         return urlEditCustomer;
     }
 
+
     public String getUrlAddPrice() {
         return urlAddPrice;
     }
@@ -36,6 +37,7 @@ public class MyConstant {
     public String getUrlGetAddPrice() {
         return urlGetAddPrice;
     }
+
 
     public String getUrlGetAddCustomer() {
         return urlGetAddCustomer;

@@ -72,6 +72,7 @@ public class DetailCustomerFragment extends Fragment{
             Log.d(tag, "JSON ==> " + jsonString);
 
             JSONArray jsonArray = new JSONArray(jsonString);
+
             final String[] nameStrings = new String[jsonArray.length()];
 
 //            final String[] surnameeditString = new String[jsonArray.length()];
