@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -28,23 +27,24 @@ import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetCustomerWhere
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
 
 /**
- * Created by DR-PC61059 on 9/2/2561.
+ * Created by sasiporn on 2/23/2018 AD.
  */
 
-public class CubeRubberFragment extends Fragment {
+public class PortionFragment extends Fragment {
 
     private String[] loginStrings, c_idStrings, c_nameStrings ;
 
-    private String idCustomerString, nameCustomerString, weightString, persentString,
-            priceString, totalString, buyDateTimeString;
+    private String idCustomerString, nameCustomerString,buyDateTimeString;
 
-    public static CubeRubberFragment cubeRubberFragment(String[] loginStrings) {
-        CubeRubberFragment cubeRubberFragment = new CubeRubberFragment();
+
+    public static PortionFragment portionInstance(String[] loginStrings) {
+        PortionFragment portionFragment = new PortionFragment();
         Bundle bundle = new Bundle();
         bundle.putStringArray("Login", loginStrings);
-        cubeRubberFragment.setArguments(bundle);
-        return cubeRubberFragment;
+        portionFragment.setArguments(bundle);
+        return portionFragment;
     }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -52,8 +52,7 @@ public class CubeRubberFragment extends Fragment {
 
         loginStrings = getArguments().getStringArray("Login");
 
-
-//       create toolbar
+//        Create Toolbar
         createToolbar();
 
 //        Create Spinner
@@ -62,30 +61,14 @@ public class CubeRubberFragment extends Fragment {
 //        Show Date
         showDate();
 
-//        Portion Controller
-        portionController();
 
 
-    }   //main Method
+    }   // main method
 
-
-    private void portionController() {
-        Button button = getView().findViewById(R.id.btnPortion);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.contentOwnerFragment,
-                                PortionFragment.portionInstance(loginStrings))
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
-    }
 
     private void showDate() {
         TextView textView = getView().findViewById(R.id.txtShowDate);
+
         Calendar calendar = Calendar.getInstance();
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 
@@ -93,6 +76,7 @@ public class CubeRubberFragment extends Fragment {
         textView.setText(buyDateTimeString);
 
     }
+
 
     private void createSpinner() {
         Spinner spinner = getView().findViewById(R.id.spinnerCustomer);
@@ -155,18 +139,15 @@ public class CubeRubberFragment extends Fragment {
             e.printStackTrace();
         }
 
-
     }
 
     private void createToolbar() {
-        Toolbar toolbar = getView().findViewById(R.id.toolbarCubeRubber);
+        Toolbar toolbar = getView().findViewById(R.id.toolbarPortion);
 
-        ((OwnerActivity) getActivity()).setSupportActionBar(toolbar);
+        ((OwnerActivity)getActivity()).setSupportActionBar(toolbar);
 
-        ((OwnerActivity) getActivity()).getSupportActionBar()
-                .setTitle(getString(R.string.cube_rubber));
-        ((OwnerActivity) getActivity()).getSupportActionBar()
-                .setSubtitle(getString(R.string.user_login) + loginStrings[1]);
+        ((OwnerActivity) getActivity()).getSupportActionBar().setTitle("แบ่งจ่าย");
+        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + loginStrings[1]);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((OwnerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -177,20 +158,17 @@ public class CubeRubberFragment extends Fragment {
             }
         });
 
-
         setHasOptionsMenu(true);
 
     }
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_buy_rubber_cube, container, false);
+        View view = inflater.inflate(R.layout.fragment_portion, container, false);
         return view;
     }
+
+
 }
-
-
-
-
-

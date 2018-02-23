@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -62,12 +63,29 @@ public class SheetRubberFragment extends Fragment {
 //        Show Date
         showDate();
 
+//        Portion Controller
+        portionController();
+
+
 
     }   //main Method
 
 
 
-
+    private void portionController() {
+        Button button = getView().findViewById(R.id.btnPortion);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentOwnerFragment,
+                                PortionFragment.portionInstance(loginStrings))
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+    }
 
     private void showDate() {
         TextView textView = getView().findViewById(R.id.txtShowDate);

@@ -205,23 +205,15 @@
                 <Button
                     android:textSize="@dimen/h2"
                     android:textColor="@color/colorWhite"
-                    android:text="จ่าย"
+                    android:text="บันทึก"
                     android:background="@color/colorAccent"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent" />
 
 
-                <Button
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="@dimen/h2"
-                    android:textColor="@color/colorWhite"
-                    android:text="ฝาก"
-                    android:background="@color/colorAccent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
 
                 <Button
+                    android:id="@+id/btnPortion"
                     android:layout_marginLeft="2dp"
                     android:textSize="@dimen/h2"
                     android:textColor="@color/colorPrimaryDark"

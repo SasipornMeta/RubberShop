@@ -2,12 +2,13 @@
 <LinearLayout
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!--Toolbar-->
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarSheetRubber"
+        android:id="@+id/toolbarPortion"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
@@ -34,6 +35,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+
+
             <LinearLayout
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
@@ -55,84 +58,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"></Spinner>
 
+
             </LinearLayout>
-
-    <!--น้ำหนัก-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="ิน้ำหนัก"
-            android:textColor="@color/colorPrimary"
-            android:textSize="16dp"
-            android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/edtWeight"
-                        android:inputType="numberDecimal"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="@dimen/h1" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ิกก."
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-    </LinearLayout>
-
-    <!--ราคา   -->
-    <LinearLayout
-        android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="ิราคา"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtPrice"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/h1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ิบาท"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <Button
-                android:layout_marginTop="15dp"
-                android:textSize="@dimen/h2"
-                android:textColor="@color/colorWhite"
-                android:id="@+id/btnCalculateTotal"
-                android:background="@color/colorbg"
-                android:text="คำนวณยอดเงิน"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
 
             <!--เงินรวม-->
-    <LinearLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -163,6 +93,110 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <!--แบ่งจ่าย-->
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="ิแบ่งจ่าย"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:inputType="numberDecimal"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/h1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ิ%"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <Button
+                android:layout_marginTop="15dp"
+                android:textSize="@dimen/h2"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorbg"
+                android:text="คำนวณเงิน"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+
+            <!--เงินแบ่ง   -->
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="ิเงินแบ่ง"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/h1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ิบาท"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!--เงินแบ่ง   -->
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="ิคงเหลือ"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/h1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ิบาท"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+
             <!--Button-->
             <LinearLayout
                 android:layout_gravity="center_horizontal"
@@ -171,6 +205,7 @@
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:id="@+id/btnSaveBuyLatex"
                     android:textSize="@dimen/h2"
                     android:textColor="@color/colorWhite"
                     android:text="บันทึก"
@@ -179,21 +214,13 @@
                     android:layout_height="match_parent" />
 
 
-
-                <Button
-                    android:id="@+id/btnPortion"
-                    android:layout_marginLeft="2dp"
-                    android:textSize="@dimen/h2"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:text="แบ่งจ่าย"
-                    android:background="@color/colorYellow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-
             </LinearLayout>
 
-    </LinearLayout>
+
+        </LinearLayout>
+
 
     </ScrollView>
 
 </LinearLayout>
+

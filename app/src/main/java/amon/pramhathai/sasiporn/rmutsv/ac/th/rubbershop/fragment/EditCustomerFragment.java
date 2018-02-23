@@ -33,8 +33,6 @@ public class EditCustomerFragment extends Fragment {
     private String nameeditString, surnameeditString, addresseditString, teleditString,
             userloginString, passwordloginString;
 
-    private EditText nameeditText, surnameeditText, addresseditText, teleditText,
-    usereditText, passwordeditText;
 
 
     public static EditCustomerFragment editCustomerInstance(String[] loginStrings) {
@@ -45,37 +43,11 @@ public class EditCustomerFragment extends Fragment {
         return editCustomerFragment;
     }
 
-//    public static EditCustomerFragment editCustomerInstance(String nameeditString,
-//                                                           String surnameeditString,
-//                                                           String addresseditString,
-//                                                           String teleditString,
-//                                                           String userloginString,
-//                                                           String passwordloginString) {
-//        EditCustomerFragment editCustomerFragment = new EditCustomerFragment();
-//        Bundle bundle = new Bundle();
-//        bundle.putString("c_name", nameeditString);
-//        bundle.putString("c_lname", surnameeditString);
-//        bundle.putString("c_address", addresseditString);
-//        bundle.putString("c_tel", teleditString);
-//        bundle.putString("c_user", userloginString);
-//        bundle.putString("c_password", passwordloginString);
-//        editCustomerFragment.setArguments(bundle);
-//        return editCustomerFragment;
-//
-//    }
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         loginStrings = getArguments().getStringArray("Login");
-
-        nameeditString = getArguments().getString("c_name");
-        surnameeditString = getArguments().getString("c_lname");
-        addresseditString = getArguments().getString("c_address");
-        teleditString = getArguments().getString("c_tel");
-        userloginString = getArguments().getString("c_user");
-        passwordloginString = getArguments().getString("c_password");
 
 
 //        Create Toolbar
@@ -168,7 +140,6 @@ public class EditCustomerFragment extends Fragment {
 
     }
 
-
     private void showText() {
         EditText nameEditText = getView().findViewById(R.id.edtEditName);
         EditText surnameEditText = getView().findViewById(R.id.edtEditSurname);
@@ -190,6 +161,8 @@ public class EditCustomerFragment extends Fragment {
         ((OwnerActivity)getActivity()).setSupportActionBar(toolbar);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.edit_customer));
+        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + loginStrings[1]);
+
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((OwnerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -75,11 +75,6 @@ public class DetailCustomerFragment extends Fragment{
 
             final String[] nameStrings = new String[jsonArray.length()];
 
-//            final String[] surnameeditString = new String[jsonArray.length()];
-//            final String[] addresseditString = new String[jsonArray.length()];
-//            final String[] teleditString = new String[jsonArray.length()];
-//            final String[] userloginString = new String[jsonArray.length()];
-//            final String[] passwordloginString = new String[jsonArray.length()];
 
             for (int i=0; i<jsonArray.length(); i+=1) {
 

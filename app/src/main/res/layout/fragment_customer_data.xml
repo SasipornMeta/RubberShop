@@ -38,8 +38,8 @@
                     android:layout_height="wrap_content" />
 
                 <!--Text Name-->
-                <TextView
-                    android:id="@+id/edtNameCustomer"
+                <EditText
+                    android:id="@+id/edtEditName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -65,10 +65,9 @@
                     android:layout_height="wrap_content" />
 
                 <!--Text LName-->
-                <TextView
+                <EditText
                     android:textSize="@dimen/h22"
-
-                    android:id="@+id/edtSurname"
+                    android:id="@+id/edtEditSurname"
                     android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -91,11 +90,10 @@
                     android:layout_height="wrap_content" />
 
                 <!--Text Name-->
-                <TextView
+                <EditText
                     android:textSize="@dimen/h22"
                     android:gravity="start"
-
-                    android:id="@+id/edtAddress"
+                    android:id="@+id/edtEditAddress"
                     android:lines="4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -119,10 +117,9 @@
                     android:layout_height="wrap_content" />
 
                 <!--Text phone-->
-                <TextView
+                <EditText
                     android:textSize="@dimen/h22"
-
-                    android:id="@+id/edtTel"
+                    android:id="@+id/edtEditTel"
                     android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -140,7 +137,7 @@
                 <TextView
                     android:layout_width="130dp"
                     android:layout_height="25dp"
-                    android:text="รหัสผ่านของคุณ"
+                    android:text="ข้อมูลใช้งาน"
                     android:textSize="@dimen/h2" />
             </LinearLayout>
 
@@ -159,14 +156,13 @@
                     android:src="@drawable/ic_action_userlogin" />
 
                 <!--Text user-->
-                <TextView
+                <EditText
                     android:textStyle="bold"
                     android:layout_gravity="center_vertical"
                     android:textSize="@dimen/h22"
-                    android:id="@+id/txtUserLogin"
+                    android:id="@+id/edtEditUserLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:inputType="text"
                     android:textColor="@color/colorAccent" />
 
@@ -187,11 +183,11 @@
                     android:src="@drawable/ic_action_password" />
 
                 <!--Text pass-->
-                <TextView
+                <EditText
                     android:layout_gravity="center_vertical"
                     android:textStyle="bold"
                     android:textSize="@dimen/h22"
-                    android:id="@+id/txtPasswordLogin"
+                    android:id="@+id/edtEditPasswordLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 

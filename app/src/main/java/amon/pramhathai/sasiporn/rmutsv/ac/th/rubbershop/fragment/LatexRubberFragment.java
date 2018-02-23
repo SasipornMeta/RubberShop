@@ -65,14 +65,26 @@ public class LatexRubberFragment extends Fragment {
 //        Calculate Controller
         calculateContoller();
 
-
-
+//        Portion Controller
+        portionController();
 
 
     }   // main method
 
-
-
+    private void portionController() {
+        Button button = getView().findViewById(R.id.btnPortion);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentOwnerFragment,
+                                PortionFragment.portionInstance(loginStrings))
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+    }
 
 
     private void calculateContoller() {

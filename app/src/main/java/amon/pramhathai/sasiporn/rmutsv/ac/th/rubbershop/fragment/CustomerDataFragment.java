@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.CustomerActivity;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.OwnerActivity;
@@ -20,6 +21,7 @@ import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
 public class CustomerDataFragment extends Fragment {
 
     private String[] loginStrings;
+
 
     public static CustomerDataFragment customerDataInstance(String[] loginStrings) {
         CustomerDataFragment customerDataFragment = new CustomerDataFragment();
@@ -40,6 +42,8 @@ public class CustomerDataFragment extends Fragment {
 
 
     }   // main method
+
+
 
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarCustomerData);
