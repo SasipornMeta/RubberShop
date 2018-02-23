@@ -15,23 +15,22 @@ import com.squareup.okhttp.Response;
 
 public class DeleteDataCustomer extends AsyncTask<String, Void, String>{
 
-
     private Context context;
 
     public DeleteDataCustomer(Context context) {
         this.context = context;
     }
 
-
     @Override
     protected String doInBackground(String... strings) {
+
         try {
+
             OkHttpClient okHttpClient = new OkHttpClient();
             RequestBody requestBody = new FormEncodingBuilder()
                     .add("isAdd", "true")
                     .add("c_name", strings[0])
                     .build();
-
             Request.Builder builder = new Request.Builder();
             Request request = builder.url(strings[1]).post(requestBody).build();
             Response response = okHttpClient.newCall(request).execute();
@@ -41,7 +40,6 @@ public class DeleteDataCustomer extends AsyncTask<String, Void, String>{
             e.printStackTrace();
             return null;
         }
-
 
 
     }

@@ -32,8 +32,10 @@ public class EditCustomerFragment extends Fragment {
     private String[] loginStrings;
     private String nameeditString, surnameeditString, addresseditString, teleditString,
             userloginString, passwordloginString;
-    private EditText nameEditText, surnameEditText, addressEditText, telEditText,
-    userEditText, passwordEditText;
+
+    private EditText nameeditText, surnameeditText, addresseditText, teleditText,
+    usereditText, passwordeditText;
+
 
     public static EditCustomerFragment editCustomerInstance(String[] loginStrings) {
         EditCustomerFragment editCustomerFragment = new EditCustomerFragment();
@@ -51,12 +53,12 @@ public class EditCustomerFragment extends Fragment {
 //                                                           String passwordloginString) {
 //        EditCustomerFragment editCustomerFragment = new EditCustomerFragment();
 //        Bundle bundle = new Bundle();
-//        bundle.putString("name", nameeditString);
-//        bundle.putString("surname", surnameeditString);
-//        bundle.putString("address", addresseditString);
-//        bundle.putString("tel", teleditString);
-//        bundle.putString("user", userloginString);
-//        bundle.putString("password", passwordloginString);
+//        bundle.putString("c_name", nameeditString);
+//        bundle.putString("c_lname", surnameeditString);
+//        bundle.putString("c_address", addresseditString);
+//        bundle.putString("c_tel", teleditString);
+//        bundle.putString("c_user", userloginString);
+//        bundle.putString("c_password", passwordloginString);
 //        editCustomerFragment.setArguments(bundle);
 //        return editCustomerFragment;
 //
@@ -68,21 +70,22 @@ public class EditCustomerFragment extends Fragment {
 
         loginStrings = getArguments().getStringArray("Login");
 
-        nameeditString = getArguments().getString("name");
-        surnameeditString = getArguments().getString("surname");
-        addresseditString = getArguments().getString("address");
-        teleditString = getArguments().getString("tel");
-        userloginString = getArguments().getString("user");
-        passwordloginString = getArguments().getString("password");
+        nameeditString = getArguments().getString("c_name");
+        surnameeditString = getArguments().getString("c_lname");
+        addresseditString = getArguments().getString("c_address");
+        teleditString = getArguments().getString("c_tel");
+        userloginString = getArguments().getString("c_user");
+        passwordloginString = getArguments().getString("c_password");
+
 
 //        Create Toolbar
         createToolbar();
 
-//        Show Text
+////        Show Text
         showText();
 
-//        check Log
-        checkLog();
+
+
 
 
 
@@ -93,6 +96,7 @@ public class EditCustomerFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_save, menu);
         super.onCreateOptionsMenu(menu, inflater);
+
     }
 
     @Override
@@ -142,7 +146,6 @@ public class EditCustomerFragment extends Fragment {
                         teleditString,
                         userloginString,
                         passwordloginString,
-                        loginStrings[2],
                         myConstant.getUrlEditCustomer());
 
                 if (Boolean.parseBoolean(postAddCustomerToServer.get())) {
@@ -165,13 +168,14 @@ public class EditCustomerFragment extends Fragment {
 
     }
 
+
     private void showText() {
-        nameEditText = getView().findViewById(R.id.edtEditName);
-        surnameEditText = getView().findViewById(R.id.edtEditSurname);
-        addressEditText = getView().findViewById(R.id.edtEditAddress);
-        telEditText = getView().findViewById(R.id.edtEditTel);
-        userEditText = getView().findViewById(R.id.edtEditUserLogin);
-        passwordEditText = getView().findViewById(R.id.edtEditPasswordLogin);
+        EditText nameEditText = getView().findViewById(R.id.edtEditName);
+        EditText surnameEditText = getView().findViewById(R.id.edtEditSurname);
+        EditText addressEditText = getView().findViewById(R.id.edtEditAddress);
+        EditText telEditText = getView().findViewById(R.id.edtEditTel);
+        EditText userEditText = getView().findViewById(R.id.edtEditUserLogin);
+        EditText passwordEditText = getView().findViewById(R.id.edtEditPasswordLogin);
 
         nameEditText.setText(nameeditString);
         surnameEditText.setText(surnameeditString);
@@ -203,14 +207,6 @@ public class EditCustomerFragment extends Fragment {
 
     }
 
-    private void checkLog() {
-        Log.d("19FebV1", "name ==> " + nameeditString);
-        Log.d("19FebV1", "surname ==> " + surnameeditString);
-        Log.d("19FebV1", "address ==> " + addresseditString);
-        Log.d("19FebV1", "tel ==> " + teleditString);
-        Log.d("19FebV1", "user ==> " + userloginString);
-        Log.d("19FebV1", "password ==> " + passwordloginString);
-    }
 
 
 

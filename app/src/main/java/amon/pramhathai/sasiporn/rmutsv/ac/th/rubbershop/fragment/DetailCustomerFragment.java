@@ -95,8 +95,36 @@ public class DetailCustomerFragment extends Fragment{
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    confirmDialog(nameStrings);
+
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setCancelable(false);
+                    builder.setIcon(R.drawable.ic_action_alert);
+                    builder.setTitle("จัดการข้อมูลลูกค้า");
+                    builder.setMessage("คุณต้องการจะ ?");
+                    builder.setPositiveButton("ลบ", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            deleteDataWhere(nameStrings);
+//                            dialogInterface.dismiss();
+
+
+                        }
+                    });
+
+                    builder.setNegativeButton("แก้ไข", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            getActivity().getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.contentOwnerFragment, EditCustomerFragment.editCustomerInstance(
+                                            nameStrings))
+                                    .addToBackStack(null).commit();
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    builder.show();
                 }
+
             });
 
 
@@ -104,39 +132,6 @@ public class DetailCustomerFragment extends Fragment{
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-    }
-
-    private void confirmDialog(final String[] nameStrings) {
-
-        Log.d("9FebV1", "name[confirmDialog] ==> " + nameStrings);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setCancelable(false);
-        builder.setIcon(R.drawable.ic_action_alert);
-        builder.setTitle("จัดการข้อมูลลูกค้า");
-        builder.setMessage("คุณต้องการจะ ?");
-        builder.setPositiveButton("ลบ", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int i) {
-                deleteDataWhere(nameStrings);
-                dialog.dismiss();
-            }
-        });
-
-        builder.setNegativeButton("แก้ไข", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                getActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.contentOwnerFragment, EditCustomerFragment.editCustomerInstance(
-                                nameStrings))
-                        .addToBackStack(null).commit();
-                dialogInterface.dismiss();
-            }
-        });
-        builder.show();
-
 
     }
 
@@ -160,6 +155,7 @@ public class DetailCustomerFragment extends Fragment{
 
 
 
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_add, menu);
@@ -173,7 +169,8 @@ public class DetailCustomerFragment extends Fragment{
         if (item.getItemId() == R.id.itemAddNewCustoemr) {
 
             getActivity().getSupportFragmentManager()
-                    .beginTransaction().replace(R.id.contentOwnerFragment, AddNewCustomerFragment.addNewCustomerInstance(loginStrings))
+                    .beginTransaction().replace(R.id.contentOwnerFragment,
+                    AddNewCustomerFragment.addNewCustomerInstance(loginStrings))
                     .addToBackStack(null)
                     .commit();
 
