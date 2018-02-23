@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.joanzapata.pdfview.PDFView;
+
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
 
 /**
@@ -24,28 +26,10 @@ public class MainFragment extends Fragment{
 //        Authen Controller
         authenController();                                                 // มาจากการกด option+command+m
 
-//        PDF Controller
-        PDFController();
 
 
     }   // main method
 
-    private void PDFController() {
-        TextView textView = getView().findViewById(R.id.txtPDF);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.contentMainFragment, new PdfFragment())
-                        .addToBackStack(null)
-                        .commit();
-
-        }
-        });
-
-
-    }
 
     private void authenController() {
         Button button = getView().findViewById(R.id.btnstart);              //  เสร็จบรรทัดนี้ คุมทั้งบรรทัด กด option+command+m
