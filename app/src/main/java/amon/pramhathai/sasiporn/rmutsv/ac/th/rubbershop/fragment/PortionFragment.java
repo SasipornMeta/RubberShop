@@ -77,7 +77,6 @@ public class PortionFragment extends Fragment {
 
     }
 
-
     private void createSpinner() {
         Spinner spinner = getView().findViewById(R.id.spinnerCustomer);
 

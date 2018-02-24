@@ -118,6 +118,7 @@ public class EditCustomerFragment extends Fragment {
                         teleditString,
                         userloginString,
                         passwordloginString,
+                        loginStrings[2],
                         myConstant.getUrlEditCustomer());
 
                 if (Boolean.parseBoolean(postAddCustomerToServer.get())) {

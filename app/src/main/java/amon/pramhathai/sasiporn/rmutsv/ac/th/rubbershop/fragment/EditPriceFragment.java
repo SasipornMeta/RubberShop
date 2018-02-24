@@ -120,6 +120,7 @@ public class EditPriceFragment extends Fragment {
 
                     if (i == priceStrings.length-1) {
                         getActivity().getSupportFragmentManager().popBackStack();
+
 //                        Success Upload
                         Toast.makeText(getActivity(), "บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT)
                                 .show();
