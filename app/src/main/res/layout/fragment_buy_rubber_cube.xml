@@ -203,6 +203,7 @@
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:id="@+id/btnSaveBuyCube"
                     android:textSize="@dimen/h2"
                     android:textColor="@color/colorWhite"
                     android:text="บันทึก"

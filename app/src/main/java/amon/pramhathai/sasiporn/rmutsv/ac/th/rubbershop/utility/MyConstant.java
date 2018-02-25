@@ -7,6 +7,7 @@ package amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility;
 public class MyConstant {
 
     //    About URL
+    private String urlAddBunCube = "http://androidthai.in.th/gif/addbuycube3.php";
     private String urlAddBuySheet = "http://androidthai.in.th/gif/addbuysheet2.php";
     private String urlAddBuyLatex = "http://androidthai.in.th/gif/addbuylatex1.php";
     private String urlGetLastPriceWhere_t_id = "http://androidthai.in.th/gif/getLastPriceWhere_t_id.php";
@@ -26,6 +27,10 @@ public class MyConstant {
 
 //    Getter
 
+
+    public String getUrlAddBunCube() {
+        return urlAddBunCube;
+    }
 
     public String getUrlAddBuySheet() {
         return urlAddBuySheet;
