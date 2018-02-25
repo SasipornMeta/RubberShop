@@ -13,8 +13,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -28,6 +30,7 @@ import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetCustomerWhereOidShop;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetLastPriceWheretid;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.PostBuySheet;
 
 /**
  * Created by DR-PC61059 on 9/2/2561.
@@ -35,7 +38,9 @@ import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
 
 public class SheetRubberFragment extends Fragment {
 
-    private String[] loginStrings, c_idStrings, c_nameStrings ;
+    private boolean statusABoolean = true;
+
+    private String[] loginStrings, c_idStrings, c_nameStrings;
 
     private String idCustomerString, nameCustomerString, weightString,
             priceString, totalString, buyDateTimeString;
@@ -44,7 +49,7 @@ public class SheetRubberFragment extends Fragment {
     public static SheetRubberFragment sheetRubberFragment(String[] loginStrings) {
         SheetRubberFragment sheetRubberFragment = new SheetRubberFragment();
         Bundle bundle = new Bundle();
-        bundle.putStringArray("Login",loginStrings);
+        bundle.putStringArray("Login", loginStrings);
         sheetRubberFragment.setArguments(bundle);
         return sheetRubberFragment;
     }
@@ -67,12 +72,94 @@ public class SheetRubberFragment extends Fragment {
 //        Show Last Price
         showLastPrice();
 
+//        Calculate TotalPrice
+        calculateTotalPrice();
+
+//        Save Controller
+        saveController();
+
 //        Portion Controller
         portionController();
 
 
-
     }   //main Method
+
+    private void saveController() {
+        Button button = getView().findViewById(R.id.btnSaveBuySheet);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Log.d("25FebV1", "b2_date = " + buyDateTimeString);
+                Log.d("25FebV1", "c_id = " + idCustomerString);
+                Log.d("25FebV1", "c_name = " + nameCustomerString);
+                Log.d("25FebV1", "b2_weight = " + weightString);
+                Log.d("25FebV1", "b2_price = " + priceString);
+                Log.d("25FebV1", "b2_total = " + totalString);
+
+                if (statusABoolean) {
+
+//                    Add Sheet
+                    addSheet();
+
+
+                } else {
+                    Toast.makeText(getActivity(), "Cannot Save Replace Order", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
+    }
+
+    private void addSheet() {
+        try {
+
+
+            MyConstant myConstant = new MyConstant();
+            PostBuySheet postBuySheet = new PostBuySheet(getActivity());
+            postBuySheet.execute(buyDateTimeString, idCustomerString, nameCustomerString,
+                    weightString, priceString, totalString, myConstant.getUrlAddBuySheet());
+
+            if (Boolean.parseBoolean(postBuySheet.get())) {
+                statusABoolean = false;
+                Toast.makeText(getActivity(), "Success Save Value", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getActivity(), "Cannot Save Order", Toast.LENGTH_SHORT).show();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void calculateTotalPrice() {
+        Button button = getView().findViewById(R.id.btnCalculateTotal);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+
+                    EditText editText = getView().findViewById(R.id.edtWeight);
+                    weightString = editText.getText().toString().trim();
+                    if (weightString.isEmpty()) {
+                        weightString = "0";
+                    }
+
+                    double weigthADouble = Double.parseDouble(weightString);
+                    double priceADouble = Double.parseDouble(priceString);
+                    totalString = Double.toString(weigthADouble * priceADouble);
+
+                    TextView textView = getView().findViewById(R.id.txtTotal);
+                    textView.setText(totalString);
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 
     private void showLastPrice() {
         TextView textView = getView().findViewById(R.id.txtPriceSheet);
@@ -98,7 +185,6 @@ public class SheetRubberFragment extends Fragment {
             e.printStackTrace();
         }
     }
-
 
 
     private void portionController() {
@@ -145,7 +231,7 @@ public class SheetRubberFragment extends Fragment {
             c_idStrings = new String[jsonArray.length()];
             c_nameStrings = new String[jsonArray.length()];
 
-            for (int i=0; i<jsonArray.length(); i+=1) {
+            for (int i = 0; i < jsonArray.length(); i += 1) {
 
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 c_idStrings[i] = jsonObject.getString("c_id");
@@ -157,10 +243,9 @@ public class SheetRubberFragment extends Fragment {
             nameCustomerString = c_nameStrings[0];
 
 
-
             ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, c_nameStrings);
-            spinner.setAdapter(stringArrayAdapter );
+            spinner.setAdapter(stringArrayAdapter);
 
             spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
@@ -179,7 +264,6 @@ public class SheetRubberFragment extends Fragment {
                     nameCustomerString = c_nameStrings[0];
 
 
-
                 }
             });
 
@@ -194,7 +278,7 @@ public class SheetRubberFragment extends Fragment {
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarSheetRubber);
 
-        ((OwnerActivity)getActivity()).setSupportActionBar(toolbar);
+        ((OwnerActivity) getActivity()).setSupportActionBar(toolbar);
 
         ((OwnerActivity) getActivity()).getSupportActionBar()
                 .setTitle(getString(R.string.sheet_rubber));
