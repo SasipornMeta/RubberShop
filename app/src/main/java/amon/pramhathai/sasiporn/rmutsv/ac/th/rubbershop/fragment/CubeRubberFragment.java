@@ -195,11 +195,17 @@ public class CubeRubberFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (status) {
+                    addCube();
+                }
+
+
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.contentOwnerFragment,
-                                PortionFragment.portionInstance(loginStrings))
-                        .addToBackStack(null)
+                                PortionFragment.portionInstance(loginStrings, idCustomerString,
+                                        nameCustomerString, totalString, weightString, priceString))
                         .commit();
             }
         });
