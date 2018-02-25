@@ -7,6 +7,9 @@ package amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility;
 public class MyConstant {
 
     //    About URL
+    private String urlAddBuyLatex = "http://androidthai.in.th/gif/addbuylatex1.php";
+    private String urlGetLastPriceWhere_t_id = "http://androidthai.in.th/gif/getLastPriceWhere_t_id.php";
+
     private String urlAddOwner = "http://androidthai.in.th/gif/addowner.php";
     private String urlGetAllOwner = "http://androidthai.in.th/gif/getAllowner.php";         //  กด Command+n
 
@@ -20,6 +23,16 @@ public class MyConstant {
     private String urlAddPrice = "http://androidthai.in.th/gif/addprice.php";
     private String urlGetAddPrice = "http://androidthai.in.th/gif/getAllprice.php";
 
+//    Getter
+
+
+    public String getUrlAddBuyLatex() {
+        return urlAddBuyLatex;
+    }
+
+    public String getUrlGetLastPriceWhere_t_id() {
+        return urlGetLastPriceWhere_t_id;
+    }
 
     public String getUrlDeleteCustomer() {
         return urlDeleteCustomer;

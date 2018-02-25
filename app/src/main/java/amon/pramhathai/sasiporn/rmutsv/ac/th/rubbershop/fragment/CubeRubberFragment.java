@@ -25,6 +25,7 @@ import java.util.Calendar;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.OwnerActivity;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetCustomerWhereOidShop;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetLastPriceWheretid;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
 
 /**
@@ -62,11 +63,38 @@ public class CubeRubberFragment extends Fragment {
 //        Show Date
         showDate();
 
+        showLastPrice();
+
 //        Portion Controller
         portionController();
 
 
     }   //main Method
+
+    private void showLastPrice() {
+        TextView textView = getView().findViewById(R.id.txtPriceCube);
+        MyConstant myConstant = new MyConstant();
+        String tag = "25FebV1";
+        try {
+
+            GetLastPriceWheretid getLastPriceWheretid = new GetLastPriceWheretid(getActivity());
+            getLastPriceWheretid.execute("3", myConstant.getUrlGetLastPriceWhere_t_id());
+
+            String resultJSoN = getLastPriceWheretid.get();
+            Log.d(tag, "JSON ==> " + resultJSoN);
+
+            JSONArray jsonArray = new JSONArray(getLastPriceWheretid.get());
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+            priceString = jsonObject.getString("p_price");
+            Log.d(tag, "LastPrice ==> " + priceString);
+            textView.setText(priceString);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
     private void portionController() {

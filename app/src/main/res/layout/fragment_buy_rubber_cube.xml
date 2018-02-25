@@ -137,7 +137,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtPrice"
+                    android:id="@+id/txtPriceCube"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
