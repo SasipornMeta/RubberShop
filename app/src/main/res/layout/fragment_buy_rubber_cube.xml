@@ -137,7 +137,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtPrice"
+                    android:id="@+id/txtPriceCube"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
@@ -203,6 +203,7 @@
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:id="@+id/btnSaveBuyCube"
                     android:textSize="@dimen/h2"
                     android:textColor="@color/colorWhite"
                     android:text="บันทึก"

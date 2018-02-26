@@ -12,8 +12,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -25,13 +27,17 @@ import java.util.Calendar;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.OwnerActivity;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetCustomerWhereOidShop;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetLastPriceWheretid;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.PostBuyCube;
 
 /**
  * Created by DR-PC61059 on 9/2/2561.
  */
 
 public class CubeRubberFragment extends Fragment {
+
+    private boolean status = true;
 
     private String[] loginStrings, c_idStrings, c_nameStrings ;
 
@@ -62,11 +68,126 @@ public class CubeRubberFragment extends Fragment {
 //        Show Date
         showDate();
 
+        showLastPrice();
+
+//        Calculate TotalPrice
+        calculateTotalPrice();
+
+//        Save Controller
+        saveController();
+
 //        Portion Controller
         portionController();
 
 
     }   //main Method
+
+    private void saveController() {
+        Button button = getView().findViewById(R.id.btnSaveBuyCube);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (status) {
+
+                    addCube();
+
+                } else {
+                    showToast("Cannot Save Replace");
+                }
+            }
+        });
+    }
+
+    private void addCube() {
+
+        try {
+
+            MyConstant myConstant = new MyConstant();
+            PostBuyCube postBuyCube = new PostBuyCube(getActivity());
+            postBuyCube.execute(buyDateTimeString, idCustomerString, nameCustomerString,
+                    weightString, persentString, priceString, totalString,
+                    myConstant.getUrlAddBunCube());
+
+            if (Boolean.parseBoolean(postBuyCube.get())) {
+                showToast("Save Success");
+            } else {
+                showToast("Please Try Again Cannot Save");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void showToast(String messageString) {
+        Toast.makeText(getActivity(), messageString, Toast.LENGTH_SHORT).show();
+    }
+
+    private void calculateTotalPrice() {
+        Button button = getView().findViewById(R.id.btnCalculateTotal);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+
+                    EditText weightEditText = getView().findViewById(R.id.edtWeight);
+                    EditText persenEditText = getView().findViewById(R.id.edtPersent);
+
+                    weightString = weightEditText.getText().toString().trim();
+                    persentString = persenEditText.getText().toString().trim();
+
+                    if (weightString.isEmpty()) {
+                        weightString = "0";
+                    } else if (persentString.isEmpty()) {
+                        persentString = "0";
+                    } else {
+
+                        double weightADouble = Double.parseDouble(weightString);
+                        double persenADouble = Double.parseDouble(persentString);
+                        double priceADouble = Double.parseDouble(priceString);
+                        totalString = Double.toString(weightADouble * priceADouble * persenADouble / 100);
+
+                        TextView textView = getView().findViewById(R.id.txtTotal);
+                        textView.setText(totalString);
+
+                    }
+
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+    }
+
+    private void showLastPrice() {
+        TextView textView = getView().findViewById(R.id.txtPriceCube);
+        MyConstant myConstant = new MyConstant();
+        String tag = "25FebV1";
+        try {
+
+            GetLastPriceWheretid getLastPriceWheretid = new GetLastPriceWheretid(getActivity());
+            getLastPriceWheretid.execute("3", myConstant.getUrlGetLastPriceWhere_t_id());
+
+            String resultJSoN = getLastPriceWheretid.get();
+            Log.d(tag, "JSON ==> " + resultJSoN);
+
+            JSONArray jsonArray = new JSONArray(getLastPriceWheretid.get());
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+            priceString = jsonObject.getString("p_price");
+            Log.d(tag, "LastPrice ==> " + priceString);
+            textView.setText(priceString);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
     private void portionController() {
@@ -74,11 +195,17 @@ public class CubeRubberFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (status) {
+                    addCube();
+                }
+
+
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.contentOwnerFragment,
-                                PortionFragment.portionInstance(loginStrings))
-                        .addToBackStack(null)
+                                PortionFragment.portionInstance(loginStrings, idCustomerString,
+                                        nameCustomerString, totalString, weightString, priceString))
                         .commit();
             }
         });

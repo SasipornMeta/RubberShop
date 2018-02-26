@@ -52,11 +52,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <Spinner
-                    android:id="@+id/spinnerCustomer"
+                <TextView
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/h2"
+                    android:text="Name Customer"
+                    android:id="@+id/txtCustomer"
                     android:layout_marginLeft="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></Spinner>
+                    android:layout_height="wrap_content"/>
 
 
             </LinearLayout>
@@ -109,6 +112,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/edtPersent"
                     android:inputType="numberDecimal"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -125,6 +129,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/btnCalculate"
                 android:layout_marginTop="15dp"
                 android:textSize="@dimen/h2"
                 android:textColor="@color/colorWhite"
@@ -151,6 +156,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/txts_status"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
@@ -181,6 +187,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/txtb_balance"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
@@ -205,7 +212,7 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/btnSaveBuyLatex"
+                    android:id="@+id/btnSaveSale"
                     android:textSize="@dimen/h2"
                     android:textColor="@color/colorWhite"
                     android:text="บันทึก"
