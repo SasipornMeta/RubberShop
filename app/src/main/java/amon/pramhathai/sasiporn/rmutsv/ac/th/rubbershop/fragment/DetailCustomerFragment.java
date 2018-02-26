@@ -89,7 +89,7 @@ public class DetailCustomerFragment extends Fragment{
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                public void onItemClick(AdapterView<?> adapterView, View view, final int itemInt, long l) {
 
                     final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setCancelable(false);
@@ -99,8 +99,8 @@ public class DetailCustomerFragment extends Fragment{
                     builder.setPositiveButton("ลบ", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-//                            deleteDataWhere(nameStrings);
-//                            dialogInterface.dismiss();
+                            deleteDataWhere(nameStrings[itemInt]);
+                            dialogInterface.dismiss();
 
 
                         }
@@ -109,11 +109,11 @@ public class DetailCustomerFragment extends Fragment{
                     builder.setNegativeButton("แก้ไข", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            getActivity().getSupportFragmentManager()
-                                    .beginTransaction()
-                                    .replace(R.id.contentOwnerFragment, EditCustomerFragment.editCustomerInstance(
-                                            nameStrings))
-                                    .addToBackStack(null).commit();
+//                            getActivity().getSupportFragmentManager()
+//                                    .beginTransaction()
+//                                    .replace(R.id.contentOwnerFragment, EditCustomerFragment.editCustomerInstance(
+//                                            nameStrings[i]))
+//                                    .addToBackStack(null).commit();
                             dialogInterface.dismiss();
                         }
                     });
@@ -130,13 +130,19 @@ public class DetailCustomerFragment extends Fragment{
 
     }
 
-    private void deleteDataWhere(String[] nameStrings) {
+    private void deleteDataWhere(String nameString) {
         try {
+
+            Log.d("26FebV1", "nameDelete ==> " + nameString);
+
             MyConstant myConstant = new MyConstant();
             DeleteDataCustomer deleteDataCustomer = new DeleteDataCustomer(getActivity());
-            deleteDataCustomer.execute(nameStrings, myConstant.getUrlDeleteCustomer());
+            deleteDataCustomer.execute(nameString, myConstant.getUrlDeleteCustomer());
 
-            if (Boolean.parseBoolean(deleteDataCustomer.get())) {
+            String result = deleteDataCustomer.get();
+            Log.d("26FebV1", "result ==> " + result);
+
+            if (true) {
                 Toast.makeText(getActivity(), "ลบข้อมูลสำเร็จ", Toast.LENGTH_SHORT).show();
                 createListView();
             } else {
