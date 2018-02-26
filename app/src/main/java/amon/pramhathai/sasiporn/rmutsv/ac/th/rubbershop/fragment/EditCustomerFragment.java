@@ -22,6 +22,8 @@ import org.json.JSONObject;
 
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.OwnerActivity;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.DeleteDataCustomer;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.EditCustomer;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetCustomerWhereName;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyAlert;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
@@ -36,7 +38,7 @@ public class EditCustomerFragment extends Fragment {
 
     private EditText c_nameEditText, c_lnameEditText, c_addressEditText, c_telEditText, c_userEditText, c_passwordEditText;
     private String c_nameString, c_lnameString, c_addressString, c_telString, c_userString, c_passwordString;
-    private String c_idString, o_idshopString;
+    private String c_idString, o_idshopString, nameDeleteString;
     private String[] detailCustomerStrings;
 
     private String[] loginStrings;
@@ -63,6 +65,7 @@ public class EditCustomerFragment extends Fragment {
 
         loginStrings = getArguments().getStringArray("Login");
         c_nameString = getArguments().getString("Customer");
+        nameDeleteString = c_nameString;
         c_idString = getArguments().getString("idCustomer");
 
 //        Initial view
@@ -126,10 +129,14 @@ public class EditCustomerFragment extends Fragment {
         } else {
 
 //            No Space
+
+            deleteDataWhere(nameDeleteString);
+
             try {
+
                 MyConstant myConstant = new MyConstant();
-                PostAddCustomerToServer postAddCustomerToServer = new PostAddCustomerToServer(getActivity());
-                postAddCustomerToServer.execute(
+                PostAddCustomerToServer editCustomer = new PostAddCustomerToServer(getActivity());
+                editCustomer.execute(
                         c_nameString,
                         c_lnameString,
                         c_addressString,
@@ -139,12 +146,14 @@ public class EditCustomerFragment extends Fragment {
                         detailCustomerStrings[7],
                         myConstant.getUrlAddCustomer());
 
-                if (Boolean.parseBoolean(postAddCustomerToServer.get())) {
+                if (Boolean.parseBoolean(editCustomer.get())) {
 
 //                            Success upload
                     getActivity().getSupportFragmentManager().popBackStack();
                     Toast.makeText(getActivity(), "บันทึกข้อมูลเรียบร้อย",
                             Toast.LENGTH_SHORT).show();
+
+
                 } else {
 
 //                            Cannot upload
@@ -155,6 +164,25 @@ public class EditCustomerFragment extends Fragment {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+
+    }
+
+    private void deleteDataWhere(String nameString) {
+        try {
+
+            Log.d("26FebV1", "nameDelete ==> " + nameString);
+
+            MyConstant myConstant = new MyConstant();
+            DeleteDataCustomer deleteDataCustomer = new DeleteDataCustomer(getActivity());
+            deleteDataCustomer.execute(nameString, myConstant.getUrlDeleteCustomer());
+
+            String result = deleteDataCustomer.get();
+            Log.d("26FebV1", "result ==> " + result);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }

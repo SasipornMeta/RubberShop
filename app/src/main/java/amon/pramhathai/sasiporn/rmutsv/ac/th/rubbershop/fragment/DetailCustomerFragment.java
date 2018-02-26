@@ -112,6 +112,8 @@ public class DetailCustomerFragment extends Fragment{
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
+
+
                             getActivity().getSupportFragmentManager()
                                     .beginTransaction()
                                     .replace(R.id.contentOwnerFragment, EditCustomerFragment.editCustomerInstance(
