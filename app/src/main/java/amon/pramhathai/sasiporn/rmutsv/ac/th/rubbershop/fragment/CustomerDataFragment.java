@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.CustomerActivity;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.OwnerActivity;
@@ -40,15 +41,34 @@ public class CustomerDataFragment extends Fragment {
 //        Create Toolbar
         createToolbar();
 
+//        Show Text
+        showText();
+
 
     }   // main method
 
+    private void showText() {
+        TextView nameTextView = getView().findViewById(R.id.txtName);
+        TextView surNameTextView = getView().findViewById(R.id.txtSurname);
+        TextView addressTextView = getView().findViewById(R.id.txtAddress);
+        TextView phoneTextView = getView().findViewById(R.id.txtTel);
+        TextView userTextView = getView().findViewById(R.id.txtUserLogin);
+        TextView passwordTextView = getView().findViewById(R.id.txtPasswordLogin);
+
+        nameTextView.setText(loginStrings[1]);
+        surNameTextView.setText(loginStrings[2]);
+        addressTextView.setText(loginStrings[3]);
+        phoneTextView.setText(loginStrings[4]);
+        userTextView.setText(loginStrings[5]);
+        passwordTextView.setText(loginStrings[6]);
+
+    }
 
 
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarCustomerData);
 
-        ((CustomerActivity)getActivity()).setSupportActionBar(toolbar);
+        ((CustomerActivity) getActivity()).setSupportActionBar(toolbar);
 
         ((CustomerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.private_customer));
         ((CustomerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.customer_login) + loginStrings[1]);
