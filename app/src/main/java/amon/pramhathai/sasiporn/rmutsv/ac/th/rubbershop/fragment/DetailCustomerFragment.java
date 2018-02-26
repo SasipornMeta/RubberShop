@@ -109,11 +109,12 @@ public class DetailCustomerFragment extends Fragment{
                     builder.setNegativeButton("แก้ไข", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-//                            getActivity().getSupportFragmentManager()
-//                                    .beginTransaction()
-//                                    .replace(R.id.contentOwnerFragment, EditCustomerFragment.editCustomerInstance(
-//                                            nameStrings[i]))
-//                                    .addToBackStack(null).commit();
+
+                            getActivity().getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.contentOwnerFragment, EditCustomerFragment.editCustomerInstance(
+                                            loginStrings, nameStrings[itemInt]))
+                                    .addToBackStack(null).commit();
                             dialogInterface.dismiss();
                         }
                     });
