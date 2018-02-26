@@ -27,7 +27,7 @@ public class GetCustomerWhereName extends AsyncTask<String, Void, String>{
             OkHttpClient okHttpClient = new OkHttpClient();
             RequestBody requestBody = new FormEncodingBuilder()
                     .add("isAdd", "true")
-                    .add("c_name", strings[0])
+                    .add("c_id", strings[0])
                     .build();
 
             Request.Builder builder = new Request.Builder();

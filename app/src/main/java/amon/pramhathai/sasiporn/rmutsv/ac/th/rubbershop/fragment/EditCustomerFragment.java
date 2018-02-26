@@ -17,6 +17,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.OwnerActivity;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetCustomerWhereName;
@@ -34,6 +37,7 @@ public class EditCustomerFragment extends Fragment {
     private EditText c_nameEditText, c_lnameEditText, c_addressEditText, c_telEditText, c_userEditText, c_passwordEditText;
     private String c_nameString, c_lnameString, c_addressString, c_telString, c_userString, c_passwordString;
     private String c_idString, o_idshopString;
+    private String[] detailCustomerStrings;
 
     private String[] loginStrings;
     private String nameeditString, surnameeditString, addresseditString, teleditString,
@@ -41,11 +45,14 @@ public class EditCustomerFragment extends Fragment {
 
 
 
-    public static EditCustomerFragment editCustomerInstance(String[] loginStrings, String nameCustomerString) {
+    public static EditCustomerFragment editCustomerInstance(String[] loginStrings,
+                                                            String nameCustomerString,
+                                                            String idCustomerString) {
         EditCustomerFragment editCustomerFragment = new EditCustomerFragment();
         Bundle bundle = new Bundle();
         bundle.putStringArray("Login", loginStrings);
         bundle.putString("Customer", nameCustomerString);
+        bundle.putString("idCustomer", idCustomerString);
         editCustomerFragment.setArguments(bundle);
         return editCustomerFragment;
     }
@@ -56,6 +63,7 @@ public class EditCustomerFragment extends Fragment {
 
         loginStrings = getArguments().getStringArray("Login");
         c_nameString = getArguments().getString("Customer");
+        c_idString = getArguments().getString("idCustomer");
 
 //        Initial view
         initialView();
@@ -122,14 +130,14 @@ public class EditCustomerFragment extends Fragment {
                 MyConstant myConstant = new MyConstant();
                 PostAddCustomerToServer postAddCustomerToServer = new PostAddCustomerToServer(getActivity());
                 postAddCustomerToServer.execute(
-                        nameeditString,
-                        surnameeditString,
-                        addresseditString,
-                        teleditString,
-                        userloginString,
-                        passwordloginString,
-                        loginStrings[2],
-                        myConstant.getUrlEditCustomer());
+                        c_nameString,
+                        c_lnameString,
+                        c_addressString,
+                        c_telString,
+                        c_userString,
+                        c_passwordString,
+                        detailCustomerStrings[7],
+                        myConstant.getUrlAddCustomer());
 
                 if (Boolean.parseBoolean(postAddCustomerToServer.get())) {
 
@@ -157,12 +165,29 @@ public class EditCustomerFragment extends Fragment {
 
             String tag = "26FebV1";
             MyConstant myConstant = new MyConstant();
+            String[] columnCustomerStrings = myConstant.getColumnCustomer();
+            detailCustomerStrings = new String[columnCustomerStrings.length];
             GetCustomerWhereName getCustomerWhereName = new GetCustomerWhereName(getActivity());
-            getCustomerWhereName.execute(c_nameString, myConstant.getUrlGetCustomerWhereName());
+            getCustomerWhereName.execute(c_idString, myConstant.getUrlGetCustomerWhereName());
 
             String resultJSON = getCustomerWhereName.get();
             Log.d(tag, "c_name ==> " + c_nameString);
             Log.d(tag, "JSON ==> " + resultJSON);
+
+            JSONArray jsonArray = new JSONArray(resultJSON);
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+            for (int i=0; i<columnCustomerStrings.length; i+=1) {
+                detailCustomerStrings[i] = jsonObject.getString(columnCustomerStrings[i]);
+            }
+
+
+            c_nameEditText.setText(detailCustomerStrings[1]);
+            c_lnameEditText.setText(detailCustomerStrings[2]);
+            c_addressEditText.setText(detailCustomerStrings[3]);
+            c_telEditText.setText(detailCustomerStrings[4]);
+            c_userEditText.setText(detailCustomerStrings[5]);
+            c_passwordEditText.setText(detailCustomerStrings[6]);
 
         } catch (Exception e) {
             e.printStackTrace();

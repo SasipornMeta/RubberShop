@@ -27,8 +27,17 @@ public class MyConstant {
     private String urlAddPrice = "http://androidthai.in.th/gif/addprice.php";
     private String urlGetAddPrice = "http://androidthai.in.th/gif/getAllprice.php";
 
+    //    Array
+    private String[] columnCustomer = new String[]{"c_id", "c_name", "c_lname", "c_address", "c_tel", "c_user", "c_password", "o_idshop"};
+
+
+
 //    Getter
 
+
+    public String[] getColumnCustomer() {
+        return columnCustomer;
+    }
 
     public String getUrlGetCustomerWhereName() {
         return urlGetCustomerWhereName;
