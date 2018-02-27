@@ -74,12 +74,14 @@ public class DetailCustomerFragment extends Fragment{
             JSONArray jsonArray = new JSONArray(jsonString);
 
             final String[] nameStrings = new String[jsonArray.length()];
+            final String[] idCustomer = new String[jsonArray.length()];
 
 
             for (int i=0; i<jsonArray.length(); i+=1) {
 
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 nameStrings[i] = jsonObject.getString("c_name");
+                idCustomer[i] = jsonObject.getString("c_id");
 
             }   // for
 
@@ -109,11 +111,14 @@ public class DetailCustomerFragment extends Fragment{
                     builder.setNegativeButton("แก้ไข", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-//                            getActivity().getSupportFragmentManager()
-//                                    .beginTransaction()
-//                                    .replace(R.id.contentOwnerFragment, EditCustomerFragment.editCustomerInstance(
-//                                            nameStrings[i]))
-//                                    .addToBackStack(null).commit();
+
+
+
+                            getActivity().getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.contentOwnerFragment, EditCustomerFragment.editCustomerInstance(
+                                            loginStrings, nameStrings[itemInt], idCustomer[itemInt]))
+                                    .addToBackStack(null).commit();
                             dialogInterface.dismiss();
                         }
                     });

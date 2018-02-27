@@ -17,8 +17,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.OwnerActivity;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.DeleteDataCustomer;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.EditCustomer;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetCustomerWhereName;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyAlert;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.PostAddCustomerToServer;
@@ -29,16 +35,26 @@ import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.PostAddCustomerT
 
 public class EditCustomerFragment extends Fragment {
 
+
+    private EditText c_nameEditText, c_lnameEditText, c_addressEditText, c_telEditText, c_userEditText, c_passwordEditText;
+    private String c_nameString, c_lnameString, c_addressString, c_telString, c_userString, c_passwordString;
+    private String c_idString, o_idshopString, nameDeleteString;
+    private String[] detailCustomerStrings;
+
     private String[] loginStrings;
     private String nameeditString, surnameeditString, addresseditString, teleditString,
             userloginString, passwordloginString;
 
 
 
-    public static EditCustomerFragment editCustomerInstance(String[] loginStrings) {
+    public static EditCustomerFragment editCustomerInstance(String[] loginStrings,
+                                                            String nameCustomerString,
+                                                            String idCustomerString) {
         EditCustomerFragment editCustomerFragment = new EditCustomerFragment();
         Bundle bundle = new Bundle();
         bundle.putStringArray("Login", loginStrings);
+        bundle.putString("Customer", nameCustomerString);
+        bundle.putString("idCustomer", idCustomerString);
         editCustomerFragment.setArguments(bundle);
         return editCustomerFragment;
     }
@@ -48,7 +64,12 @@ public class EditCustomerFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         loginStrings = getArguments().getStringArray("Login");
+        c_nameString = getArguments().getString("Customer");
+        nameDeleteString = c_nameString;
+        c_idString = getArguments().getString("idCustomer");
 
+//        Initial view
+        initialView();
 
 //        Create Toolbar
         createToolbar();
@@ -58,11 +79,16 @@ public class EditCustomerFragment extends Fragment {
 
 
 
-
-
-
-
     }   // main method
+
+    private void initialView() {
+        c_nameEditText = getView().findViewById(R.id.edtEditName);
+        c_lnameEditText = getView().findViewById(R.id.edtEditSurname);
+        c_addressEditText = getView().findViewById(R.id.edtEditAddress);
+        c_telEditText = getView().findViewById(R.id.edtEditTel);
+        c_userEditText = getView().findViewById(R.id.edtEditUserLogin);
+        c_passwordEditText = getView().findViewById(R.id.edtEditPasswordLogin);
+    }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -83,23 +109,18 @@ public class EditCustomerFragment extends Fragment {
 
 
     private void saveController() {
-        EditText nameeditText = getView().findViewById(R.id.edtEditName);
-        EditText surnameeditText = getView().findViewById(R.id.edtEditSurname);
-        EditText addresseditText = getView().findViewById(R.id.edtEditAddress);
-        EditText teleditText = getView().findViewById(R.id.edtEditTel);
-        EditText usereditText = getView().findViewById(R.id.edtEditUserLogin);
-        EditText passwordeditText = getView().findViewById(R.id.edtEditPasswordLogin);
 
-        nameeditString = nameeditText.getText().toString().trim();
-        surnameeditString = surnameeditText.getText().toString().trim();
-        addresseditString = addresseditText.getText().toString().trim();
-        teleditString = teleditText.getText().toString().trim();
-        userloginString = usereditText.getText().toString().trim();
-        passwordloginString = passwordeditText.getText().toString().trim();
 
-        if (nameeditString.isEmpty() || surnameeditString.isEmpty() ||
-                addresseditString.isEmpty() || teleditString.isEmpty() ||
-                userloginString.isEmpty() || passwordloginString.isEmpty()) {
+        c_nameString = c_nameEditText.getText().toString().trim();
+        c_lnameString = c_lnameEditText.getText().toString().trim();
+        c_addressString = c_addressEditText.getText().toString().trim();
+        c_telString = c_telEditText.getText().toString().trim();
+        c_userString = c_userEditText.getText().toString().trim();
+        c_passwordString = c_passwordEditText.getText().toString().trim();
+
+        if (c_nameString.isEmpty() || c_lnameString.isEmpty() ||
+                c_addressString.isEmpty() || c_telString.isEmpty() ||
+                c_userString.isEmpty() || c_passwordString.isEmpty()) {
 //            Have Space
             MyAlert myAlert = new MyAlert(getActivity());
             myAlert.normalDialog(getString(R.string.title_have_space),
@@ -108,25 +129,31 @@ public class EditCustomerFragment extends Fragment {
         } else {
 
 //            No Space
-            try {
-                MyConstant myConstant = new MyConstant();
-                PostAddCustomerToServer postAddCustomerToServer = new PostAddCustomerToServer(getActivity());
-                postAddCustomerToServer.execute(
-                        nameeditString,
-                        surnameeditString,
-                        addresseditString,
-                        teleditString,
-                        userloginString,
-                        passwordloginString,
-                        loginStrings[2],
-                        myConstant.getUrlEditCustomer());
 
-                if (Boolean.parseBoolean(postAddCustomerToServer.get())) {
+            deleteDataWhere(nameDeleteString);
+
+            try {
+
+                MyConstant myConstant = new MyConstant();
+                PostAddCustomerToServer editCustomer = new PostAddCustomerToServer(getActivity());
+                editCustomer.execute(
+                        c_nameString,
+                        c_lnameString,
+                        c_addressString,
+                        c_telString,
+                        c_userString,
+                        c_passwordString,
+                        detailCustomerStrings[7],
+                        myConstant.getUrlAddCustomer());
+
+                if (Boolean.parseBoolean(editCustomer.get())) {
 
 //                            Success upload
                     getActivity().getSupportFragmentManager().popBackStack();
                     Toast.makeText(getActivity(), "บันทึกข้อมูลเรียบร้อย",
                             Toast.LENGTH_SHORT).show();
+
+
                 } else {
 
 //                            Cannot upload
@@ -141,20 +168,60 @@ public class EditCustomerFragment extends Fragment {
 
     }
 
-    private void showText() {
-        EditText nameEditText = getView().findViewById(R.id.edtEditName);
-        EditText surnameEditText = getView().findViewById(R.id.edtEditSurname);
-        EditText addressEditText = getView().findViewById(R.id.edtEditAddress);
-        EditText telEditText = getView().findViewById(R.id.edtEditTel);
-        EditText userEditText = getView().findViewById(R.id.edtEditUserLogin);
-        EditText passwordEditText = getView().findViewById(R.id.edtEditPasswordLogin);
+    private void deleteDataWhere(String nameString) {
+        try {
 
-        nameEditText.setText(nameeditString);
-        surnameEditText.setText(surnameeditString);
-        addressEditText.setText(addresseditString);
-        telEditText.setText(teleditString);
-        userEditText.setText(userloginString);
-        passwordEditText.setText(passwordloginString);
+            Log.d("26FebV1", "nameDelete ==> " + nameString);
+
+            MyConstant myConstant = new MyConstant();
+            DeleteDataCustomer deleteDataCustomer = new DeleteDataCustomer(getActivity());
+            deleteDataCustomer.execute(nameString, myConstant.getUrlDeleteCustomer());
+
+            String result = deleteDataCustomer.get();
+            Log.d("26FebV1", "result ==> " + result);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void showText() {
+
+        try {
+
+            String tag = "26FebV1";
+            MyConstant myConstant = new MyConstant();
+            String[] columnCustomerStrings = myConstant.getColumnCustomer();
+            detailCustomerStrings = new String[columnCustomerStrings.length];
+            GetCustomerWhereName getCustomerWhereName = new GetCustomerWhereName(getActivity());
+            getCustomerWhereName.execute(c_idString, myConstant.getUrlGetCustomerWhereName());
+
+            String resultJSON = getCustomerWhereName.get();
+            Log.d(tag, "c_name ==> " + c_nameString);
+            Log.d(tag, "JSON ==> " + resultJSON);
+
+            JSONArray jsonArray = new JSONArray(resultJSON);
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+            for (int i=0; i<columnCustomerStrings.length; i+=1) {
+                detailCustomerStrings[i] = jsonObject.getString(columnCustomerStrings[i]);
+            }
+
+
+            c_nameEditText.setText(detailCustomerStrings[1]);
+            c_lnameEditText.setText(detailCustomerStrings[2]);
+            c_addressEditText.setText(detailCustomerStrings[3]);
+            c_telEditText.setText(detailCustomerStrings[4]);
+            c_userEditText.setText(detailCustomerStrings[5]);
+            c_passwordEditText.setText(detailCustomerStrings[6]);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     private void createToolbar() {

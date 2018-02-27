@@ -39,6 +39,7 @@
 
                 <!--Text Name-->
                 <EditText
+                    android:hint="Name"
                     android:textSize="@dimen/h22"
                     android:id="@+id/edtEditName"
                     android:inputType="text"
@@ -66,6 +67,7 @@
 
                 <!--Text LName-->
                 <EditText
+                    android:hint="Surname"
                     android:textSize="@dimen/h22"
                     android:id="@+id/edtEditSurname"
                     android:inputType="text"
@@ -75,6 +77,8 @@
 
 
             </LinearLayout>
+
+
 
             <!--Address Store-->
             <LinearLayout

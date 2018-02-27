@@ -19,12 +19,21 @@ import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
 
 public class CustomerReportLatexFragment extends Fragment {
 
+    private String[] butReportStrings = new String[]{
+            "http://androidthai.in.th/gif/getBuyLatexWhereIDcustomer.php",
+            "http://androidthai.in.th/gif/getBuySheetWhereIDcustomer.php",
+            "http://androidthai.in.th/gif/getBuyCubeWhereIDcustomer.php"};
+    private int[] buyReportInts = new int[]{R.string.latex_report, R.string.sheet_report, R.string.cube_report};
+
+    private int anInt = 0;
+
     private String[] loginStrings;
 
-    public static CustomerReportLatexFragment customerReportLatexInstance (String[] loginStrings) {
+    public static CustomerReportLatexFragment customerReportLatexInstance (String[] loginStrings, int index) {
         CustomerReportLatexFragment customerReportLatexFragment = new CustomerReportLatexFragment();
         Bundle bundle = new Bundle();
         bundle.putStringArray("Login", loginStrings);
+        bundle.putInt("Index", index);
         customerReportLatexFragment.setArguments(bundle);
         return customerReportLatexFragment;
     }
@@ -34,6 +43,7 @@ public class CustomerReportLatexFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         loginStrings = getArguments().getStringArray("Login");
+        anInt = getArguments().getInt("Index");
 
 //        Create Toolbar
         createToolbar();
@@ -45,7 +55,7 @@ public class CustomerReportLatexFragment extends Fragment {
         Toolbar toolbar = getView().findViewById(R.id.toolbarReportLatex);
         ((CustomerActivity)getActivity()).setSupportActionBar(toolbar);
 
-        ((CustomerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.latex_report));
+        ((CustomerActivity) getActivity()).getSupportActionBar().setTitle(getString(buyReportInts[anInt]));
         ((CustomerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.customer_login) + loginStrings[1]);
 
         ((CustomerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
