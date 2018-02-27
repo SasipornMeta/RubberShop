@@ -1,5 +1,6 @@
 package amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.joanzapata.pdfview.PDFView;
 
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.TutorialActivity;
 
 /**
  * Created by sasiporn on 2/7/2018 AD.
@@ -26,9 +28,29 @@ public class MainFragment extends Fragment{
 //        Authen Controller
         authenController();                                                 // มาจากการกด option+command+m
 
-
+//        pdf Controller
+        pdfController();
 
     }   // main method
+
+    private void pdfController() {
+        TextView textView = getView().findViewById(R.id.txtPDF);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                getActivity().getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.contentCustomerFragment, new TutorialFragment())
+//                        .addToBackStack(null)
+//                        .commit();
+
+                Intent intent = new Intent(getActivity(), TutorialActivity.class);
+                startActivity(intent);
+
+            }
+        });
+    }
 
 
     private void authenController() {

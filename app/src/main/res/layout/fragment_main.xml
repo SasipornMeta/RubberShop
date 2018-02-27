@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:padding="16dp"
         android:orientation="vertical"
         android:layout_margin="40dp"
         android:layout_width="match_parent"
@@ -44,6 +45,7 @@
 
         <!--PDF-->
         <TextView
+            android:contextClickable="true"
             android:id="@+id/txtPDF"
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
