@@ -60,7 +60,7 @@ public class CustomerReportFragment extends Fragment {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.contentCustomerFragment,
-                                CustomerReportLatexFragment.customerReportLatexInstance(loginStrings, 2))
+                                CustomerReportCubeFragment.customerReportCubeInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
@@ -75,7 +75,7 @@ public class CustomerReportFragment extends Fragment {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.contentCustomerFragment,
-                                CustomerReportLatexFragment.customerReportLatexInstance(loginStrings, 1))
+                                CustomerReportSheetFragment.customerReportSheetInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
@@ -90,7 +90,7 @@ public class CustomerReportFragment extends Fragment {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.contentCustomerFragment,
-                                CustomerReportLatexFragment.customerReportLatexInstance(loginStrings, 0))
+                                CustomerReportLatexFragment.customerReportLatexInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
