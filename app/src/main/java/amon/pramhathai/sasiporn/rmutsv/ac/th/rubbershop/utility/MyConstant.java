@@ -7,6 +7,9 @@ package amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility;
 public class MyConstant {
 
     //    About URL
+    private String urlGetLatexWhereIdCustomer = "http://androidthai.in.th/gif/getBuyLatexWhereIDcustomer.php";
+    private String urlGetSheetWhereIdCustomer = "http://androidthai.in.th/gif/getBuySheetWhereIDcustomer.php";
+    private String urlGetCubeWhereIdCustomer = "http://androidthai.in.th/gif/getBuyCubeWhereIDcustomer.php";
     private String urlGetDepositWhereID = "http://androidthai.in.th/gif/getDepositWhereID.php";
     private String urlGetCustomerWhereName = "http://androidthai.in.th/gif/getCustomerWhereName.php";
     private String urlAddSale = "http://androidthai.in.th/gif/addsale1.php";
@@ -32,9 +35,20 @@ public class MyConstant {
     private String[] columnCustomer = new String[]{"c_id", "c_name", "c_lname", "c_address", "c_tel", "c_user", "c_password", "o_idshop"};
 
 
-
 //    Getter
 
+
+    public String getUrlGetLatexWhereIdCustomer() {
+        return urlGetLatexWhereIdCustomer;
+    }
+
+    public String getUrlGetSheetWhereIdCustomer() {
+        return urlGetSheetWhereIdCustomer;
+    }
+
+    public String getUrlGetCubeWhereIdCustomer() {
+        return urlGetCubeWhereIdCustomer;
+    }
 
     public String getUrlGetDepositWhereID() {
         return urlGetDepositWhereID;
