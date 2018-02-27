@@ -8,9 +8,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.CustomerActivity;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetBuyReportWhereIdCustomer;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.ShowDepositAdapter;
 
 /**
  * Created by sasiporn on 2/14/2018 AD.
@@ -37,8 +44,37 @@ public class CustomerReportSheetFragment extends Fragment {
 //        Create Toolbar
         createToolbar();
 
+//        Create Listview
+        createListview();
 
     }   // main method
+
+    private void createListview() {
+        ListView listView = getView().findViewById(R.id.listViewReportSheet);
+        try {
+            MyConstant myConstant = new MyConstant();
+            GetBuyReportWhereIdCustomer getBuyReportWhereIdCustomer = new GetBuyReportWhereIdCustomer(getActivity());
+            getBuyReportWhereIdCustomer.execute(loginStrings[0], myConstant.getUrlGetSheetWhereIdCustomer());
+
+            JSONArray jsonArray = new JSONArray(getBuyReportWhereIdCustomer.get());
+            String[] dataTimeStrings = new String[jsonArray.length()];
+            String[] balanceStrings = new String[jsonArray.length()];
+
+            for (int i=0; i<jsonArray.length(); i+=1) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                dataTimeStrings[i] = jsonObject.getString("b2_date");
+                balanceStrings[i] = jsonObject.getString("b2_total");
+            }
+
+            ShowDepositAdapter showDepositAdapter = new ShowDepositAdapter(getActivity(),
+                    dataTimeStrings, balanceStrings);
+            listView.setAdapter(showDepositAdapter);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarReportSheet);
