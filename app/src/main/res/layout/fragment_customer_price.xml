@@ -62,6 +62,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/txtPriceLatex"
                     android:inputType="numberDecimal"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -112,6 +113,7 @@
 
 
                 <TextView
+                    android:id="@+id/txtPriceSheet"
                     android:inputType="numberDecimal"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -163,6 +165,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/txtPriceCube"
                     android:inputType="numberDecimal"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
