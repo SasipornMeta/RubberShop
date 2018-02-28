@@ -26,6 +26,7 @@ import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.OwnerActivity;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.DeleteDataCustomer;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetAllValueFromServer;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetCustomerWhereOidShop;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
 
 /**
@@ -66,9 +67,13 @@ public class DetailCustomerFragment extends Fragment{
 
         try {
 
-            GetAllValueFromServer getAllValueFromServer = new GetAllValueFromServer(getActivity());
-            getAllValueFromServer.execute(myConstant.getUrlGetAllCustomer());
-            String jsonString = getAllValueFromServer.get();
+//            GetAllValueFromServer getAllValueFromServer = new GetAllValueFromServer(getActivity());
+//            getAllValueFromServer.execute(myConstant.getUrlGetAllCustomer());
+
+            GetCustomerWhereOidShop getCustomerWhereOidShop = new GetCustomerWhereOidShop(getActivity());
+            getCustomerWhereOidShop.execute(loginStrings[2], myConstant.getUrlGetCustomerWhereOidShopV2());
+
+            String jsonString = getCustomerWhereOidShop.get();
             Log.d(tag, "JSON ==> " + jsonString);
 
             JSONArray jsonArray = new JSONArray(jsonString);

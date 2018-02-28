@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".OwnerActivity" />
-        <activity android:name=".CustomerActivity"></activity>
+        <activity android:name=".CustomerActivity" />
+        <activity android:name=".TutorialActivity"></activity>
     </application>
 
 </manifest>

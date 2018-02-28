@@ -30,4 +30,5 @@ dependencies {
     implementation 'com.squareup.okhttp:okhttp:2.0.0'
     // PDF Viewer Library
     compile 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
+    implementation 'com.github.barteksc:android-pdf-viewer:2.0.3'
 }
