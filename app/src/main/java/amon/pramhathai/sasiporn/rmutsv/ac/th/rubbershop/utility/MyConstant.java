@@ -7,6 +7,7 @@ package amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility;
 public class MyConstant {
 
     //    About URL
+    private String urlGetCustomerWhereOidShopV2 = "http://androidthai.in.th/gif/getCustomerWhereOidShop.php";
     private String urlGetAllBuyLatex = "http://androidthai.in.th/gif/getAllbuylatex1.php";
     private String urlGetAllBuySheet = "http://androidthai.in.th/gif/getAllbuysheet2.php";
     private String urlGetAllBuyCube = "http://androidthai.in.th/gif/getAllbuycube3.php";
@@ -41,6 +42,10 @@ public class MyConstant {
 
 //    Getter
 
+
+    public String getUrlGetCustomerWhereOidShopV2() {
+        return urlGetCustomerWhereOidShopV2;
+    }
 
     public String getUrlGetAllBuyLatex() {
         return urlGetAllBuyLatex;
