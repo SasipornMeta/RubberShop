@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -103,7 +104,7 @@ public class PortionFragment extends Fragment {
 
                     if (Boolean.parseBoolean(postSale.get())) {
                         getActivity().getSupportFragmentManager()
-                                .popBackStack();
+                                .popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                     } else {
                         showToase("Please Try Again Cannot Save");
