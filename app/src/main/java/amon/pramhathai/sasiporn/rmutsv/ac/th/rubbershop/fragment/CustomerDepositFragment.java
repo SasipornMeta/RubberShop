@@ -74,7 +74,8 @@ public class CustomerDepositFragment extends Fragment{
                 balanceStrings[i] = jsonObject.getString("s_balance");
             }
 
-            ShowDepositAdapter showDepositAdapter = new ShowDepositAdapter(getActivity(), dateTimeStrings, balanceStrings);
+            ShowDepositAdapter showDepositAdapter = new ShowDepositAdapter(
+                    getActivity(), dateTimeStrings, balanceStrings);
             listView.setAdapter(showDepositAdapter);
 
             String totalString = findTotal(balanceStrings);
@@ -109,7 +110,7 @@ public class CustomerDepositFragment extends Fragment{
         ((CustomerActivity)getActivity()).setSupportActionBar(toolbar);
 
         ((CustomerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.deposit_customer));
-        ((CustomerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.customer_login) + loginStrings[1]);
+        ((CustomerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.customer_login) +" "+ loginStrings[1]);
 
         ((CustomerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((CustomerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);

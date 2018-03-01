@@ -103,8 +103,10 @@ public class PortionFragment extends Fragment {
                             s_blanceString, myConstant.getUrlAddSale());
 
                     if (Boolean.parseBoolean(postSale.get())) {
-                        getActivity().getSupportFragmentManager()
-                                .popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                        getActivity().getSupportFragmentManager().popBackStack();
+
+//                        getActivity().getSupportFragmentManager()
+//                                .popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                     } else {
                         showToase("Please Try Again Cannot Save");
@@ -177,7 +179,6 @@ public class PortionFragment extends Fragment {
         priceString = getArguments().getString("Price");
     }
 
-
     private void showDate() {
 
         TextView textView = getView().findViewById(R.id.txtShowDate);
@@ -194,14 +195,13 @@ public class PortionFragment extends Fragment {
 
     }
 
-
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarPortion);
 
         ((OwnerActivity) getActivity()).setSupportActionBar(toolbar);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setTitle("แบ่งจ่าย");
-        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + loginStrings[1]);
+        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + " "+ loginStrings[1]);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((OwnerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);

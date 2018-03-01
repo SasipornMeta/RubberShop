@@ -60,16 +60,19 @@ public class BuyReportLatexFragment extends Fragment {
             JSONArray jsonArray = new JSONArray(getAllValueFromServer.get());
 
             String[] dateTimeStrings = new String[jsonArray.length()];
-            String[] balanceStrings = new String[jsonArray.length()];
+            String[] totalStrings = new String[jsonArray.length()];
+//            String[] nameStrings = new String[jsonArray.length()];
+
 
             for (int i = 0; i < jsonArray.length(); i += 1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 dateTimeStrings[i] = jsonObject.getString("b1_date");
-                balanceStrings[i] = jsonObject.getString("b1_total");
+                totalStrings[i] = jsonObject.getString("b1_total");
+//                nameStrings[i] = jsonObject.getString("c_name");
             }
 
             ShowDepositAdapter showDepositAdapter = new ShowDepositAdapter(getActivity(),
-                    dateTimeStrings, balanceStrings);
+                    dateTimeStrings, totalStrings);
             listView.setAdapter(showDepositAdapter);
 
         } catch (Exception e) {
@@ -82,7 +85,7 @@ public class BuyReportLatexFragment extends Fragment {
         ((OwnerActivity)getActivity()).setSupportActionBar(toolbar);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.latex_report));
-        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + loginStrings[1]);
+        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + " "+ loginStrings[1]);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((OwnerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);

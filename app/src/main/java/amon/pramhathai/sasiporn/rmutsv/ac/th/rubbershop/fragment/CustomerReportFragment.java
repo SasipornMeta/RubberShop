@@ -104,7 +104,7 @@ public class CustomerReportFragment extends Fragment {
         ((CustomerActivity)getActivity()).setSupportActionBar(toolbar);
 
         ((CustomerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.report_customer));
-        ((CustomerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.customer_login) + loginStrings[1]);
+        ((CustomerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.customer_login) + " "+ loginStrings[1]);
 
         ((CustomerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((CustomerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -60,11 +60,15 @@ public class BuyReportCubeFragment extends Fragment {
 
             String[] dateTimeStrings = new String[jsonArray.length()];
             String[] balanceStrings = new String[jsonArray.length()];
+//            String[] nameStrings = new String[jsonArray.length()];
+
 
             for (int i = 0; i < jsonArray.length(); i += 1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 dateTimeStrings[i] = jsonObject.getString("b3_date");
                 balanceStrings[i] = jsonObject.getString("b3_total");
+//                nameStrings[i] = jsonObject.getString("c_name");
+
             }
 
             ShowDepositAdapter showDepositAdapter = new ShowDepositAdapter(getActivity(),
@@ -82,7 +86,7 @@ public class BuyReportCubeFragment extends Fragment {
         ((OwnerActivity)getActivity()).setSupportActionBar(toolbar);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.cube_report));
-        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + loginStrings[1]);
+        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + " "+ loginStrings[1]);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((OwnerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);

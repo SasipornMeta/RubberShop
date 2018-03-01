@@ -117,8 +117,6 @@ public class DetailCustomerFragment extends Fragment{
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
-
-
                             getActivity().getSupportFragmentManager()
                                     .beginTransaction()
                                     .replace(R.id.contentOwnerFragment, EditCustomerFragment.editCustomerInstance(
@@ -127,6 +125,7 @@ public class DetailCustomerFragment extends Fragment{
                             dialogInterface.dismiss();
                         }
                     });
+
                     builder.show();
                 }
 
@@ -197,7 +196,7 @@ public class DetailCustomerFragment extends Fragment{
         ((OwnerActivity)getActivity()).setSupportActionBar(toolbar);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.detail_customer));
-        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + loginStrings[1]);
+        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + " "+ loginStrings[1]);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((OwnerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);

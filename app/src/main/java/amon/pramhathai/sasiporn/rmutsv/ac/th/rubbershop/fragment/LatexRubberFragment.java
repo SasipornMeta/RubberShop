@@ -95,7 +95,6 @@ public class LatexRubberFragment extends Fragment {
             public void onClick(View v) {
                 if (statusABoolean) {
 
-
                     Log.d("25FebV1", "b1_date = " + buyDateTimeString);
                     Log.d("25FebV1", "c_id = " + idCustomerString);
                     Log.d("25FebV1", "c_name = " + nameCustomerString);
@@ -105,11 +104,14 @@ public class LatexRubberFragment extends Fragment {
                     Log.d("25FebV1", "b1_price = " + priceString);
                     Log.d("25FebV1", "b1_total = " + totalString);
 
+                    if (statusABoolean) {
 //                    Add BuyRuber
-                    addBuyRuber();
+                        addBuyRuber();
+
+                    }
 
                 } else {
-                    Toast.makeText(getActivity(), "Cannot Replace Save", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "ึบันทึกข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -127,6 +129,13 @@ public class LatexRubberFragment extends Fragment {
             postBuyLatex.execute(buyDateTimeString, idCustomerString, nameCustomerString,
                     weightString, persentString, dryRubberString, priceString,
                     totalString, myConstant.getUrlAddBuyLatex());
+
+            if (Boolean.parseBoolean(postBuyLatex.get())) {
+                Toast.makeText(getActivity(),"บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getActivity(),"ไม่สามารถบันทึกข้อมูลได้", Toast.LENGTH_SHORT).show();
+            }
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -202,7 +211,6 @@ public class LatexRubberFragment extends Fragment {
             }
         });
     }
-
 
     private void calculateContoller() {
         Button button = getView().findViewById(R.id.btnCalculate);
@@ -319,7 +327,7 @@ public class LatexRubberFragment extends Fragment {
         ((OwnerActivity) getActivity()).setSupportActionBar(toolbar);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.latex_rubber));
-        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + loginStrings[1]);
+        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + " "+loginStrings[1]);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((OwnerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -337,7 +345,9 @@ public class LatexRubberFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_buy_rubber_latex, container, false);
         return view;
     }

@@ -55,9 +55,28 @@ public class OwnerFragment extends Fragment {
 //        Buy Report Controller
         buyReportController();
 
+//        Deposit Controller
+        depositController();
+
 
     }   // main method
 
+    private void depositController() {
+        ImageView imageView = getView().findViewById(R.id.imvDeposit);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentOwnerFragment,
+                                DepositFragment.depositInstance(loginStrings))
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+
+    }
 
 
     private void buyReportController() {
@@ -67,7 +86,8 @@ public class OwnerFragment extends Fragment {
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentOwnerFragment,BuyReportFragment.buyReportInstance(loginStrings))
+                        .replace(R.id.contentOwnerFragment,
+                                BuyReportFragment.buyReportInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
@@ -81,7 +101,8 @@ public class OwnerFragment extends Fragment {
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentOwnerFragment, EditPriceFragment.editPriceInstance(loginStrings))
+                        .replace(R.id.contentOwnerFragment,
+                                EditPriceFragment.editPriceInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
@@ -95,7 +116,8 @@ public class OwnerFragment extends Fragment {
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentOwnerFragment, BuyRubberFragment.buyRubberInstance(loginStrings))
+                        .replace(R.id.contentOwnerFragment,
+                                BuyRubberFragment.buyRubberInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
 
@@ -111,7 +133,8 @@ public class OwnerFragment extends Fragment {
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentOwnerFragment, DetailCustomerFragment.detailCustomerInstance(loginStrings))
+                        .replace(R.id.contentOwnerFragment,
+                                DetailCustomerFragment.detailCustomerInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }

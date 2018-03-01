@@ -64,7 +64,8 @@ public class CustomerFregment extends Fragment{
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentCustomerFragment, CustomerReportFragment.customerReportInstance(loginStrings))
+                        .replace(R.id.contentCustomerFragment,
+                                CustomerReportFragment.customerReportInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
@@ -78,7 +79,8 @@ public class CustomerFregment extends Fragment{
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentCustomerFragment, CustomerDepositFragment.customerDepositInstance(loginStrings))
+                        .replace(R.id.contentCustomerFragment,
+                                CustomerDepositFragment.customerDepositInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
@@ -92,7 +94,8 @@ public class CustomerFregment extends Fragment{
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentCustomerFragment, CustomerPriceFragment.customerPriceInstance(loginStrings))
+                        .replace(R.id.contentCustomerFragment,
+                                CustomerPriceFragment.customerPriceInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }
@@ -107,7 +110,8 @@ public class CustomerFregment extends Fragment{
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentCustomerFragment, CustomerDataFragment.customerDataInstance(loginStrings))
+                        .replace(R.id.contentCustomerFragment,
+                                CustomerDataFragment.customerDataInstance(loginStrings))
                         .addToBackStack(null)
                         .commit();
             }

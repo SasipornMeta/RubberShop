@@ -104,7 +104,7 @@ public class SheetRubberFragment extends Fragment {
 
 
                 } else {
-                    Toast.makeText(getActivity(), "Cannot Save Replace Order", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "บันทึกข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -115,7 +115,6 @@ public class SheetRubberFragment extends Fragment {
     private void addSheet() {
         try {
 
-
             MyConstant myConstant = new MyConstant();
             PostBuySheet postBuySheet = new PostBuySheet(getActivity());
             postBuySheet.execute(buyDateTimeString, idCustomerString, nameCustomerString,
@@ -123,9 +122,9 @@ public class SheetRubberFragment extends Fragment {
 
             if (Boolean.parseBoolean(postBuySheet.get())) {
                 statusABoolean = false;
-                Toast.makeText(getActivity(), "Success Save Value", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getActivity(), "Cannot Save Order", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "ไม่สามารถบันทึกข้อมูลได้", Toast.LENGTH_SHORT).show();
             }
 
         } catch (Exception e) {
@@ -185,7 +184,6 @@ public class SheetRubberFragment extends Fragment {
             e.printStackTrace();
         }
     }
-
 
     private void portionController() {
         Button button = getView().findViewById(R.id.btnPortion);
@@ -288,7 +286,7 @@ public class SheetRubberFragment extends Fragment {
         ((OwnerActivity) getActivity()).getSupportActionBar()
                 .setTitle(getString(R.string.sheet_rubber));
         ((OwnerActivity) getActivity()).getSupportActionBar()
-                .setSubtitle(getString(R.string.user_login) + loginStrings[1]);
+                .setSubtitle(getString(R.string.user_login) + " "+ loginStrings[1]);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((OwnerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -80,8 +80,8 @@ public class CustomerReportSheetFragment extends Fragment {
         Toolbar toolbar = getView().findViewById(R.id.toolbarReportSheet);
         ((CustomerActivity)getActivity()).setSupportActionBar(toolbar);
 
-        ((CustomerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.sheet_report));
-        ((CustomerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.customer_login) + loginStrings[1]);
+        ((CustomerActivity) getActivity()).getSupportActionBar().setTitle("รายงานการขายยางแผ่น");
+        ((CustomerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.customer_login) + " " +loginStrings[1]);
 
         ((CustomerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((CustomerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);

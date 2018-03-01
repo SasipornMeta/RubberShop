@@ -46,7 +46,7 @@
                 android:background="@color/colorAccent"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="รายงานการรับซื้อน้ำยาง"
+                android:text="รายงานการขายน้ำยาง"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/h2" />
 
@@ -68,7 +68,7 @@
                 android:background="@color/colorAccent"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="รายงานการรับซื้อยางแผ่น"
+                android:text="รายงานการขายยางแผ่น"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/h2" />
 
@@ -90,7 +90,7 @@
                 android:background="@color/colorAccent"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="รายงานรับซื้อยางก้อน"
+                android:text="รายงานการขายยางก้อน"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/h2" />
 

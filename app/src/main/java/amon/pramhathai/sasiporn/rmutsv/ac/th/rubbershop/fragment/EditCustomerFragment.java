@@ -229,8 +229,7 @@ public class EditCustomerFragment extends Fragment {
         ((OwnerActivity)getActivity()).setSupportActionBar(toolbar);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.edit_customer));
-        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + loginStrings[1]);
-
+        ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + " "+ loginStrings[1]);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((OwnerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -241,14 +240,9 @@ public class EditCustomerFragment extends Fragment {
             }
         });
 
-
         setHasOptionsMenu(true);
 
-
-
     }
-
-
 
 
     @Nullable

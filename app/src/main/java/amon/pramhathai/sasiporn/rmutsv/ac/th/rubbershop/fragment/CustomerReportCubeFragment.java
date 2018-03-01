@@ -81,8 +81,8 @@ public class CustomerReportCubeFragment extends Fragment {
         Toolbar toolbar = getView().findViewById(R.id.toolbarReportCube);
         ((CustomerActivity)getActivity()).setSupportActionBar(toolbar);
 
-        ((CustomerActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.cube_report));
-        ((CustomerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.customer_login) + loginStrings[1]);
+        ((CustomerActivity) getActivity()).getSupportActionBar().setTitle("รายงานการขายยางก้อน");
+        ((CustomerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.customer_login) + " " +loginStrings[1]);
 
         ((CustomerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((CustomerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);

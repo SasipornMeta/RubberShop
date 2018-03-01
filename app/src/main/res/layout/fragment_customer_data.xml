@@ -37,13 +37,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
+                <TextView
+                    android:text="ชื่อ :"
+                    android:textSize="18dp"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+
                 <!--Text Name-->
                 <TextView
                     android:id="@+id/txtName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorAccent"
                     android:textSize="@dimen/h22" />
 
 
@@ -64,6 +70,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
+                <TextView
+                    android:text="นามสกุล :"
+                    android:textSize="18dp"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+
                 <!--Text LName-->
                 <TextView
                     android:textSize="@dimen/h22"
@@ -71,7 +83,7 @@
                     android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorAccent" />
 
 
             </LinearLayout>
@@ -89,6 +101,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
+                <TextView
+                    android:text="ที่อยู่ :"
+                    android:textSize="18dp"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+
+
                 <!--Text Name-->
                 <TextView
                     android:textSize="@dimen/h22"
@@ -97,7 +116,7 @@
                     android:lines="4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorAccent" />
 
 
             </LinearLayout>
@@ -116,6 +135,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
+                <TextView
+                    android:text="เบอร์โทร :"
+                    android:textSize="18dp"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+
+
                 <!--Text phone-->
                 <TextView
                     android:textSize="@dimen/h22"
@@ -123,22 +149,9 @@
                     android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorAccent" />
 
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="130dp"
-                    android:layout_height="25dp"
-                    android:text="ข้อมูลใช้งาน"
-                    android:textSize="@dimen/h2" />
             </LinearLayout>
 
             <!--User Store-->
@@ -155,9 +168,15 @@
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_action_userlogin" />
 
+                <TextView
+                    android:layout_gravity="center"
+                    android:text="รหัสใช้งาน :"
+                    android:textSize="18dp"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+
                 <!--Text user-->
                 <TextView
-                    android:textStyle="bold"
                     android:layout_gravity="center_vertical"
                     android:textSize="@dimen/h22"
                     android:id="@+id/txtUserLogin"
@@ -182,15 +201,20 @@
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_action_password" />
 
+                <TextView
+                    android:text="รหัสผ่าน :"
+                    android:textSize="18dp"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+
                 <!--Text pass-->
                 <TextView
                     android:layout_gravity="center_vertical"
-                    android:textStyle="bold"
                     android:textSize="@dimen/h22"
                     android:id="@+id/txtPasswordLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:inputType="text"
                     android:textColor="@color/colorAccent"/>
 

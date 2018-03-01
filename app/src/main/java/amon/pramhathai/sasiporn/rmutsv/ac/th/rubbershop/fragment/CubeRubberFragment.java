@@ -92,7 +92,7 @@ public class CubeRubberFragment extends Fragment {
                     addCube();
 
                 } else {
-                    showToast("Cannot Save Replace");
+                    showToast("บันทึกข้อมูลแล้ว");
                 }
             }
         });
@@ -109,9 +109,9 @@ public class CubeRubberFragment extends Fragment {
                     myConstant.getUrlAddBunCube());
 
             if (Boolean.parseBoolean(postBuyCube.get())) {
-                showToast("Save Success");
+                showToast("บันทึกข้อมูลเรียบร้อย");
             } else {
-                showToast("Please Try Again Cannot Save");
+                showToast("ไม่สามารถบันทึกข้อมูลได้");
             }
 
         } catch (Exception e) {
@@ -188,7 +188,6 @@ public class CubeRubberFragment extends Fragment {
             e.printStackTrace();
         }
     }
-
 
     private void portionController() {
         Button button = getView().findViewById(R.id.btnPortion);
@@ -293,7 +292,7 @@ public class CubeRubberFragment extends Fragment {
         ((OwnerActivity) getActivity()).getSupportActionBar()
                 .setTitle(getString(R.string.cube_rubber));
         ((OwnerActivity) getActivity()).getSupportActionBar()
-                .setSubtitle(getString(R.string.user_login) + loginStrings[1]);
+                .setSubtitle(getString(R.string.user_login) + " "+ loginStrings[1]);
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((OwnerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
