@@ -104,12 +104,15 @@ public class PortionFragment extends Fragment {
 
                     if (Boolean.parseBoolean(postSale.get())) {
                         getActivity().getSupportFragmentManager().popBackStack();
+                        Toast.makeText(getActivity(), "บันทึกข้อมูลเรียบร้อย",
+                                Toast.LENGTH_SHORT).show();
 
 //                        getActivity().getSupportFragmentManager()
 //                                .popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                     } else {
-                        showToase("Please Try Again Cannot Save");
+                        Toast.makeText(getActivity(), "ไม่สามารถบันทึกข้อมูลได้",
+                                Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -146,7 +149,8 @@ public class PortionFragment extends Fragment {
 
         double percentADouble = Double.parseDouble(persentString);
         if (percentADouble > 100) {
-            showToase("Percent Over");
+            Toast.makeText(getActivity(), "กรุณากรอกข้อมูลให้ถูกต้อง",
+                    Toast.LENGTH_SHORT).show();
         } else {
 
             double totalPriceADouble = Double.parseDouble(totalString);
@@ -164,10 +168,6 @@ public class PortionFragment extends Fragment {
 
         }
 
-    }
-
-    private void showToase(String messageString) {
-        Toast.makeText(getActivity(), messageString, Toast.LENGTH_SHORT).show();
     }
 
     private void getValueFromArgument() {
