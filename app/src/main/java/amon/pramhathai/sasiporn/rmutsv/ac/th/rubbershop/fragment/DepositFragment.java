@@ -100,6 +100,7 @@ public class DepositFragment extends Fragment {
                             dialogInterface.dismiss();
                         }
                     });
+
                     builder.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -110,8 +111,6 @@ public class DepositFragment extends Fragment {
                 }
 
             });
-
-
 
 
                 } catch (Exception e) {
@@ -142,8 +141,6 @@ public class DepositFragment extends Fragment {
             e.printStackTrace();
         }
     }
-
-
 
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarDepositOwner);

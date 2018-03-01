@@ -9,8 +9,13 @@ public class MyConstant {
     //    About URL
     private String urlGetCustomerWhereOidShopV2 = "http://androidthai.in.th/gif/getCustomerWhereOidShop.php";
     private String urlGetAllBuyLatex = "http://androidthai.in.th/gif/getAllbuylatex1.php";
+    private String urlDeleteBuyLatex = "http://androidthai.in.th/gif/deleteDataBuyLatex.php";
+
     private String urlGetAllBuySheet = "http://androidthai.in.th/gif/getAllbuysheet2.php";
+    private String urlDeleteBuySheet = "http://androidthai.in.th/gif/deleteDataBuySheet.php";
+
     private String urlGetAllBuyCube = "http://androidthai.in.th/gif/getAllbuycube3.php";
+    private String urlDeleteBuyCube = "http://androidthai.in.th/gif/deleteDataBuyCube.php";
 
     private String urlGetLatexWhereIdCustomer = "http://androidthai.in.th/gif/getBuyLatexWhereIDcustomer.php";
     private String urlGetSheetWhereIdCustomer = "http://androidthai.in.th/gif/getBuySheetWhereIDcustomer.php";
@@ -40,7 +45,8 @@ public class MyConstant {
     private String urlDeleteDeposit = "http://androidthai.in.th/gif/deleteDataDeposit.php";
 
     //    Array
-    private String[] columnCustomer = new String[]{"c_id", "c_name", "c_lname", "c_address", "c_tel", "c_user", "c_password", "o_idshop"};
+    private String[] columnCustomer = new String[]{"c_id", "c_name",
+            "c_lname", "c_address", "c_tel", "c_user", "c_password", "o_idshop"};
 
 
 
@@ -48,6 +54,18 @@ public class MyConstant {
 
 //    Getter
 
+
+    public String getUrlDeleteBuyCube() {
+        return urlDeleteBuyCube;
+    }
+
+    public String getUrlDeleteBuySheet() {
+        return urlDeleteBuySheet;
+    }
+
+    public String getUrlDeleteBuyLatex() {
+        return urlDeleteBuyLatex;
+    }
 
     public String getUrlDeleteDeposit() {
         return urlDeleteDeposit;

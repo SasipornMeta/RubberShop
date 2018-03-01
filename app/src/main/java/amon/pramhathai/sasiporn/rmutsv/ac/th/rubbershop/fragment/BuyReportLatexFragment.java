@@ -1,20 +1,28 @@
 package amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.fragment;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.OwnerActivity;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.DeleteDataBuyLatex;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.DeleteDataBuySheet;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.DeleteDataDeposit;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetAllValueFromServer;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.ShowDepositAdapter;
@@ -59,26 +67,76 @@ public class BuyReportLatexFragment extends Fragment {
 
             JSONArray jsonArray = new JSONArray(getAllValueFromServer.get());
 
-            String[] dateTimeStrings = new String[jsonArray.length()];
+            final String[] dateTimeStrings = new String[jsonArray.length()];
             String[] totalStrings = new String[jsonArray.length()];
-//            String[] nameStrings = new String[jsonArray.length()];
 
 
             for (int i = 0; i < jsonArray.length(); i += 1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 dateTimeStrings[i] = jsonObject.getString("b1_date");
                 totalStrings[i] = jsonObject.getString("b1_total");
-//                nameStrings[i] = jsonObject.getString("c_name");
             }
 
             ShowDepositAdapter showDepositAdapter = new ShowDepositAdapter(getActivity(),
                     dateTimeStrings, totalStrings);
             listView.setAdapter(showDepositAdapter);
 
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view,final int itemInt, long l) {
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setCancelable(false);
+                    builder.setIcon(R.drawable.ic_action_alert);
+                    builder.setTitle("ข้อมูลการรับซื้อน้ำยาง");
+                    builder.setMessage("คุณต้องการจะลบใช่หรือไม่ ?");
+                    builder.setPositiveButton("ลบ", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            deleteDataWhere(dateTimeStrings[itemInt]);
+                            dialogInterface.dismiss();
+                        }
+                    });
+
+                    builder.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    });
+                    builder.show();
+                }
+
+            });
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
+
+    private void deleteDataWhere(String dateTimeString) {
+        try {
+            Log.d("1MarV1", "dateTimeDelete ==>" + dateTimeString);
+            MyConstant myConstant = new MyConstant();
+            DeleteDataBuyLatex deleteDataBuyLatex = new DeleteDataBuyLatex(getActivity());
+            deleteDataBuyLatex.execute(dateTimeString, myConstant.getUrlDeleteBuyLatex());
+
+            String result = deleteDataBuyLatex.get();
+            Log.d("1Marv1", "result ==> " + result);
+
+            if (true) {
+                Toast.makeText(getActivity(), "ลบข้อมูลสำเร็จ", Toast.LENGTH_SHORT).show();
+                createListView();
+
+            } else {
+                Toast.makeText(getActivity(), "ไม่สามารถลบข้อมูลได้", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            }
+    }
+
 
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarBuyReportLatex);
