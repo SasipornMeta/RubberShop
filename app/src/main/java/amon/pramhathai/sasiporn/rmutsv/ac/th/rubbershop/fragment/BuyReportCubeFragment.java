@@ -25,6 +25,7 @@ import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.DeleteDataBuyShe
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetAllValueFromServer;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.ShowDepositAdapter;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.ShowDepositOwnerAdapter;
 
 /**
  * Created by sasiporn on 2/13/2018 AD.
@@ -66,21 +67,21 @@ public class BuyReportCubeFragment extends Fragment {
             JSONArray jsonArray = new JSONArray(getAllValueFromServer.get());
 
             final String[] dateTimeStrings = new String[jsonArray.length()];
+            String[] nameStrings = new String[jsonArray.length()];
             String[] balanceStrings = new String[jsonArray.length()];
-//            String[] nameStrings = new String[jsonArray.length()];
 
 
             for (int i = 0; i < jsonArray.length(); i += 1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 dateTimeStrings[i] = jsonObject.getString("b3_date");
+                nameStrings[i] = jsonObject.getString("c_name");
                 balanceStrings[i] = jsonObject.getString("b3_total");
-//                nameStrings[i] = jsonObject.getString("c_name");
 
             }
 
-            ShowDepositAdapter showDepositAdapter = new ShowDepositAdapter(getActivity(),
-                    dateTimeStrings, balanceStrings);
-            listView.setAdapter(showDepositAdapter);
+            ShowDepositOwnerAdapter showDepositOwnerAdapter = new ShowDepositOwnerAdapter(getActivity(),
+                    dateTimeStrings, nameStrings, balanceStrings);
+            listView.setAdapter(showDepositOwnerAdapter);
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

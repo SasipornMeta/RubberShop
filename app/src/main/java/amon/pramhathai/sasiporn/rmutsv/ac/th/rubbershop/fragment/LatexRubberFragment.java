@@ -200,8 +200,6 @@ public class LatexRubberFragment extends Fragment {
                 if (statusABoolean) {
                     addBuyRuber();
                 }
-
-
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.contentOwnerFragment,

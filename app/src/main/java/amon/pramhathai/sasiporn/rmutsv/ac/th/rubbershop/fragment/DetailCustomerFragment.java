@@ -67,9 +67,6 @@ public class DetailCustomerFragment extends Fragment{
 
         try {
 
-//            GetAllValueFromServer getAllValueFromServer = new GetAllValueFromServer(getActivity());
-//            getAllValueFromServer.execute(myConstant.getUrlGetAllCustomer());
-
             GetCustomerWhereOidShop getCustomerWhereOidShop = new GetCustomerWhereOidShop(getActivity());
             getCustomerWhereOidShop.execute(loginStrings[2], myConstant.getUrlGetCustomerWhereOidShopV2());
 

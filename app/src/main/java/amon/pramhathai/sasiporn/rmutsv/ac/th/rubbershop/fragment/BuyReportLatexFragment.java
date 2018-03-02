@@ -26,6 +26,7 @@ import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.DeleteDataDeposi
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetAllValueFromServer;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.ShowDepositAdapter;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.ShowDepositOwnerAdapter;
 
 /**
  * Created by sasiporn on 2/13/2018 AD.
@@ -68,18 +69,22 @@ public class BuyReportLatexFragment extends Fragment {
             JSONArray jsonArray = new JSONArray(getAllValueFromServer.get());
 
             final String[] dateTimeStrings = new String[jsonArray.length()];
+            String[] nameStrings = new String[jsonArray.length()];
             String[] totalStrings = new String[jsonArray.length()];
 
 
             for (int i = 0; i < jsonArray.length(); i += 1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 dateTimeStrings[i] = jsonObject.getString("b1_date");
+                nameStrings[i] = jsonObject.getString("c_name");
                 totalStrings[i] = jsonObject.getString("b1_total");
             }
 
-            ShowDepositAdapter showDepositAdapter = new ShowDepositAdapter(getActivity(),
-                    dateTimeStrings, totalStrings);
-            listView.setAdapter(showDepositAdapter);
+            ShowDepositOwnerAdapter showDepositOwnerAdapter = new ShowDepositOwnerAdapter(getActivity(),
+                    dateTimeStrings,
+                    nameStrings,
+                    totalStrings);
+            listView.setAdapter(showDepositOwnerAdapter);
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

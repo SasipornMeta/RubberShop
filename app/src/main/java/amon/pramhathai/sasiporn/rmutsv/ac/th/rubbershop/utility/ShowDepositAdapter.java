@@ -54,7 +54,6 @@ public class ShowDepositAdapter extends BaseAdapter{
         dateTimeTextView.setText(dateTimeStrings[position]);
         depositTextView.setText(depositStrings[position]);
 
-
         return view;
     }
 }

@@ -27,6 +27,7 @@ import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetAllValueFromS
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetDepositWhereID;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.ShowDepositAdapter;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.ShowDepositOwnerAdapter;
 
 /**
  * Created by sasiporn on 3/1/2018 AD.
@@ -58,6 +59,7 @@ public class DepositFragment extends Fragment {
         createListView();
 
 
+
     }
 
     private void createListView() {
@@ -69,21 +71,23 @@ public class DepositFragment extends Fragment {
 
             JSONArray jsonArray = new JSONArray(getAllValueFromServer.get());
 
-//            String[] dateTimeStrings = new String[jsonArray.length()];
-            final String[] idStrings = new String[jsonArray.length()];
+            final String[] dateTimeStrings = new String[jsonArray.length()];
+            String[] idStrings = new String[jsonArray.length()];
             String[] balanceStrings = new String[jsonArray.length()];
 
             for (int i = 0; i<jsonArray.length(); i+=1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-//                dateTimeStrings[i] = jsonObject.getString("s_date");
+
+                dateTimeStrings[i] = jsonObject.getString("s_date");
                 idStrings[i] = jsonObject.getString("c_id");
                 balanceStrings[i] = jsonObject.getString("s_balance");
             }
 
-            ShowDepositAdapter showDepositAdapter = new ShowDepositAdapter(getActivity(),
-//                    dateTimeStrings,
-                    idStrings, balanceStrings);
-            listView.setAdapter(showDepositAdapter);
+            ShowDepositOwnerAdapter showDepositOwnerAdapter = new ShowDepositOwnerAdapter(getActivity(),
+                    dateTimeStrings,
+                    idStrings,
+                    balanceStrings);
+            listView.setAdapter(showDepositOwnerAdapter);
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -92,11 +96,11 @@ public class DepositFragment extends Fragment {
                     builder.setCancelable(false);
                     builder.setIcon(R.drawable.ic_action_alert);
                     builder.setTitle("ข้อมูลเงินฝาก");
-                    builder.setMessage("คุณต้องการจะลบใช่หรือไม่ ?");
+                    builder.setMessage("ต้องการเบิกเงินที่ฝากไว้หรือ ?");
                     builder.setPositiveButton("ลบ", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            deleteDataWhere(idStrings[itemInt]);
+                            deleteDataWhere(dateTimeStrings[itemInt]);
                             dialogInterface.dismiss();
                         }
                     });
@@ -120,7 +124,7 @@ public class DepositFragment extends Fragment {
 
     private void deleteDataWhere(String idString) {
         try {
-            Log.d("1MarV1", "idDelete ==>" + idString);
+            Log.d("1MarV1", "dateDelete ==>" + idString);
 
             MyConstant myConstant = new MyConstant();
             DeleteDataDeposit deleteDataDeposit = new DeleteDataDeposit(getActivity());

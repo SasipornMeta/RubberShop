@@ -30,7 +30,7 @@ public class DeleteDataDeposit extends AsyncTask<String, Void, String> {
             OkHttpClient okHttpClient = new OkHttpClient();
             RequestBody requestBody = new FormEncodingBuilder()
                     .add("isAdd", "true")
-                    .add("c_id", strings[0])
+                    .add("s_date", strings[0])
                     .build();
             Request.Builder builder = new Request.Builder();
             Request request = builder.url(strings[1]).post(requestBody).build();

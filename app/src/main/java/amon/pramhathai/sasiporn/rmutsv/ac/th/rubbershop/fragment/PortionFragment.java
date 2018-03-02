@@ -8,12 +8,16 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,6 +74,9 @@ public class PortionFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        loginStrings = getArguments().getStringArray("Login");
+
+
 //        Get Value From Argument
         getValueFromArgument();
 
@@ -86,7 +93,9 @@ public class PortionFragment extends Fragment {
         saveSaleController();
 
 
+
     }   // main method
+
 
     private void saveSaleController() {
         Button button = getView().findViewById(R.id.btnSaveSale);
@@ -103,12 +112,17 @@ public class PortionFragment extends Fragment {
                             s_blanceString, myConstant.getUrlAddSale());
 
                     if (Boolean.parseBoolean(postSale.get())) {
-                        getActivity().getSupportFragmentManager().popBackStack();
+                        getActivity().getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.contentOwnerFragment,
+                                        OwnerFragment.ownerInstance(loginStrings))
+                                .addToBackStack(null)
+                                .commit();
+
+
                         Toast.makeText(getActivity(), "บันทึกข้อมูลเรียบร้อย",
                                 Toast.LENGTH_SHORT).show();
 
-//                        getActivity().getSupportFragmentManager()
-//                                .popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                     } else {
                         Toast.makeText(getActivity(), "ไม่สามารถบันทึกข้อมูลได้",
@@ -203,16 +217,16 @@ public class PortionFragment extends Fragment {
         ((OwnerActivity) getActivity()).getSupportActionBar().setTitle("แบ่งจ่าย");
         ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + " "+ loginStrings[1]);
 
-        ((OwnerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
-        ((OwnerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });
+//        ((OwnerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
+//        ((OwnerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        toolbar.setNavigationOnClickListener( new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getActivity().getSupportFragmentManager().popBackStack();
+//            }
+//        });
 
-        setHasOptionsMenu(true);
+//        setHasOptionsMenu(true);
 
     }
 
