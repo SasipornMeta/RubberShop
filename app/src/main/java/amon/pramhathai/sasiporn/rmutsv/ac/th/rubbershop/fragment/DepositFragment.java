@@ -24,6 +24,7 @@ import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.R;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.DeleteDataCustomer;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.DeleteDataDeposit;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetAllValueFromServer;
+import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetCustomerWhereName;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.GetDepositWhereID;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.MyConstant;
 import amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.utility.ShowDepositAdapter;
@@ -74,18 +75,20 @@ public class DepositFragment extends Fragment {
             final String[] dateTimeStrings = new String[jsonArray.length()];
             String[] idStrings = new String[jsonArray.length()];
             String[] balanceStrings = new String[jsonArray.length()];
+            String[] nameCustomerStrings = new String[jsonArray.length()];
 
             for (int i = 0; i<jsonArray.length(); i+=1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                 dateTimeStrings[i] = jsonObject.getString("s_date");
                 idStrings[i] = jsonObject.getString("c_id");
+                nameCustomerStrings[i] = findNameCustomer(idStrings[i]);
                 balanceStrings[i] = jsonObject.getString("s_balance");
             }
 
             ShowDepositOwnerAdapter showDepositOwnerAdapter = new ShowDepositOwnerAdapter(getActivity(),
                     dateTimeStrings,
-                    idStrings,
+                    nameCustomerStrings,
                     balanceStrings);
             listView.setAdapter(showDepositOwnerAdapter);
 
@@ -120,6 +123,31 @@ public class DepositFragment extends Fragment {
                 } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private String findNameCustomer(String idString) {
+
+        String resultString = null;
+        MyConstant myConstant = new MyConstant();
+
+        try {
+
+            GetCustomerWhereName getCustomerWhereName = new GetCustomerWhereName(getActivity());
+            getCustomerWhereName.execute(idString, myConstant.getUrlGetCustomerWhereName());
+            String resultJSON = getCustomerWhereName.get();
+            Log.d("3MarchV1", "JSON ==> " + resultJSON);
+            JSONArray jsonArray = new JSONArray(resultJSON);
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+            resultString = jsonObject.getString("c_name");
+
+            return resultString;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+
     }
 
     private void deleteDataWhere(String idString) {
