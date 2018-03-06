@@ -6,6 +6,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -49,6 +52,8 @@ public class BuyRubberFragment extends Fragment {
 
 
     }   // main method
+
+
 
     private void cubeController() {
         ImageView imageView = getView().findViewById(R.id.imvcubeRubber);
@@ -112,9 +117,6 @@ public class BuyRubberFragment extends Fragment {
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
-
-        setHasOptionsMenu(true);
-
     }
 
 

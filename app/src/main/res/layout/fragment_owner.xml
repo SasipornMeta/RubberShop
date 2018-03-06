@@ -22,11 +22,6 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:id="@+id/toobarOwnerHub">
 
-        <!--<ImageView-->
-            <!---->
-            <!--android:src="@drawable/ic_action_finish"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent" />-->
 
     </android.support.v7.widget.Toolbar>
 

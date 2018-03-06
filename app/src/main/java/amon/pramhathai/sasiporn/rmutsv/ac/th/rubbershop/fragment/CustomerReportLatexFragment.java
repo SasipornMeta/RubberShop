@@ -8,6 +8,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -70,9 +73,7 @@ public class CustomerReportLatexFragment extends Fragment {
 
             MyConstant myConstant = new MyConstant();
             GetBuyReportWhereIdCustomer getBuyReportWhereIdCustomer = new GetBuyReportWhereIdCustomer(getActivity());
-            getBuyReportWhereIdCustomer.execute(loginStrings[0],
-//                    myConstant.getUrlGetLatexWhereIdCustomer()
-                    butReportStrings[0]
+            getBuyReportWhereIdCustomer.execute(loginStrings[0], butReportStrings[0]
             );
 
             String[] dateColumnStrings = new String[]{"b1_date", "b2_date", "b3_date"};
@@ -82,7 +83,6 @@ public class CustomerReportLatexFragment extends Fragment {
             Log.d("27FebV1", "JSON ==> " + resultJSON);
 
             JSONArray jsonArray = new JSONArray(resultJSON);
-//            JSONArray jsonArray = new JSONArray(getBuyReportWhereIdCustomer.get());
             String[] dateTimeStrings = new String[jsonArray.length()];
             String[] balanceStrings = new String[jsonArray.length()];
 
@@ -122,12 +122,31 @@ public class CustomerReportLatexFragment extends Fragment {
         return result;
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_home, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.itemHome) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction().replace(R.id.contentCustomerFragment,
+                    CustomerFregment.customerInstance(loginStrings))
+                    .addToBackStack(null)
+                    .commit();
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarReportLatex);
         ((CustomerActivity)getActivity()).setSupportActionBar(toolbar);
 
-//        ((CustomerActivity) getActivity()).getSupportActionBar().setTitle(getString(buyReportInts[anInt]));
         ((CustomerActivity) getActivity()).getSupportActionBar().setTitle("รายงานการขายน้ำยาง");
         ((CustomerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.customer_login) + " " +loginStrings[1]);
 

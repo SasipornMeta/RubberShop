@@ -8,19 +8,22 @@ public class MyConstant {
 
     //    About URL
     private String urlGetCustomerWhereOidShopV2 = "http://androidthai.in.th/gif/getCustomerWhereOidShop.php";
-    private String urlGetAllBuyLatex = "http://androidthai.in.th/gif/getAllbuylatex1.php";
+    private String urlGetAllBuyLatex = "http://androidthai.in.th/gif/getAllbuylatex2.php";
     private String urlDeleteBuyLatex = "http://androidthai.in.th/gif/deleteDataBuyLatex.php";
 
-    private String urlGetAllBuySheet = "http://androidthai.in.th/gif/getAllbuysheet2.php";
+    private String urlGetAllBuySheet = "http://androidthai.in.th/gif/getAllbuysheet3.php";
     private String urlDeleteBuySheet = "http://androidthai.in.th/gif/deleteDataBuySheet.php";
 
-    private String urlGetAllBuyCube = "http://androidthai.in.th/gif/getAllbuycube3.php";
+    private String urlGetAllBuyCube = "http://androidthai.in.th/gif/getAllbuycube4.php";
     private String urlDeleteBuyCube = "http://androidthai.in.th/gif/deleteDataBuyCube.php";
 
-    private String urlGetLatexWhereIdCustomer = "http://androidthai.in.th/gif/getBuyLatexWhereIDcustomer.php";
-    private String urlGetSheetWhereIdCustomer = "http://androidthai.in.th/gif/getBuySheetWhereIDcustomer.php";
-    private String urlGetCubeWhereIdCustomer = "http://androidthai.in.th/gif/getBuyCubeWhereIDcustomer.php";
-    private String urlGetDepositWhereID = "http://androidthai.in.th/gif/getDepositWhereID.php";
+    private String urlGetLatexWhereIdCustomer = "http://androidthai.in.th/gif/getBuyLatexWhereIDcustomer1.php";
+
+    private String urlGetSheetWhereIdCustomer = "http://androidthai.in.th/gif/getBuySheetWhereIDcustomer1.php";
+
+    private String urlGetCubeWhereIdCustomer = "http://androidthai.in.th/gif/getBuyCubeWhereIDcustomer1.php";
+
+    private String urlGetDepositWhereID = "http://androidthai.in.th/gif/getDepositWhereID1.php";
     private String urlGetCustomerWhereName = "http://androidthai.in.th/gif/getCustomerWhereName.php";
     private String urlAddSale = "http://androidthai.in.th/gif/addsale1.php";
     private String urlAddBunCube = "http://androidthai.in.th/gif/addbuycube3.php";
@@ -41,7 +44,7 @@ public class MyConstant {
     private String urlAddPrice = "http://androidthai.in.th/gif/addprice.php";
     private String urlGetAddPrice = "http://androidthai.in.th/gif/getAllprice.php";
 
-    private String urlGetAllDeposit = "http://androidthai.in.th/gif/getAlldeposit.php";
+    private String urlGetAllDeposit = "http://androidthai.in.th/gif/getAlldeposit2.php";
     private String urlDeleteDeposit = "http://androidthai.in.th/gif/deleteDataDeposit.php";
 
     //    Array

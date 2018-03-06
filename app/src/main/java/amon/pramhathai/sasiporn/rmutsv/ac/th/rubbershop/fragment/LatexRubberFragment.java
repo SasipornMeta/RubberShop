@@ -1,12 +1,17 @@
 package amon.pramhathai.sasiporn.rmutsv.ac.th.rubbershop.fragment;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -20,6 +25,11 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -85,8 +95,23 @@ public class LatexRubberFragment extends Fragment {
 //        Portion Controller
         portionController();
 
+//        SaveBitmap Controller
+
 
     }   // main method
+
+//    private void saveBitmapToExternalStorage(Bitmap bitmap,
+//                                             String directory,
+//                                             String filename,
+//                                             String extension) throws IOException {
+//        File dir = new File(Environment.getExternalStorageDirectory(), directory + filename + ".jpg");
+//        FileOutputStream out = new FileOutputStream(dir);
+//        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+//        out.write(bos.toByteArray());
+//        out.close();
+//
+//    }
 
     private void saveController() {
         Button button = getView().findViewById(R.id.btnSaveBuyLatex);
@@ -328,6 +353,27 @@ public class LatexRubberFragment extends Fragment {
 
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_home, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.itemHome) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction().replace(R.id.contentOwnerFragment,
+                    OwnerFragment.ownerInstance(loginStrings))
+                    .addToBackStack(null)
+                    .commit();
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarLatexRubber);
 
@@ -346,7 +392,6 @@ public class LatexRubberFragment extends Fragment {
         });
 
         setHasOptionsMenu(true);
-
     }
 
 

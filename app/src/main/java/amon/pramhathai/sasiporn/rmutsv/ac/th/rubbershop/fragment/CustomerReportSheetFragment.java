@@ -6,6 +6,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -80,6 +83,7 @@ public class CustomerReportSheetFragment extends Fragment {
             e.printStackTrace();
         }
     }
+
     private String findTotal(String[] balanceStrings) {
 
         String result = null;
@@ -92,6 +96,27 @@ public class CustomerReportSheetFragment extends Fragment {
         result = Double.toString(totalADouble);
 
         return result;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_home, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.itemHome) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction().replace(R.id.contentCustomerFragment,
+                    CustomerFregment.customerInstance(loginStrings))
+                    .addToBackStack(null)
+                    .commit();
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void createToolbar() {

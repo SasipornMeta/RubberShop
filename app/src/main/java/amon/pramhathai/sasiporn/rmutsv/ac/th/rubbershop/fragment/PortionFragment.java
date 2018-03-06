@@ -209,6 +209,28 @@ public class PortionFragment extends Fragment {
 
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_home, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.itemHome) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction().replace(R.id.contentOwnerFragment,
+                    OwnerFragment.ownerInstance(loginStrings))
+                    .addToBackStack(null)
+                    .commit();
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarPortion);
 
@@ -216,6 +238,8 @@ public class PortionFragment extends Fragment {
 
         ((OwnerActivity) getActivity()).getSupportActionBar().setTitle("แบ่งจ่าย");
         ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + " "+ loginStrings[1]);
+
+        setHasOptionsMenu(true);
 
     }
 

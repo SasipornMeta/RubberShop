@@ -73,7 +73,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="ิยอดเงิน"
                     android:textColor="@color/colorPrimary"
@@ -83,7 +83,7 @@
 
                 <TextView
                     android:id="@+id/txtTotal"
-                    android:layout_width="150dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorYellow"
                     android:textSize="@dimen/h1" />
@@ -105,9 +105,9 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="ิแบ่งจ่าย"
+                    android:text="ิแบ่งให้ลูกจ้าง"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16dp"
                     android:textStyle="bold" />
@@ -115,7 +115,7 @@
                 <EditText
                     android:id="@+id/edtPersent"
                     android:inputType="numberDecimal"
-                    android:layout_width="150dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/h1" />
@@ -149,16 +149,16 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="ิเงินแบ่ง"
+                    android:text="ิเงินแบ่งลูกจ้าง"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txts_status"
-                    android:layout_width="150dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/h1" />
@@ -180,16 +180,16 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="ิคงเหลือ"
+                    android:text="ิเงินฝากเจ้าของ"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtb_balance"
-                    android:layout_width="150dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/h1" />

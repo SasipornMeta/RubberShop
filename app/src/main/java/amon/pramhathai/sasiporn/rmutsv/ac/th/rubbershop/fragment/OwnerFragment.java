@@ -8,6 +8,9 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -58,8 +61,9 @@ public class OwnerFragment extends Fragment {
 //        Deposit Controller
         depositController();
 
-
     }   // main method
+
+
 
     private void depositController() {
         ImageView imageView = getView().findViewById(R.id.imvDeposit);
@@ -141,6 +145,40 @@ public class OwnerFragment extends Fragment {
 
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_exit, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.itemExit) {
+
+            final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setCancelable(false);
+            builder.setIcon(R.drawable.ic_action_exit);
+            builder.setTitle("ออกจากระบบ");
+            builder.setMessage("คุณต้องการออกจากระบบใช่หรือไม่ ?");
+            builder.setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    System.exit(1);
+                }
+            });
+
+            builder.setNegativeButton("ไม่", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            builder.show();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toobarOwnerHub);
         ((OwnerActivity)getActivity()).setSupportActionBar(toolbar);
@@ -148,7 +186,7 @@ public class OwnerFragment extends Fragment {
         ((OwnerActivity) getActivity()).getSupportActionBar().setTitle(loginStrings[1]);
         ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle("เจ้าของร้าน");
 
-
+        setHasOptionsMenu(true);
     }
 
     @Nullable

@@ -9,6 +9,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -155,6 +158,28 @@ public class BuyReportCubeFragment extends Fragment {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_home, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.itemHome) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction().replace(R.id.contentOwnerFragment,
+                    OwnerFragment.ownerInstance(loginStrings))
+                    .addToBackStack(null)
+                    .commit();
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarBuyReportCube);
