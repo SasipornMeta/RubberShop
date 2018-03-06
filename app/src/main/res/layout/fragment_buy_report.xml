@@ -32,7 +32,7 @@
 // Latex Report
             <ImageView
                 android:id="@+id/imvlatexReport"
-                android:layout_width="230dp"
+                android:layout_width="210dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:background="@drawable/latex"/>
@@ -40,7 +40,7 @@
             <TextView
                 android:layout_gravity="center"
                 android:id="@+id/textView"
-                android:layout_width="230dp"
+                android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorAccent"
@@ -56,13 +56,13 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/sheet"
                 android:layout_gravity="center"
-                android:layout_width="230dp"
+                android:layout_width="210dp"
                 android:layout_height="100dp" />
 
             <TextView
                 android:layout_gravity="center"
                 android:id="@+id/textView3"
-                android:layout_width="232dp"
+                android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorAccent"
@@ -78,13 +78,13 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/cube"
                 android:layout_gravity="center"
-                android:layout_width="230dp"
+                android:layout_width="210dp"
                 android:layout_height="100dp" />
 
             <TextView
                 android:layout_gravity="center"
                 android:id="@+id/textView8"
-                android:layout_width="232dp"
+                android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorAccent"

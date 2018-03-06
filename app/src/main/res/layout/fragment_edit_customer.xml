@@ -19,7 +19,7 @@
         <LinearLayout
             android:background="#b4ffffff"
             android:padding="@dimen/margin"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

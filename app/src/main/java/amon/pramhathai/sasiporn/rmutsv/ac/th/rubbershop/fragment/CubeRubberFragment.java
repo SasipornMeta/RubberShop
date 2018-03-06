@@ -88,8 +88,15 @@ public class CubeRubberFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (status) {
-
+//                    Add Cube
                     addCube();
+                    getActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.contentOwnerFragment,
+                                    OwnerFragment.ownerInstance(loginStrings))
+                            .addToBackStack(null)
+                            .commit();
+
 
                 } else {
                     showToast("บันทึกข้อมูลแล้ว");
@@ -109,6 +116,7 @@ public class CubeRubberFragment extends Fragment {
                     myConstant.getUrlAddBunCube());
 
             if (Boolean.parseBoolean(postBuyCube.get())) {
+
                 showToast("บันทึกข้อมูลเรียบร้อย");
             } else {
                 showToast("ไม่สามารถบันทึกข้อมูลได้");

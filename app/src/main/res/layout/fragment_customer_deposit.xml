@@ -15,16 +15,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-
         <!--Content-->
         <ListView
+            android:layout_margin="10dp"
             android:layout_above="@+id/txtTotal"
             android:id="@+id/listViewShowDeposit"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <TextView
+            android:layout_margin="10dp"
             android:id="@+id/txtTotal"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/h1"
@@ -36,8 +36,4 @@
 
 
     </RelativeLayout>
-
-
-
-
 </LinearLayout>

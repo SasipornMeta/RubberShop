@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <!--Toolbar-->
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -11,11 +12,29 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:id="@+id/toolbarBuyReportCube" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <!--Content-->
     <ListView
+        android:layout_margin="10dp"
+        android:layout_above="@+id/txtTotal"
         android:id="@+id/listViewBuyReportCube"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/txtTotal"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/h1"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="Total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
 </LinearLayout>

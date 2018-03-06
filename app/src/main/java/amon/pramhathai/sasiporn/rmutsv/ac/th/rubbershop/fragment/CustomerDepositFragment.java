@@ -80,7 +80,7 @@ public class CustomerDepositFragment extends Fragment{
 
             String totalString = findTotal(balanceStrings);
             TextView textView = getView().findViewById(R.id.txtTotal);
-            textView.setText("Total ==> " + totalString);
+            textView.setText("เงินรวม ==> " + totalString);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,7 +99,6 @@ public class CustomerDepositFragment extends Fragment{
         }
 
         result = Double.toString(totalADouble);
-
 
         return result;
     }

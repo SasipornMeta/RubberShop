@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -73,11 +74,14 @@ public class BuyReportLatexFragment extends Fragment {
             String[] totalStrings = new String[jsonArray.length()];
 
 
+
             for (int i = 0; i < jsonArray.length(); i += 1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 dateTimeStrings[i] = jsonObject.getString("b1_date");
                 nameStrings[i] = jsonObject.getString("c_name");
                 totalStrings[i] = jsonObject.getString("b1_total");
+
+
             }
 
             ShowDepositOwnerAdapter showDepositOwnerAdapter = new ShowDepositOwnerAdapter(getActivity(),
@@ -112,12 +116,28 @@ public class BuyReportLatexFragment extends Fragment {
                 }
 
             });
+            String totalString = findTotal(totalStrings);
+            TextView textView = getView().findViewById(R.id.txtTotal);
+            textView.setText("เงินรวม ==> " + totalString);
 
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+    private String findTotal(String[] balanceStrings) {
+
+        String result = null;
+        double totalADouble = 0;
+
+        for (int i=0; i<balanceStrings.length; i+=1) {
+            totalADouble = totalADouble + Double.parseDouble(balanceStrings[i]);
+        }
+
+        result = Double.toString(totalADouble);
+
+        return result;
     }
 
     private void deleteDataWhere(String dateTimeString) {

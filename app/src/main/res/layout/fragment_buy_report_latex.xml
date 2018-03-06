@@ -11,11 +11,29 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:id="@+id/toolbarBuyReportLatex" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <!--Content-->
     <ListView
+        android:layout_margin="10dp"
+        android:layout_above="@+id/txtTotal"
         android:id="@+id/listViewBuyReportLatex"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/txtTotal"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/h1"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="Total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
 
 </LinearLayout>

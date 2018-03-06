@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -110,11 +111,27 @@ public class BuyReportSheetFragment extends Fragment {
 
             });
 
+            String totalString = findTotal(balanceStrings);
+            TextView textView = getView().findViewById(R.id.txtTotal);
+            textView.setText("เงินรวม ==> " + totalString);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+    private String findTotal(String[] balanceStrings) {
+
+        String result = null;
+        double totalADouble = 0;
+
+        for (int i=0; i<balanceStrings.length; i+=1) {
+            totalADouble = totalADouble + Double.parseDouble(balanceStrings[i]);
+        }
+
+        result = Double.toString(totalADouble);
+
+        return result;
     }
 
     private void deleteDataWhere(String dateTimeString) {

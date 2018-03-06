@@ -31,7 +31,6 @@
 
         <!--Start Button-->
         <Button
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="@dimen/margin"
             android:layout_marginRight="@dimen/margin"
             android:id="@+id/btnstart"
@@ -57,6 +56,23 @@
             android:textSize="@dimen/h18"
             android:textStyle="bold"/>
 
+
     </LinearLayout>
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:text="ผู้จัดทำ"
+        android:textSize="@dimen/h18"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:id="@+id/txtProvider"
+        android:contextClickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

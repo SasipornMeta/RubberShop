@@ -217,17 +217,6 @@ public class PortionFragment extends Fragment {
         ((OwnerActivity) getActivity()).getSupportActionBar().setTitle("แบ่งจ่าย");
         ((OwnerActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.user_login) + " "+ loginStrings[1]);
 
-//        ((OwnerActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
-//        ((OwnerActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        toolbar.setNavigationOnClickListener( new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                getActivity().getSupportFragmentManager().popBackStack();
-//            }
-//        });
-
-//        setHasOptionsMenu(true);
-
     }
 
 

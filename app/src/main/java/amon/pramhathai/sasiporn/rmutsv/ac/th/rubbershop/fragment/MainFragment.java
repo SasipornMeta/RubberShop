@@ -31,20 +31,31 @@ public class MainFragment extends Fragment{
 //        pdf Controller
         pdfController();
 
+//        provider Controller
+        providerController();
+
+
     }   // main method
+
+    private void providerController() {
+        TextView textView = getView().findViewById(R.id.txtProvider);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentMainFragment, new ProviderFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+    }
 
     private void pdfController() {
         TextView textView = getView().findViewById(R.id.txtPDF);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                getActivity().getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .replace(R.id.contentCustomerFragment, new TutorialFragment())
-//                        .addToBackStack(null)
-//                        .commit();
-
                 Intent intent = new Intent(getActivity(), TutorialActivity.class);
                 startActivity(intent);
 
@@ -52,19 +63,16 @@ public class MainFragment extends Fragment{
         });
     }
 
-
     private void authenController() {
         Button button = getView().findViewById(R.id.btnstart);              //  เสร็จบรรทัดนี้ คุมทั้งบรรทัด กด option+command+m
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.contentMainFragment, new AuthenFragment())
                         .addToBackStack(null)
                         .commit();
-
             }
         });
     }

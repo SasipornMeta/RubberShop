@@ -98,10 +98,14 @@ public class SheetRubberFragment extends Fragment {
                 Log.d("25FebV1", "b2_total = " + totalString);
 
                 if (statusABoolean) {
-
 //                    Add Sheet
                     addSheet();
-
+                    getActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.contentOwnerFragment,
+                                    OwnerFragment.ownerInstance(loginStrings))
+                            .addToBackStack(null)
+                            .commit();
 
                 } else {
                     Toast.makeText(getActivity(), "บันทึกข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
@@ -122,6 +126,7 @@ public class SheetRubberFragment extends Fragment {
 
             if (Boolean.parseBoolean(postBuySheet.get())) {
                 statusABoolean = false;
+
                 Toast.makeText(getActivity(), "บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(getActivity(), "ไม่สามารถบันทึกข้อมูลได้", Toast.LENGTH_SHORT).show();

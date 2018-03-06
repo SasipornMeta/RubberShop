@@ -107,10 +107,17 @@ public class LatexRubberFragment extends Fragment {
                     if (statusABoolean) {
 //                    Add BuyRuber
                         addBuyRuber();
+                        getActivity().getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.contentOwnerFragment,
+                                        OwnerFragment.ownerInstance(loginStrings))
+                                .addToBackStack(null)
+                                .commit();
 
                     }
 
                 } else {
+
                     Toast.makeText(getActivity(), "ึบันทึกข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -131,9 +138,11 @@ public class LatexRubberFragment extends Fragment {
                     totalString, myConstant.getUrlAddBuyLatex());
 
             if (Boolean.parseBoolean(postBuyLatex.get())) {
-                Toast.makeText(getActivity(),"บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"บันทึกข้อมูลเรียบร้อย",
+                        Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getActivity(),"ไม่สามารถบันทึกข้อมูลได้", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"ไม่สามารถบันทึกข้อมูลได้",
+                        Toast.LENGTH_SHORT).show();
             }
 
 

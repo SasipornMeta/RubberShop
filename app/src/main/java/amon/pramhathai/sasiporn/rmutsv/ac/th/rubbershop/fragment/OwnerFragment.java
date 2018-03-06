@@ -78,7 +78,6 @@ public class OwnerFragment extends Fragment {
 
     }
 
-
     private void buyReportController() {
         ImageView imageView = getView().findViewById(R.id.imvReportBuy);
         imageView.setOnClickListener(new View.OnClickListener() {
