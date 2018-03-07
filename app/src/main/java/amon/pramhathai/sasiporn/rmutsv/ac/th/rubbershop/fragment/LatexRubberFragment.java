@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -100,18 +101,7 @@ public class LatexRubberFragment extends Fragment {
 
     }   // main method
 
-//    private void saveBitmapToExternalStorage(Bitmap bitmap,
-//                                             String directory,
-//                                             String filename,
-//                                             String extension) throws IOException {
-//        File dir = new File(Environment.getExternalStorageDirectory(), directory + filename + ".jpg");
-//        FileOutputStream out = new FileOutputStream(dir);
-//        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
-//        out.write(bos.toByteArray());
-//        out.close();
-//
-//    }
+
 
     private void saveController() {
         Button button = getView().findViewById(R.id.btnSaveBuyLatex);
@@ -130,8 +120,13 @@ public class LatexRubberFragment extends Fragment {
                     Log.d("25FebV1", "b1_total = " + totalString);
 
                     if (statusABoolean) {
+
 //                    Add BuyRuber
                         addBuyRuber();
+
+                        View view = getView().findViewById(R.id.scrollView1);
+                        shareScreenShotM(view, (NestedScrollView) view);
+
                         getActivity().getSupportFragmentManager()
                                 .beginTransaction()
                                 .replace(R.id.contentOwnerFragment,
@@ -150,9 +145,53 @@ public class LatexRubberFragment extends Fragment {
 
     }
 
+    public void shareScreenShotM(View view, NestedScrollView scrollView) {
+
+        Bitmap bm = takeScreenShort(view, scrollView);
+        File file = savePic(bm);
+    }
+
+    public Bitmap takeScreenShort(View u, NestedScrollView z) {
+        u.setDrawingCacheEnabled(true);
+        int totalHeight = z.getChildAt(0).getHeight();
+        int totalWidth = z.getChildAt(0).getWidth();
+
+        Log.d("yoheight", " " + totalHeight);
+        Log.d("yowidth", " " + totalWidth);
+        u.layout(0, 0, totalWidth, totalHeight);
+        u.buildDrawingCache();
+        Bitmap b = Bitmap.createBitmap(u.getDrawingCache());
+        u.setDrawingCacheEnabled(false);
+        u.destroyDrawingCache();
+        return b;
+    }
+
+    public static File savePic(Bitmap bm) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        File sdCardDirectory = new File(Environment.getExternalStorageDirectory() + "/Foldername");
+
+        if (!sdCardDirectory.exists()) {
+            sdCardDirectory.mkdirs();
+        }
+
+        File file = null;
+        try {
+            file = new File(sdCardDirectory, Calendar.getInstance()
+                    .getTimeInMillis() + ".jpg");
+            file.createNewFile();
+            new FileOutputStream(file).write(bytes.toByteArray());
+            Log.d("Fabsolute", "File Saved:: ==>" + file.getAbsolutePath());
+            Log.d("Sabsolute", "File Saved:: ==>" + sdCardDirectory.getAbsolutePath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return file;
+
+    }
+
     private void addBuyRuber() {
         try {
-
             statusABoolean = false;
 
             MyConstant myConstant = new MyConstant();
@@ -162,11 +201,9 @@ public class LatexRubberFragment extends Fragment {
                     totalString, myConstant.getUrlAddBuyLatex());
 
             if (Boolean.parseBoolean(postBuyLatex.get())) {
-                Toast.makeText(getActivity(),"บันทึกข้อมูลเรียบร้อย",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getActivity(),"ไม่สามารถบันทึกข้อมูลได้",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"ไม่สามารถบันทึกข้อมูลได้", Toast.LENGTH_SHORT).show();
             }
 
 
