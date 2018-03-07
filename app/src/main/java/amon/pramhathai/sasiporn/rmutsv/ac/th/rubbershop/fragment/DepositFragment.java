@@ -80,6 +80,9 @@ public class DepositFragment extends Fragment {
             String[] balanceStrings = new String[jsonArray.length()];
             String[] nameCustomerStrings = new String[jsonArray.length()];
 
+
+
+
             for (int i = 0; i<jsonArray.length(); i+=1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
 

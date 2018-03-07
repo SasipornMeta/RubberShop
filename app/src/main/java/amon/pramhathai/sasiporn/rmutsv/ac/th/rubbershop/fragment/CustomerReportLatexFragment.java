@@ -90,6 +90,7 @@ public class CustomerReportLatexFragment extends Fragment {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 dateTimeStrings[i] = jsonObject.getString("b1_date");
                 balanceStrings[i] = jsonObject.getString("b1_total");
+
             }
 
             ShowDepositAdapter showDepositAdapter = new ShowDepositAdapter(getActivity(),

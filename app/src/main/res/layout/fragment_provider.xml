@@ -7,7 +7,7 @@
 
 
     <LinearLayout
-        android:background="#efda6e"
+        android:background="#fcded489"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -54,10 +54,8 @@
     </LinearLayout>
 
         <LinearLayout
-            android:paddingBottom="20dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="20dp"
-            android:background="#b4ffffff"
+            android:padding="25dp"
+            android:background="#6effffff"
             android:layout_margin="20dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -70,11 +68,10 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:textColor="#9e0a27"
+                    android:textColor="#4b4b4b"
                     android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:text="คณะผู้จัดทำ : "
-                    android:layout_width="100dp"
+                    android:text="ผู้จัดทำ : "
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content" />
 
                 <!--ชื่อผู้จัดทำ-->
@@ -87,27 +84,22 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="นางสาวเปรมหทัย สุขสว่าง"
-                        android:textColor="#9e0a27"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textColor="#4b4b4b"
+                        android:textSize="15sp" />
 
                     <TextView
-                        android:textColor="#9e0a27"
+                        android:textColor="#4b4b4b"
                         android:textSize="15sp"
-                        android:textStyle="bold"
                         android:text="นางสาวศศิพร เมธาวีสุวรรณ"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
                     <TextView
-                        android:textColor="#9e0a27"
+                        android:textColor="#4b4b4b"
                         android:textSize="15sp"
-                        android:textStyle="bold"
                         android:text="นางสาวอมล ศิริคำหอม"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
-
-
 
                 </LinearLayout>
 
@@ -115,151 +107,139 @@
 
             <!--อาจารย์ที่ปรึกษา-->
             <LinearLayout
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:textColor="#500773"
+                    android:textColor="#4b4b4b"
                     android:textSize="15sp"
-                    android:textStyle="bold"
                     android:text="ที่ปรึกษา : "
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="อาจารย์พจนา หอมหวล"
-                        android:textColor="#500773"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textColor="#4b4b4b"
+                        android:textSize="15sp" />
 
             </LinearLayout>
 
             <!--สถาบัน-->
             <LinearLayout
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:textColor="#9e0a27"
+                    android:textColor="#4b4b4b"
                     android:textSize="15sp"
-                    android:textStyle="bold"
                     android:text="สถาบัน : "
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="มหาวิทยาลัยเทคโนโลยีราชมงคลศรีวิชัย"
-                        android:textColor="#9e0a27"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textColor="#4b4b4b"
+                        android:textSize="15sp"/>
 
             </LinearLayout>
 
             <!--คณะ-->
             <LinearLayout
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:textColor="#500773"
+                    android:textColor="#4b4b4b"
                     android:textSize="15sp"
-                    android:textStyle="bold"
                     android:text="คณะ : "
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="เทคโนโลยีการจัดการ"
-                    android:textColor="#500773"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textColor="#4b4b4b"
+                    android:textSize="15sp"/>
 
             </LinearLayout>
 
             <!--สาขา-->
             <LinearLayout
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:textColor="#9e0a27"
+                    android:textColor="#4b4b4b"
                     android:textSize="15sp"
-                    android:textStyle="bold"
                     android:text="สาขา : "
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ระบบสารสนเทศทางธุรกิจ"
-                    android:textColor="#9e0a27"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textColor="#4b4b4b"
+                    android:textSize="15sp"/>
 
             </LinearLayout>
 
             <!--หลักสูตร-->
             <LinearLayout
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:textColor="#500773"
+                    android:textColor="#4b4b4b"
                     android:textSize="15sp"
-                    android:textStyle="bold"
                     android:text="หลักสูตร : "
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ปริญญาบริหารธุรกิจบัณฑิต"
-                    android:textColor="#500773"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textColor="#4b4b4b"
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
             ปีการศึกษา
             <LinearLayout
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:textColor="#9e0a27"
+                    android:textColor="#4b4b4b"
                     android:textSize="15sp"
-                    android:textStyle="bold"
                     android:text="ปีการศึกษา : "
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2560"
-                    android:textColor="#9e0a27"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textColor="#4b4b4b"
+                    android:textSize="15sp" />
 
             </LinearLayout>
 

@@ -138,7 +138,6 @@ public class LatexRubberFragment extends Fragment {
                                         OwnerFragment.ownerInstance(loginStrings))
                                 .addToBackStack(null)
                                 .commit();
-
                     }
 
                 } else {
@@ -321,7 +320,6 @@ public class LatexRubberFragment extends Fragment {
             idCustomerString = c_idStrings[0];
             nameCustomerString = c_nameStrings[0];
 
-
             ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, c_nameStrings);
             spinner.setAdapter(stringArrayAdapter);
@@ -332,8 +330,6 @@ public class LatexRubberFragment extends Fragment {
 
                     idCustomerString = c_idStrings[i];
                     nameCustomerString = c_nameStrings[i];
-
-
                 }
 
                 @Override
@@ -341,8 +337,6 @@ public class LatexRubberFragment extends Fragment {
 
                     idCustomerString = c_idStrings[0];
                     nameCustomerString = c_nameStrings[0];
-
-
                 }
             });
 

@@ -74,6 +74,10 @@ public class BuyReportCubeFragment extends Fragment {
             String[] nameStrings = new String[jsonArray.length()];
             String[] balanceStrings = new String[jsonArray.length()];
 
+            String[] weightStrings = new String[jsonArray.length()];
+            String[] percentStrings = new String[jsonArray.length()];
+            String[] priceStrings = new String[jsonArray.length()];
+
 
             for (int i = 0; i < jsonArray.length(); i += 1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
@@ -81,11 +85,14 @@ public class BuyReportCubeFragment extends Fragment {
                 nameStrings[i] = jsonObject.getString("c_name");
                 balanceStrings[i] = jsonObject.getString("b3_total");
 
+                weightStrings[i] = jsonObject.getString("b3_weight");
+                percentStrings[i] = jsonObject.getString("b3_percent");
+                priceStrings[i] = jsonObject.getString("b3_price");
             }
 
-            ShowDepositOwnerAdapter showDepositOwnerAdapter = new ShowDepositOwnerAdapter(getActivity(),
-                    dateTimeStrings, nameStrings, balanceStrings);
-            listView.setAdapter(showDepositOwnerAdapter);
+            ShowReportCube showReportCube = new ShowReportCube(getActivity(),
+                    dateTimeStrings, nameStrings, balanceStrings, weightStrings, percentStrings,priceStrings);
+            listView.setAdapter(showReportCube);
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

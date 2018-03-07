@@ -76,6 +76,11 @@ public class BuyReportLatexFragment extends Fragment {
             String[] nameStrings = new String[jsonArray.length()];
             String[] totalStrings = new String[jsonArray.length()];
 
+            String[] weightStrings = new String[jsonArray.length()];
+            String[] percentStrings = new String[jsonArray.length()];
+            String[] dryStrings = new String[jsonArray.length()];
+            String[] priceStrings = new String[jsonArray.length()];
+
 
 
             for (int i = 0; i < jsonArray.length(); i += 1) {
@@ -84,14 +89,15 @@ public class BuyReportLatexFragment extends Fragment {
                 nameStrings[i] = jsonObject.getString("c_name");
                 totalStrings[i] = jsonObject.getString("b1_total");
 
-
+                weightStrings[i] = jsonObject.getString("b1_weight");
+                percentStrings[i] = jsonObject.getString("b1_percent");
+                dryStrings[i] = jsonObject.getString("b1_dry");
+                priceStrings[i] = jsonObject.getString("b1_price");
             }
 
-            ShowDepositOwnerAdapter showDepositOwnerAdapter = new ShowDepositOwnerAdapter(getActivity(),
-                    dateTimeStrings,
-                    nameStrings,
-                    totalStrings);
-            listView.setAdapter(showDepositOwnerAdapter);
+            ShowReportLatex showReportLatex = new ShowReportLatex(getActivity(),
+                    dateTimeStrings, nameStrings, totalStrings, weightStrings, percentStrings,dryStrings,priceStrings);
+            listView.setAdapter(showReportLatex);
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
