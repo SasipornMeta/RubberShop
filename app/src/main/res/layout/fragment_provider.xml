@@ -70,7 +70,7 @@
                 <TextView
                     android:textColor="#4b4b4b"
                     android:textSize="15sp"
-                    android:text="ผู้จัดทำ : "
+                    android:text="ผู้พัฒนา : "
                     android:layout_width="80dp"
                     android:layout_height="wrap_content" />
 
@@ -174,28 +174,28 @@
 
             </LinearLayout>
 
-            <!--สาขา-->
-            <LinearLayout
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <!--&lt;!&ndash;สาขา&ndash;&gt;-->
+            <!--<LinearLayout-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                <TextView
-                    android:textColor="#4b4b4b"
-                    android:textSize="15sp"
-                    android:text="สาขา : "
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content" />
+                <!--<TextView-->
+                    <!--android:textColor="#4b4b4b"-->
+                    <!--android:textSize="15sp"-->
+                    <!--android:text="สาขา : "-->
+                    <!--android:layout_width="80dp"-->
+                    <!--android:layout_height="wrap_content" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ระบบสารสนเทศทางธุรกิจ"
-                    android:textColor="#4b4b4b"
-                    android:textSize="15sp"/>
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="ระบบสารสนเทศทางธุรกิจ"-->
+                    <!--android:textColor="#4b4b4b"-->
+                    <!--android:textSize="15sp"/>-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
             <!--หลักสูตร-->
             <LinearLayout
@@ -214,7 +214,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ปริญญาบริหารธุรกิจบัณฑิต"
+                    android:text="สาขาวิชาระบบสารสนเทศทางธุรกิจ"
                     android:textColor="#4b4b4b"
                     android:textSize="15sp" />
 

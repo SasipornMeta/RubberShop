@@ -64,15 +64,21 @@ public class CustomerReportSheetFragment extends Fragment {
             String[] dataTimeStrings = new String[jsonArray.length()];
             String[] balanceStrings = new String[jsonArray.length()];
 
+            String[] weightStrings = new String[jsonArray.length()];
+            String[] priceStrings = new String[jsonArray.length()];
+
             for (int i=0; i<jsonArray.length(); i+=1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 dataTimeStrings[i] = jsonObject.getString("b2_date");
                 balanceStrings[i] = jsonObject.getString("b2_total");
+
+                weightStrings[i] = jsonObject.getString("b2_weight");
+                priceStrings[i] = jsonObject.getString("b2_price");
             }
 
-            ShowDepositAdapter showDepositAdapter = new ShowDepositAdapter(getActivity(),
-                    dataTimeStrings, balanceStrings);
-            listView.setAdapter(showDepositAdapter);
+            ShowReportCustomerSheet showReportCustomerSheet = new ShowReportCustomerSheet(getActivity(),
+                    dataTimeStrings, balanceStrings, weightStrings,priceStrings);
+            listView.setAdapter(showReportCustomerSheet);
 
             String totalString = findTotal(balanceStrings);
             TextView textView = getView().findViewById(R.id.txtTotal);

@@ -65,15 +65,25 @@ public class CustomerReportCubeFragment extends Fragment {
             JSONArray jsonArray = new JSONArray(getBuyReportWhereIdCustomer.get());
             String[] dataTimeStrings = new String[jsonArray.length()];
             String[] balanceStrings = new String[jsonArray.length()];
+
+            String[] weightStrings = new String[jsonArray.length()];
+            String[] percentStrings = new String[jsonArray.length()];
+            String[] priceStrings = new String[jsonArray.length()];
+
             for (int i=0; i<jsonArray.length(); i+=1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 dataTimeStrings[i] = jsonObject.getString("b3_date");
                 balanceStrings[i] = jsonObject.getString("b3_total");
+
+                weightStrings[i] = jsonObject.getString("b3_weight");
+                percentStrings[i] = jsonObject.getString("b3_percent");
+                priceStrings[i] = jsonObject.getString("b3_price");
+
             }
 
-            ShowDepositAdapter showDepositAdapter = new ShowDepositAdapter(getActivity(),
-                    dataTimeStrings, balanceStrings);
-            listView.setAdapter(showDepositAdapter);
+            ShowReportCustomerCube showReportCustomerCube = new ShowReportCustomerCube(getActivity(),
+                    dataTimeStrings, balanceStrings,weightStrings, percentStrings,priceStrings);
+            listView.setAdapter(showReportCustomerCube);
 
             String totalString = findTotal(balanceStrings);
             TextView textView = getView().findViewById(R.id.txtTotal);

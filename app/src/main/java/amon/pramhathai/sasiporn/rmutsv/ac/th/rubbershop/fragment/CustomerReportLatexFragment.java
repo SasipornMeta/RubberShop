@@ -86,16 +86,28 @@ public class CustomerReportLatexFragment extends Fragment {
             String[] dateTimeStrings = new String[jsonArray.length()];
             String[] balanceStrings = new String[jsonArray.length()];
 
+            String[] weightStrings = new String[jsonArray.length()];
+            String[] percentStrings = new String[jsonArray.length()];
+            String[] dryStrings = new String[jsonArray.length()];
+            String[] priceStrings = new String[jsonArray.length()];
+
+
             for (int i = 0; i < jsonArray.length(); i = +1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 dateTimeStrings[i] = jsonObject.getString("b1_date");
                 balanceStrings[i] = jsonObject.getString("b1_total");
 
+                weightStrings[i] = jsonObject.getString("b1_weight");
+                percentStrings[i] = jsonObject.getString("b1_percent");
+                dryStrings[i] = jsonObject.getString("b1_dry");
+                priceStrings[i] = jsonObject.getString("b1_price");
+
+
             }
 
-            ShowDepositAdapter showDepositAdapter = new ShowDepositAdapter(getActivity(),
-                    dateTimeStrings, balanceStrings);
-            listView.setAdapter(showDepositAdapter);
+            ShowReportCustomerlatex showReportCustomerlatex = new ShowReportCustomerlatex(getActivity(),
+                    dateTimeStrings, balanceStrings,weightStrings,percentStrings,dryStrings,priceStrings);
+            listView.setAdapter(showReportCustomerlatex);
 
             getBuyReportWhereIdCustomer.cancel(true);
 

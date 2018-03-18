@@ -5,21 +5,80 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="#c500c853"
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_margin="5dp"
+            android:src="@drawable/rmutsv"
+            android:layout_width="50dp"
+            android:layout_height="70dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#b23ce9"
+                android:text="Faculty of"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textColor="#b23ce9"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Management Technology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textColor="#221933"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:text="Rajamangala University of Technology Srivijaya"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="120dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         android:padding="16dp"
         android:orientation="vertical"
-        android:layout_margin="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textSize="@dimen/h24"
+            android:text="APPLICATION"
             android:textColor="#ffffff"
-            android:text="@string/thai_name"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:textSize="30sp"
+            android:textColor="#ffffff"
+            android:text="รับซื้อยางพารา"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
 
@@ -56,23 +115,62 @@
             android:textSize="@dimen/h18"
             android:textStyle="bold"/>
 
+        <TextView
+            android:contextClickable="true"
+            android:layout_marginTop="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:text="พัฒนาโดย : สาขาระบบสารสนเทศ   คณะเทคโนโลยีการจัดการ"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:contextClickable="true"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:text="มหาวิทยาลัยเทคโนโลยีราชมงคลศรีวิชัย (ไสใหญ่)"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentBottom="true"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:text="ผู้พัฒนาระบบ"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:id="@+id/txtProvider"
+            android:contextClickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
 
     </LinearLayout>
 
-    <TextView
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="5dp"
-        android:layout_alignParentBottom="true"
-        android:textStyle="bold"
-        android:textColor="@color/colorWhite"
-        android:text="ผู้จัดทำ"
-        android:textSize="@dimen/h18"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center_horizontal"
-        android:clickable="true"
-        android:id="@+id/txtProvider"
-        android:contextClickable="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+    <!--<TextView-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textColor="@color/colorWhite"-->
+        <!--android:text="ผู้จัดทำ"-->
+        <!--android:textSize="16sp"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:clickable="true"-->
+        <!--android:id="@+id/txtProvider"-->
+        <!--android:contextClickable="true"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
 
 </RelativeLayout>

@@ -282,11 +282,8 @@ public class CubeRubberFragment extends Fragment {
                     idCustomerString = c_idStrings[0];
                     nameCustomerString = c_nameStrings[0];
 
-
-
                 }
             });
-
 
         } catch (Exception e) {
             e.printStackTrace();
