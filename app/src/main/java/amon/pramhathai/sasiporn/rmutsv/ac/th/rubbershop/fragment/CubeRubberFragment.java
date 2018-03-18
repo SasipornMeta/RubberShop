@@ -158,7 +158,7 @@ public class CubeRubberFragment extends Fragment {
                         double weightADouble = Double.parseDouble(weightString);
                         double persenADouble = Double.parseDouble(persentString);
                         double priceADouble = Double.parseDouble(priceString);
-                        totalString = Double.toString(weightADouble * priceADouble * persenADouble / 100);
+                        totalString = Integer.toString((int) (weightADouble * priceADouble * persenADouble / 100));
 
                         TextView textView = getView().findViewById(R.id.txtTotal);
                         textView.setText(totalString);

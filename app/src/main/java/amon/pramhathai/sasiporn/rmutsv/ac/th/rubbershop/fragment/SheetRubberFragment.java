@@ -155,7 +155,7 @@ public class SheetRubberFragment extends Fragment {
 
                     double weigthADouble = Double.parseDouble(weightString);
                     double priceADouble = Double.parseDouble(priceString);
-                    totalString = Double.toString(weigthADouble * priceADouble);
+                    totalString = Integer.toString((int) (weigthADouble * priceADouble));
 
                     TextView textView = getView().findViewById(R.id.txtTotal);
                     textView.setText(totalString);
@@ -253,7 +253,6 @@ public class SheetRubberFragment extends Fragment {
             idCustomerString = c_idStrings[0];
             nameCustomerString = c_nameStrings[0];
 
-
             ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, c_nameStrings);
             spinner.setAdapter(stringArrayAdapter);
@@ -264,8 +263,6 @@ public class SheetRubberFragment extends Fragment {
 
                     idCustomerString = c_idStrings[i];
                     nameCustomerString = c_nameStrings[i];
-
-
                 }
 
                 @Override
@@ -273,8 +270,6 @@ public class SheetRubberFragment extends Fragment {
 
                     idCustomerString = c_idStrings[0];
                     nameCustomerString = c_nameStrings[0];
-
-
                 }
             });
 

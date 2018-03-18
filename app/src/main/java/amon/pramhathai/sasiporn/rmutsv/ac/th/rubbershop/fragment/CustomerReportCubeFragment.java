@@ -94,6 +94,7 @@ public class CustomerReportCubeFragment extends Fragment {
         }
 
     }
+
     private String findTotal(String[] balanceStrings) {
 
         String result = null;
@@ -103,7 +104,7 @@ public class CustomerReportCubeFragment extends Fragment {
             totalADouble = totalADouble + Double.parseDouble(balanceStrings[i]);
         }
 
-        result = Double.toString(totalADouble);
+        result = Integer.toString((int) totalADouble);
 
         return result;
     }

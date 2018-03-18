@@ -91,8 +91,6 @@ public class EditPriceFragment extends Fragment {
         priceStrings[1] = id2EditText.getText().toString().trim();
         priceStrings[2] = id3EditText.getText().toString().trim();
 
-
-
         MyAlert myAlert = new MyAlert(getActivity());
         MyConstant myConstant = new MyConstant();
         boolean resultBoolean = false;

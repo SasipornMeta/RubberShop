@@ -151,6 +151,7 @@ public class PortionFragment extends Fragment {
                 if (persentString.isEmpty()) {
                     MyAlert myAlert = new MyAlert(getActivity());
                     myAlert.normalDialog("Have Space", "Please Fill Percent");
+
                 } else {
                     calculatePercent(persentString);
                 }
@@ -171,8 +172,8 @@ public class PortionFragment extends Fragment {
             double s_StatusADouble = totalPriceADouble * percentADouble / 100;
             double s_BalanceADoubel = totalPriceADouble - s_StatusADouble;
 
-            s_statusString = Double.toString(s_StatusADouble);
-            s_blanceString = Double.toString(s_BalanceADoubel);
+            s_statusString = Integer.toString((int) s_StatusADouble);
+            s_blanceString = Integer.toString((int) s_BalanceADoubel);
 
             TextView sStatusTextView = getView().findViewById(R.id.txts_status);
             sStatusTextView.setText(s_statusString);
@@ -229,7 +230,6 @@ public class PortionFragment extends Fragment {
 
         return super.onOptionsItemSelected(item);
     }
-
 
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarPortion);

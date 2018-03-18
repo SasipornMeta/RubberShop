@@ -77,8 +77,6 @@ public class BuyReportSheetFragment extends Fragment {
             String[] weightStrings = new String[jsonArray.length()];
             String[] priceStrings = new String[jsonArray.length()];
 
-
-
             for (int i = 0; i < jsonArray.length(); i += 1) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 dateTimeStrings[i] = jsonObject.getString("b2_date");
@@ -140,7 +138,7 @@ public class BuyReportSheetFragment extends Fragment {
             totalADouble = totalADouble + Double.parseDouble(balanceStrings[i]);
         }
 
-        result = Double.toString(totalADouble);
+        result = Integer.toString((int) totalADouble);
 
         return result;
     }

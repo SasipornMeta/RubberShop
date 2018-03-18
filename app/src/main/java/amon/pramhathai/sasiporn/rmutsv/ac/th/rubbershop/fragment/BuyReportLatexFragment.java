@@ -145,7 +145,7 @@ public class BuyReportLatexFragment extends Fragment {
             totalADouble = totalADouble + Double.parseDouble(balanceStrings[i]);
         }
 
-        result = Double.toString(totalADouble);
+        result = Integer.toString((int) totalADouble);
 
         return result;
     }
